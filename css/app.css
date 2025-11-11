@@ -1,0 +1,139 @@
+*:not(input):not(textarea) {
+  -webkit-touch-callout:none !important;
+	  -webkit-user-select:none !important;
+						user-select:none !important;
+					outline-style:none !important;
+}
+header nav a.active {
+	text-decoration: underline;
+	cursor: default;
+}
+.custom-navbar {
+    background-color: #A79277;
+}
+
+.custom-navbar .nav-link {
+    color: #fff;
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active {
+    color: #f8f9fa;
+}
+
+.custom-navbar .navbar-toggler {
+    border-color: #A79277;
+}
+
+.custom-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.5)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+.custom-input {
+    border: 1px solid #D1BB9E;
+    background-color: #fff; 
+    color: #6c757d;
+}
+
+.custom-input::placeholder {
+    color: #6c757d;
+}
+
+.custom-btn {
+    background-color: #D1BB9E;
+    border: 1px solid #D1BB9E;
+    color: #fff;
+}
+
+.custom-btn:hover {
+    background-color: #b09c7e;
+    border-color: #b09c7e;
+}
+
+.carousel_slide{
+	max-width: 800px;
+	max-height: 400px;
+}
+
+.login_background{
+	background-color: #A79277;
+}
+
+.login_button{
+	background-color: #D1BB9E;
+	border: none;
+	color: black;
+}
+.login_button:hover{
+	background-color: #543A14;
+	border: none;
+	color: black;
+}
+
+.reg_background,
+.reg_background a{
+	background-color: #A79277;
+}
+
+.reg_button{
+	background-color: #D1BB9E;
+	border: none;
+	color: black;
+}
+
+.app-container{
+	background-color: #D1BB9E;
+}
+
+.recipe_upload{
+	background-color: #EAD8C0;
+}
+
+.btn_3_recipeUpload{
+	background-color: #A79277;
+	border: none;
+}
+
+.btn_1_recipeUpload,
+.btn_2_recipeUpload,
+.btn_recipes{
+	background-color: #D1BB9E;
+	border: none;
+}
+
+.recipes_background,
+.search_button{
+	background-color: #A79277;
+}
+
+/* Hover */
+.btn_1_recipeUpload:hover,
+.btn_2_recipeUpload:hover{
+	background-color: #A79277;
+	border: none;
+}
+.btn_3_recipeUpload:hover,
+.btn_recipes:hover{
+	background-color: #543A14;
+	border: none;
+}
+.reg_button:hover{
+	background-color: #543A14;
+	border: none;
+	color: black;
+}
+
+/* Disabled */
+.login_button:disabled{
+	background-color: #EAD8C0;
+	border: none;
+	color: black;
+}
+.reg_button:disabled{
+	background-color: #EAD8C0;
+	border: none;
+	color: black;
+}
+.btn_3_recipeUpload:disabled{
+	background-color: #A79277;
+	border: none;
+}
