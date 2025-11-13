@@ -253,11 +253,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `display_name`, `created_at`) VALUES
-(1, 'admin', 'admin@example.com', '$2y$10$hash_admin', 'Admin', '2025-11-11 06:30:36'),
-(2, 'moderator', 'mod@example.com', '$2y$10$hash_mod', 'Moderator', '2025-11-11 06:30:36'),
-(3, 'chefanna', 'anna@example.com', '$2y$10$hash_anna', 'Anna Kovács', '2025-11-11 06:30:36'),
-(4, 'foodiejoe', 'joe@example.com', '$2y$10$hash_joe', 'Joe Nagy', '2025-11-11 06:30:36'),
-(5, 'mariacook', 'maria@example.com', '$2y$10$hash_maria', 'Mária Tóth', '2025-11-11 06:30:36');
+(1, 'admin', 'admin@example.com', 'admin', 'Admin', '2025-11-11 06:30:36'),
+(2, 'moderator', 'mod@example.com', 'mod', 'Moderator', '2025-11-11 06:30:36'),
+(3, 'chefanna', 'anna@example.com', 'anna', 'Anna Kovács', '2025-11-11 06:30:36'),
+(4, 'foodiejoe', 'joe@example.com', 'joe', 'Joe Nagy', '2025-11-11 06:30:36'),
+(5, 'mariacook', 'maria@example.com', 'maria', 'Mária Tóth', '2025-11-11 06:30:36');
 
 --
 -- Indexek a kiírt táblákhoz
