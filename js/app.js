@@ -35,11 +35,17 @@
         templateUrl: './html/home.html',
         controller: 'homeController'
       })
-      .state('home2', {
+      .state('page1', {
         url: '/',
         parent: 'root',
-        templateUrl: './html/home2.html',
-        controller: 'home2Controller'
+        templateUrl: './html/page1.html',
+        controller: 'page1Controller'
+      })
+      .state('page2', {
+        url: '/',
+        parent: 'root',
+        templateUrl: './html/page2.html',
+        controller: 'page2Controller'
       })
 
       $urlRouterProvider.otherwise('/');
@@ -50,7 +56,6 @@
   .run([
     '$rootScope',
     function($rootScope) {
-      $rootScope.user = {id: null};
       console.log('Run...');
     }
   ])
@@ -61,16 +66,27 @@
     '$state',
     '$timeout',
     function($scope, $state, $timeout) {
-      console.log("asd")
+      console.log("Home")
     }
   ])
+
   //home controller
-  .controller('home2Controller', [
+  .controller('page1Controller', [
     '$scope',
     '$state',
     '$timeout',
     function($scope, $state, $timeout) {
-      console.log("asd2")
+      console.log("page1")
+    }
+  ])
+
+  //home controller
+  .controller('page2Controller', [
+    '$scope',
+    '$state',
+    '$timeout',
+    function($scope, $state, $timeout) {
+      console.log("page2")
     }
   ])
 
