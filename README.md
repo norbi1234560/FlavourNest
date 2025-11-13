@@ -1,4 +1,1 @@
-Tags: Répa Norbert - Suba Benjamin
-Framework:bootstrap,angularJS
-Backend:php
-
+Tags: Répa Norbert - Suba BenjaminFramework:bootstrap,angularJSBackend:php
