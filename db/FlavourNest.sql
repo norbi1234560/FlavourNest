@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Nov 13. 09:24
+-- Létrehozás ideje: 2025. Nov 13. 11:18
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Adatbázis: `food`
+-- Adatbázis: `flavournest`
 --
 
 -- --------------------------------------------------------
@@ -252,12 +252,12 @@ CREATE TABLE `users` (
 -- A tábla adatainak kiíratása `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `password`, `display_name`, `role`, `created_at`) VALUES
-(1, 'admin', 'admin@example.com', '$2y$10$hash_admin', 'Admin', 'admin', '2025-11-11 06:30:36'),
-(2, 'moderator', 'mod@example.com', '$2y$10$hash_mod', 'Moderator', 'moderator', '2025-11-11 06:30:36'),
-(3, 'chefanna', 'anna@example.com', '$2y$10$hash_anna', 'Anna Kovács', 'user', '2025-11-11 06:30:36'),
-(4, 'foodiejoe', 'joe@example.com', '$2y$10$hash_joe', 'Joe Nagy', 'user', '2025-11-11 06:30:36'),
-(5, 'mariacook', 'maria@example.com', '$2y$10$hash_maria', 'Mária Tóth', 'user', '2025-11-11 06:30:36');
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `display_name`, `created_at`) VALUES
+(1, 'admin', 'admin@example.com', '$2y$10$hash_admin', 'Admin', '2025-11-11 06:30:36'),
+(2, 'moderator', 'mod@example.com', '$2y$10$hash_mod', 'Moderator', '2025-11-11 06:30:36'),
+(3, 'chefanna', 'anna@example.com', '$2y$10$hash_anna', 'Anna Kovács', '2025-11-11 06:30:36'),
+(4, 'foodiejoe', 'joe@example.com', '$2y$10$hash_joe', 'Joe Nagy', '2025-11-11 06:30:36'),
+(5, 'mariacook', 'maria@example.com', '$2y$10$hash_maria', 'Mária Tóth', '2025-11-11 06:30:36');
 
 --
 -- Indexek a kiírt táblákhoz
