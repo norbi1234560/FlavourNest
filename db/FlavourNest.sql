@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Nov 12. 10:00
+-- Létrehozás ideje: 2025. Nov 13. 09:24
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Adatbázis: `FlavourNest`
+-- Adatbázis: `food`
 --
 
 -- --------------------------------------------------------
@@ -243,7 +243,7 @@ CREATE TABLE `users` (
   `id` bigint(20) NOT NULL,
   `username` varchar(100) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password_hash` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `display_name` varchar(255) DEFAULT NULL,
   `role` enum('user','moderator','admin') DEFAULT 'user',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
@@ -253,7 +253,7 @@ CREATE TABLE `users` (
 -- A tábla adatainak kiíratása `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `password_hash`, `display_name`, `role`, `created_at`) VALUES
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `display_name`, `role`, `created_at`) VALUES
 (1, 'admin', 'admin@example.com', '$2y$10$hash_admin', 'Admin', 'admin', '2025-11-11 06:30:36'),
 (2, 'moderator', 'mod@example.com', '$2y$10$hash_mod', 'Moderator', 'moderator', '2025-11-11 06:30:36'),
 (3, 'chefanna', 'anna@example.com', '$2y$10$hash_anna', 'Anna Kovács', 'user', '2025-11-11 06:30:36'),
