@@ -1,4 +1,4 @@
-Tagok: Répa Norbert- Suba Benjamin
+Tags: Répa Norbert - Suba Benjamin
 Framework:bootstrap,angularJS
-backend:php
+Backend:php
 
