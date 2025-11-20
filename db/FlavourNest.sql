@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Nov 13. 11:18
+-- Létrehozás ideje: 2025. Nov 20. 08:49
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Adatbázis: `flavournest`
 --
+CREATE DATABASE IF NOT EXISTS `flavournest` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE `flavournest`;
 
 -- --------------------------------------------------------
 
@@ -27,6 +29,7 @@ SET time_zone = "+00:00";
 -- Tábla szerkezet ehhez a táblához `comments`
 --
 
+DROP TABLE IF EXISTS `comments`;
 CREATE TABLE `comments` (
   `id` bigint(20) NOT NULL,
   `recipe_id` bigint(20) NOT NULL,
@@ -41,10 +44,10 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `recipe_id`, `user_id`, `content`, `created_at`, `is_hidden`) VALUES
-(1, 1, 4, 'Nagyon finom lett, köszönöm a receptet!', '2025-11-11 06:30:36', 0),
-(2, 1, 5, 'Klasszikus ízvilág, imádom.', '2025-11-11 06:30:36', 0),
-(3, 2, 3, 'Gyors és ízletes, új kedvenc!', '2025-11-11 06:30:36', 0),
-(4, 3, 5, 'Tökéletes reggeli ötlet.', '2025-11-11 06:30:36', 0);
+(1, 1, NULL, 'Nagyon finom lett, köszönöm a receptet!', '2025-11-11 06:30:36', 0),
+(2, 1, NULL, 'Klasszikus ízvilág, imádom.', '2025-11-11 06:30:36', 0),
+(3, 2, NULL, 'Gyors és ízletes, új kedvenc!', '2025-11-11 06:30:36', 0),
+(4, 3, NULL, 'Tökéletes reggeli ötlet.', '2025-11-11 06:30:36', 0);
 
 -- --------------------------------------------------------
 
@@ -52,6 +55,7 @@ INSERT INTO `comments` (`id`, `recipe_id`, `user_id`, `content`, `created_at`, `
 -- Tábla szerkezet ehhez a táblához `ingredients`
 --
 
+DROP TABLE IF EXISTS `ingredients`;
 CREATE TABLE `ingredients` (
   `id` bigint(20) NOT NULL,
   `name` varchar(255) NOT NULL
@@ -80,6 +84,7 @@ INSERT INTO `ingredients` (`id`, `name`) VALUES
 -- Tábla szerkezet ehhez a táblához `ratings`
 --
 
+DROP TABLE IF EXISTS `ratings`;
 CREATE TABLE `ratings` (
   `id` bigint(20) NOT NULL,
   `recipe_id` bigint(20) NOT NULL,
@@ -88,23 +93,13 @@ CREATE TABLE `ratings` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- A tábla adatainak kiíratása `ratings`
---
-
-INSERT INTO `ratings` (`id`, `recipe_id`, `user_id`, `score`, `created_at`) VALUES
-(1, 1, 4, 5, '2025-11-11 06:30:36'),
-(2, 1, 5, 4, '2025-11-11 06:30:36'),
-(3, 2, 3, 5, '2025-11-11 06:30:36'),
-(4, 2, 4, 4, '2025-11-11 06:30:36'),
-(5, 3, 5, 5, '2025-11-11 06:30:36');
-
 -- --------------------------------------------------------
 
 --
 -- Tábla szerkezet ehhez a táblához `recipes`
 --
 
+DROP TABLE IF EXISTS `recipes`;
 CREATE TABLE `recipes` (
   `id` bigint(20) NOT NULL,
   `title` varchar(255) NOT NULL,
@@ -120,9 +115,9 @@ CREATE TABLE `recipes` (
 --
 
 INSERT INTO `recipes` (`id`, `title`, `description`, `author_id`, `servings`, `prep_time_minutes`, `created_at`) VALUES
-(1, 'Palacsinta', 'Klasszikus magyar palacsinta recept.', 3, 4, 20, '2025-11-11 06:30:36'),
-(2, 'Csirkés tészta', 'Krémes csirkés tészta paradicsommal és sajttal.', 4, 2, 30, '2025-11-11 06:30:36'),
-(3, 'Zöldséges omlett', 'Egészséges reggeli zöldségekkel.', 5, 1, 15, '2025-11-11 06:30:36');
+(1, 'Palacsinta', 'Klasszikus magyar palacsinta recept.', NULL, 4, 20, '2025-11-11 06:30:36'),
+(2, 'Csirkés tészta', 'Krémes csirkés tészta paradicsommal és sajttal.', NULL, 2, 30, '2025-11-11 06:30:36'),
+(3, 'Zöldséges omlett', 'Egészséges reggeli zöldségekkel.', NULL, 1, 15, '2025-11-11 06:30:36');
 
 -- --------------------------------------------------------
 
@@ -130,35 +125,35 @@ INSERT INTO `recipes` (`id`, `title`, `description`, `author_id`, `servings`, `p
 -- Tábla szerkezet ehhez a táblához `recipe_ingredients`
 --
 
+DROP TABLE IF EXISTS `recipe_ingredients`;
 CREATE TABLE `recipe_ingredients` (
   `id` bigint(20) NOT NULL,
   `recipe_id` bigint(20) NOT NULL,
   `ingredient_id` bigint(20) NOT NULL,
   `quantity` decimal(9,3) DEFAULT NULL,
-  `unit` varchar(50) DEFAULT NULL,
-  `note` varchar(255) DEFAULT NULL
+  `unit` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `recipe_ingredients`
 --
 
-INSERT INTO `recipe_ingredients` (`id`, `recipe_id`, `ingredient_id`, `quantity`, `unit`, `note`) VALUES
-(1, 1, 1, 200.000, 'g', 'finomliszt'),
-(2, 1, 2, 30.000, 'g', 'porcukor'),
-(3, 1, 3, 2.000, 'g', NULL),
-(4, 1, 4, 2.000, 'db', NULL),
-(5, 1, 5, 300.000, 'ml', NULL),
-(6, 1, 6, 20.000, 'g', 'olvasztott vaj'),
-(7, 2, 8, 250.000, 'g', 'csirkemell, felkockázva'),
-(8, 2, 9, 2.000, 'db', 'paradicsom'),
-(9, 2, 10, 100.000, 'g', 'reszelt sajt'),
-(10, 2, 7, 1.000, 'ek', 'olívaolaj'),
-(11, 2, 3, 1.000, 'csipet', 'só ízlés szerint'),
-(12, 3, 4, 2.000, 'db', 'tojás'),
-(13, 3, 7, 1.000, 'ek', 'olívaolaj'),
-(14, 3, 3, 1.000, 'csipet', NULL),
-(15, 3, 11, 1.000, 'ek', 'friss bazsalikom');
+INSERT INTO `recipe_ingredients` (`id`, `recipe_id`, `ingredient_id`, `quantity`, `unit`) VALUES
+(1, 1, 1, 200.000, 'g'),
+(2, 1, 2, 30.000, 'g'),
+(3, 1, 3, 2.000, 'g'),
+(4, 1, 4, 2.000, 'db'),
+(5, 1, 5, 300.000, 'ml'),
+(6, 1, 6, 20.000, 'g'),
+(7, 2, 8, 250.000, 'g'),
+(8, 2, 9, 2.000, 'db'),
+(9, 2, 10, 100.000, 'g'),
+(10, 2, 7, 1.000, 'ek'),
+(11, 2, 3, 1.000, 'csipet'),
+(12, 3, 4, 2.000, 'db'),
+(13, 3, 7, 1.000, 'ek'),
+(14, 3, 3, 1.000, 'csipet'),
+(15, 3, 11, 1.000, 'ek');
 
 -- --------------------------------------------------------
 
@@ -166,6 +161,7 @@ INSERT INTO `recipe_ingredients` (`id`, `recipe_id`, `ingredient_id`, `quantity`
 -- Tábla szerkezet ehhez a táblához `recipe_steps`
 --
 
+DROP TABLE IF EXISTS `recipe_steps`;
 CREATE TABLE `recipe_steps` (
   `id` bigint(20) NOT NULL,
   `recipe_id` bigint(20) NOT NULL,
@@ -193,6 +189,7 @@ INSERT INTO `recipe_steps` (`id`, `recipe_id`, `position`, `instruction`) VALUES
 -- Tábla szerkezet ehhez a táblához `recipe_tags`
 --
 
+DROP TABLE IF EXISTS `recipe_tags`;
 CREATE TABLE `recipe_tags` (
   `recipe_id` bigint(20) NOT NULL,
   `tag_id` bigint(20) NOT NULL
@@ -216,6 +213,7 @@ INSERT INTO `recipe_tags` (`recipe_id`, `tag_id`) VALUES
 -- Tábla szerkezet ehhez a táblához `tags`
 --
 
+DROP TABLE IF EXISTS `tags`;
 CREATE TABLE `tags` (
   `id` bigint(20) NOT NULL,
   `name` varchar(100) NOT NULL
@@ -239,6 +237,7 @@ INSERT INTO `tags` (`id`, `name`) VALUES
 -- Tábla szerkezet ehhez a táblához `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` bigint(20) NOT NULL,
   `username` varchar(100) NOT NULL,
@@ -253,11 +252,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `display_name`, `created_at`) VALUES
-(1, 'admin', 'admin@example.com', 'admin', 'Admin', '2025-11-11 06:30:36'),
-(2, 'moderator', 'mod@example.com', 'mod', 'Moderator', '2025-11-11 06:30:36'),
-(3, 'chefanna', 'anna@example.com', 'anna', 'Anna Kovács', '2025-11-11 06:30:36'),
-(4, 'foodiejoe', 'joe@example.com', 'joe', 'Joe Nagy', '2025-11-11 06:30:36'),
-(5, 'mariacook', 'maria@example.com', 'maria', 'Mária Tóth', '2025-11-11 06:30:36');
+(1, 'admin', 'admin@example.com', 'admin', 'Admin', '2025-11-11 05:30:36'),
+(2, 'moderator', 'mod@example.com', 'mod', 'Moderator', '2025-11-11 05:30:36'),
+(3, 'chefanna', 'anna@example.com', 'anna', 'Anna Kovács', '2025-11-11 05:30:36'),
+(4, 'foodiejoe', 'joe@example.com', 'joe', 'Joe Nagy', '2025-11-11 05:30:36'),
+(5, 'mariacook', 'maria@example.com', 'maria', 'Mária Tóth', '2025-11-11 05:30:36');
 
 --
 -- Indexek a kiírt táblákhoz
