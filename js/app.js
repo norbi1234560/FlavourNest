@@ -68,29 +68,6 @@
     'http',
     function($scope, $state, $timeout,http) {
       console.log("Home")
-
-      http.request("./php/base.php")
-      .then(response=>{
-        console.log(response);
-        let keys=Object.keys(response[0]);
-        let thead=document.querySelector("thead tr");
-        let tbody=document.querySelector("tbody");
-        keys.forEach(x=>{
-          let th=document.createElement("th");
-          thead.append(th);
-          th.innerText=x;
-        })
-        response.forEach(row=>{
-          let tr=document.createElement("tr");
-          tbody.append(tr);
-          keys.forEach(key=>{
-            let td=document.createElement("td");
-            tr.append(td);
-            td.innerText=row[key];
-          })
-        })
-      })
-      .catch(e=> error.log(e));
     }
   ])
 
