@@ -24,7 +24,7 @@ namespace FlavourNest
         {
             InitializeComponent();
             var kiraly = 1;
-            var asd = 1;
+            var asd = 0;
         }
     }
 }
