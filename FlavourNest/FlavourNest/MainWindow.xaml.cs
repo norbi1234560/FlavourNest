@@ -23,7 +23,8 @@ namespace FlavourNest
         public MainWindow()
         {
             InitializeComponent();
-            var kiraly = 0;
+            var kiraly = 1;
+            var asd = 1;
         }
     }
 }
