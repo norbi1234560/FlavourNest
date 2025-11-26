@@ -20,8 +20,12 @@ SET time_zone = "+00:00";
 --
 -- Adatbázis: `flavournest`
 --
-CREATE DATABASE IF NOT EXISTS `flavournest` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `flavournest`;
+DROP DATABASE IF EXISTS flavournest;
+CREATE DATABASE flavournest
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_general_ci;
+USE flavournest;
+
 
 -- --------------------------------------------------------
 
