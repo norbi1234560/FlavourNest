@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\xampp\\htdocs\\Suba Benjamin\\FlavourNest\\FlavourNest\\",
+  "WorkspaceRootPath": "C:\\xampp\\htdocs\\repa_norbert\\FlavourNest\\FlavourNest\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{72440080-8F2A-4CBD-908F-C9BAB35A7F3C}|FlavourNest\\FlavourNest.csproj|c:\\xampp\\htdocs\\suba benjamin\\flavournest\\flavournest\\flavournest\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{72440080-8F2A-4CBD-908F-C9BAB35A7F3C}|FlavourNest\\FlavourNest.csproj|C:\\xampp\\htdocs\\repa_norbert\\FlavourNest\\FlavourNest\\flavournest\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{72440080-8F2A-4CBD-908F-C9BAB35A7F3C}|FlavourNest\\FlavourNest.csproj|solutionrelative:flavournest\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{72440080-8F2A-4CBD-908F-C9BAB35A7F3C}|FlavourNest\\FlavourNest.csproj|C:\\xampp\\htdocs\\Suba Benjamin\\FlavourNest\\FlavourNest\\flavournest\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{72440080-8F2A-4CBD-908F-C9BAB35A7F3C}|FlavourNest\\FlavourNest.csproj|c:\\xampp\\htdocs\\repa_norbert\\flavournest\\flavournest\\flavournest\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{72440080-8F2A-4CBD-908F-C9BAB35A7F3C}|FlavourNest\\FlavourNest.csproj|solutionrelative:flavournest\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -18,23 +18,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\xampp\\htdocs\\Suba Benjamin\\FlavourNest\\FlavourNest\\FlavourNest\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\xampp\\htdocs\\repa_norbert\\FlavourNest\\FlavourNest\\FlavourNest\\MainWindow.xaml",
               "RelativeDocumentMoniker": "FlavourNest\\MainWindow.xaml",
-              "ToolTip": "C:\\xampp\\htdocs\\Suba Benjamin\\FlavourNest\\FlavourNest\\FlavourNest\\MainWindow.xaml",
+              "ToolTip": "C:\\xampp\\htdocs\\repa_norbert\\FlavourNest\\FlavourNest\\FlavourNest\\MainWindow.xaml",
               "RelativeToolTip": "FlavourNest\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-11-25T10:44:07.706Z",
@@ -44,11 +36,11 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\xampp\\htdocs\\Suba Benjamin\\FlavourNest\\FlavourNest\\FlavourNest\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\xampp\\htdocs\\repa_norbert\\FlavourNest\\FlavourNest\\FlavourNest\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "FlavourNest\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\xampp\\htdocs\\Suba Benjamin\\FlavourNest\\FlavourNest\\FlavourNest\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\xampp\\htdocs\\repa_norbert\\FlavourNest\\FlavourNest\\FlavourNest\\MainWindow.xaml.cs",
               "RelativeToolTip": "FlavourNest\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABkAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-25T10:44:07.034Z",
               "EditorCaption": ""
