@@ -68,6 +68,14 @@
     'http',
     function($scope, $state, $timeout,http) {
       console.log("Home")
+      http.request("./php/base.php")
+      .then(response=>{
+        let img=document.getElementsByTagName("img");
+        // for (let index = 0; index < response.length; index++) {
+        //   img[index].src = `data:image/jpeg;base64, ${response[index].image}`;
+          
+        // }
+      })
     }
   ])
 
@@ -78,6 +86,9 @@
     '$timeout',
     function($scope, $state, $timeout) {
       console.log("page1");
+      $scope.kivalaszt=()=>{
+        console.log($scope.kivalasztottAuto);
+      }
     }
   ])
 
