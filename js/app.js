@@ -47,6 +47,12 @@
         templateUrl: './html/page2.html',
         controller: 'page2Controller'
       })
+      .state('login', {
+        url: '/',
+        parent: 'root',
+        templateUrl: './html/login.html',
+        controller: 'loginController'
+      })
 
       $urlRouterProvider.otherwise('/');
     }
@@ -94,6 +100,16 @@
 
   //page2 controller
   .controller('page2Controller', [
+    '$scope',
+    '$state',
+    '$timeout',
+    function($scope, $state, $timeout) {
+      console.log("page2")
+    }
+  ])
+  
+  //Login controller
+  .controller('loginController', [
     '$scope',
     '$state',
     '$timeout',

@@ -1,51 +1,51 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <!-- Brand -->
-    <a class="navbar-brand" ui-sref="home">FlavourNest</a>
+<nav class="navbar navbar-expand-lg sticky-top shadow bg-dark">
+  <div class="container-fluid px-4 py-2">
 
-    <!-- Mobile toggler -->
-    <button class="navbar-toggler" 
-            type="button" 
-            data-bs-toggle="collapse" 
-            data-bs-target="#navbarContent"
-            aria-controls="navbarContent" 
-            aria-expanded="false" 
-            aria-label="Toggle navigation">
+    <!-- Brand -->
+    <a class="navbar-brand fw-bold fs-3 text-white text-decoration-none" ui-sref="home">
+      <span class="text-warning">Flavour</span>Nest
+    </a>
+
+    <!-- Toggler (yellow lines) -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Collapsible content -->
     <div class="collapse navbar-collapse" id="navbarContent">
-      <!-- Left-side menu -->
+
+      <!-- Navigation Links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" ui-sref="page1" ui-sref-active="active">Page 1</a>
+          <a class="nav-link text-white px-4 py-2 rounded link-light"
+             ui-sref="page1" ui-sref-active="active">Page 1</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" ui-sref="page2" ui-sref-active="active">Page 2</a>
+          <a class="nav-link text-white px-4 py-2 rounded link-light"
+             ui-sref="page2" ui-sref-active="active">Page 2</a>
         </li>
       </ul>
 
-      <!-- Right-side: Search + Login -->
-      <form class="d-flex me-3" ng-submit="performSearch()">
-        <input class="form-control me-2" 
-               type="search" 
-               placeholder="Search recipes..." 
-               aria-label="Search"
-               ng-model="searchQuery">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <!-- Search -->
+      <form class="d-flex mx-lg-4 my-3 my-lg-0" ng-submit="performSearch()">
+        <div class="input-group">
+          <input class="form-control bg-secondary text-white border-warning" 
+                 type="search" placeholder="Keresés receptek között..." ng-model="searchQuery">
+          <button class="btn btn-warning text-dark fw-bold" type="submit">Keresés</button>
+        </div>
       </form>
 
-      <!-- Login button (properly aligned on the right) -->
-      <ul class="navbar-nav">
+      <!-- Login button -->
+      <ul class="navbar-nav ms-lg-3">
         <li class="nav-item">
-          <a class="nav-link btn btn-outline-primary px-4" 
-             ui-sref="login" 
-             ui-sref-active="active">
-            Login
+          <a class="btn btn-outline-warning rounded-pill px-4 py-2 fw-bold"
+             ui-sref="login" ui-sref-active="active">
+            <span class="d-none d-md-inline">Bejelentkezés</span>
+            <span class="d-md-none">Belépés</span>
           </a>
         </li>
       </ul>
+
     </div>
   </div>
 </nav>
