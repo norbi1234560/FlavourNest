@@ -1,35 +1,55 @@
-<footer class="bg-dark text-light py-4 mt-5">
+<footer class="bg-dark text-light py-5 mt-5">
   <div class="container">
     <div class="row text-center text-md-start">
-      <!-- Brand + Description -->
+
+      <!-- Brand + Description + Social Icons -->
       <div class="col-lg-4 mb-4 mb-lg-0">
-        <h3 class="fw-bold text-warning">FlavourNest</h3>
-        <p class="small opacity-75">
+        <h3 class="fw-bold text-warning mb-3">FlavourNest</h3>
+        <p class="small opacity-75 mb-4">
           Fedezd fel a világ ízeit otthonod kényelméből. 
           Gyors, finom és megbízható receptek minden napra.
         </p>
+
+        <!-- Social Media Icons (Font Awesome) -->
+        <div class="social-icons">
+          <a href="https://facebook.com/flavournest" target="_blank" class="text-light me-4 fs-4">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://instagram.com/flavournest" target="_blank" class="text-light me-4 fs-4">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://tiktok.com/@flavournest" target="_blank" class="text-light me-4 fs-4">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a href="https://youtube.com/@flavournest" target="_blank" class="text-light me-4 fs-4">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="https://pinterest.com/flavournest" target="_blank" class="text-light fs-4">
+            <i class="fab fa-pinterest-p"></i>
+          </a>
+        </div>
       </div>
 
       <!-- Quick Links -->
       <div class="col-lg-4 mb-4 mb-lg-0">
         <h5 class="fw-semibold mb-3">Gyorslinkek</h5>
         <ul class="list-unstyled">
-          <li><a ui-sref="home" class="text-light text-decoration-none opacity-75 hover-opacity-100">Kezdőlap</a></li>
-          <li><a ui-sref="page1" class="text-light text-decoration-none opacity-75 hover-opacity-100">Receptek</a></li>
-          <li><a ui-sref="page2" class="text-light text-decoration-none opacity-75 hover-opacity-100">Kategóriák</a></li>
-          <li><a ui-sref="about" class="text-light text-decoration-none opacity-75 hover-opacity-100">Rólunk</a></li>
-          <li><a ui-sref="contact" class="text-light text-decoration-none opacity-75 hover-opacity-100">Kapcsolat</a></li>
+          <li class="mb-2"><a ui-sref="home"       class="text-light text-decoration-none opacity-75 hover-opacity-100">Kezdőlap</a></li>
+          <li class="mb-2"><a ui-sref="recipes"    class="text-light text-decoration-none opacity-75 hover-opacity-100">Receptek</a></li>
+          <li class="mb-2"><a ui-sref="categories" class="text-light text-decoration-none opacity-75 hover-opacity-100">Kategóriák</a></li>
+          <li class="mb-2"><a ui-sref="about"      class="text-light text-decoration-none opacity-75 hover-opacity-100">Rólunk</a></li>
+          <li class="mb-2"><a ui-sref="contact"    class="text-light text-decoration-none opacity-75 hover-opacity-100">Kapcsolat</a></li>
         </ul>
       </div>
 
       <!-- Legal + Copyright -->
       <div class="col-lg-4">
         <h5 class="fw-semibold mb-3">Jogi információk</h5>
-        <ul class="list-unstyled small opacity-75">
-          <li><a ui-sref="privacy" class="text-light text-decoration-none hover-opacity-100">Adatvédelem</a></li>
-          <li><a ui-sref="terms" class="text-light text-decoration-none hover-opacity-100">Felhasználási feltételek</a></li>
+        <ul class="list-unstyled small opacity-75 mb-4">
+          <li class="mb-2"><a ui-sref="privacy" class="text-light text-decoration-none hover-opacity-100">Adatvédelem</a></li>
+          <li class="mb-2"><a ui-sref="terms"   class="text-light text-decoration-none hover-opacity-100">Felhasználási feltételek</a></li>
         </ul>
-        
+
         <hr class="my-4 border-secondary">
 
         <p class="mb-0 small">
@@ -39,6 +59,7 @@
           Készült szeretettel Magyarországon
         </p>
       </div>
+
     </div>
   </div>
 </footer>
