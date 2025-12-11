@@ -59,6 +59,12 @@
         templateUrl: './html/register.html',
         controller: 'registerController'
       })
+      .state('profile', {
+        url: '/',
+        parent: 'root',
+        templateUrl: './html/profile.html',
+        controller: 'profileController'
+      })
 
       $urlRouterProvider.otherwise('/');
     }
@@ -69,6 +75,14 @@
     '$rootScope',
     function($rootScope) {
       console.log('Run...');
+      $rootScope.logoutClick=()=>{
+        $rootScope.user=null;
+        $rootScope.$applyAsync();
+        setTimeout(() => {
+          alert("sikeres kijentkezés");
+        }, 50);
+        
+      }
     }
   ])
   
@@ -96,11 +110,11 @@
     '$scope',
     '$state',
     '$timeout',
-    function($scope, $state, $timeout) {
+    '$rootScope',
+    function($scope, $state, $timeout, $rootScope) {
       console.log("page1");
-      $scope.kivalaszt=()=>{
-        console.log($scope.kivalasztottAuto);
-      }
+      console.log($rootScope.user);
+      
     }
   ])
 
@@ -117,12 +131,27 @@
   //Login controller
   .controller('loginController', [
     '$scope',
+    'http',
     '$state',
-    '$timeout',
-    function($scope, $state, $timeout) {
+    '$rootScope',
+    function($scope, http, $state, $rootScope) {
       console.log("login")
       $scope.loginClick=()=>{
-        
+        http.request({
+          url:"./php/login.php",
+          data:$scope.user,
+        })
+        .then(response=>{
+          if (response==null) {
+            alert("helytelen jelszó vagy email cím");
+          }
+          else{
+            $rootScope.user=response[0];
+            $rootScope.$applyAsync();
+            $state.go("home");
+          }
+        })
+        .catch(e=> console.error(e));
       }
     }
   ])
@@ -132,7 +161,8 @@
     '$scope',
     '$state',
     'http',
-    function($scope, $state, http) {
+    '$rootScope',
+    function($scope, $state, http, $rootScope) {
       console.log("register")
       $scope.registerClick=()=>{
         http.request({
@@ -141,10 +171,37 @@
         })
         .then(response=>{
           console.log(response);
-          
+          //$rootScope.user==response[0];
+          //$rootScope.$applyAsync();
         })
         .catch(e=> console.error(e))
         
+      }
+    }
+  ])
+
+  //profile controller
+  .controller('profileController', [
+    '$scope',
+    '$state',
+    'http',
+    '$rootScope',
+    function($scope, $state, http, $rootScope) {
+      console.log("profile")
+      $scope.deleteAccountClick=()=>{
+        console.log("asd")
+        http.request({
+          url:"./php/deleteAccount.php",
+          data:$rootScope.user,
+        })
+        .then(response=>{
+          console.log(response);
+          $rootScope.user=null;
+          $rootScope.$applyAsync();
+          alert("sikeres fiók törlés");
+          $state.go("home");
+        })
+        .catch(e=>console.error(e));
       }
     }
   ])

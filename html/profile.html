@@ -1,0 +1,117 @@
+<!-- Profil oldal – egyetlen nagy keretben, reszponzívan vízszintes/függőleges -->
+<div class="min-vh-100 bg-white py-5">
+  <div class="container px-4 px-lg-5">
+
+    <!-- Fejléc -->
+    <div class="text-center mb-5">
+      <h1 class="fw-bold display-4 text-white">
+        <span class="text-warning">Flavour</span><span class="text-dark">Nest</span>
+      </h1>
+      <p class="fs-3 text-white-50">Profilom</p>
+    </div>
+
+    <!-- EGYETLEN nagy doboz -->
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10 col-xl-9 mx-auto">
+
+        <div class="bg-dark border border-warning rounded-4 shadow-lg p-4 p-md-5">
+
+          <!-- Vízszintes rész (md felett) -->
+          <div class="row g-5">
+
+            <!-- BAL: Avatar + gombok -->
+            <div class="col-12 col-md-5 col-lg-4 text-center text-md-start">
+              <div class="mx-auto mx-md-0 bg-secondary border border-4 border-warning rounded-circle d-inline-flex align-items-center justify-content-center mb-4"
+                   style="width: 140px; height: 140px;">
+                <span class="text-warning fw-bold" style="font-size: 4.5rem;">
+                  {{}}
+                </span>
+              </div>
+
+              <h2 class="text-warning fw-bold mb-4">
+                {{ currentUser.name || currentUser.username }}
+              </h2>
+
+              <!-- Gombok -->
+              <div class="d-grid gap-3">
+                <button class="btn btn-warning btn-lg fw-bold text-dark shadow-sm"
+                        ui-sref="home">
+                  Főoldalra
+                </button>
+                <button class="btn btn-outline-warning btn-lg fw-bold"
+                        ng-click="logout()">
+                  Kijelentkezés
+                </button>
+                <button class="btn btn-danger btn-lg fw-bold rounded-pill"
+                        ng-click="deleteAccountClick()">
+                  Fiók törlése
+                </button>
+              </div>
+            </div>
+
+            <!-- JOBB: Adatok + jelszó -->
+            <div class="col-12 col-md-7 col-lg-8">
+
+              <h4 class="text-warning fw-bold mb-4">Személyes adataim</h4>
+
+              <div class="row g-4 mb-5">
+                <div class="col-12 col-sm-6">
+                  <label class="text-white-50 small text-uppercase fw-semibold">Felhasználónév</label>
+                  <input type="text"
+                         class="form-control form-control-lg bg-secondary text-white border-warning rounded mt-1"
+                         value="{{ user.username}}"
+                         readonly>
+                </div>
+                <div class="col-12 col-sm-6">
+                  <label class="text-white-50 small text-uppercase fw-semibold">Email cím</label>
+                  <input type="email"
+                         class="form-control form-control-lg bg-secondary text-white border-warning rounded mt-1"
+                         value="{{ user.email }}"
+                         readonly>
+                </div>
+              </div>
+
+              <hr class="border-secondary my-5">
+
+              <h5 class="text-warning fw-bold mb-4">Jelszó módosítása</h5>
+
+              <div class="row g-4">
+                <div class="col-12 col-md-6">
+                  <input type="password"
+                         class="form-control form-control-lg bg-secondary text-white border-warning rounded focus-ring focus-ring-warning"
+                         placeholder="Új jelszó (min. 8 karakter)"
+                         ng-model="pw.new">
+                </div>
+                <div class="col-12 col-md-6">
+                  <input type="password"
+                         class="form-control form-control-lg bg-secondary text-white border-warning rounded focus-ring focus-ring-warning"
+                         placeholder="Új jelszó újra"
+                         ng-model="pw.confirm">
+                </div>
+              </div>
+
+              <button class="btn btn-outline-warning px-5 py-3 fw-bold mt-4"
+                      ng-click="changePassword()"
+                      ng-disabled="!pw.new || pw.new !== pw.confirm || pw.new.length < 8">
+                Jelszó módosítása
+              </button>
+
+            </div>
+          </div>
+          <!-- /.row -->
+
+        </div>
+        <!-- /.egyetlen nagy keret -->
+
+      </div>
+    </div>
+
+    <!-- Vissza link -->
+    <div class="text-center mt-5">
+      <a ui-sref="home" class="text-warning text-decoration-none fw-medium">
+        ← Vissza a főoldalra
+      </a>
+    </div>
+
+  </div>
+</div>
