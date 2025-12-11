@@ -92,6 +92,18 @@
           $state.go("home");
         }, 50);
       }
+
+      $rootScope.searchClick=()=>{
+        $rootScope.user={
+          "id": 1,
+          "username": "admin",
+          "email": "admin@aa.com",
+          "password": "adminadmin",
+          "created_at": "2025-11-11 06:30:36",
+          "avatar": "random.jpg"
+        }
+        $rootScope.$applyAsync();
+      }
     }
   ])
   
