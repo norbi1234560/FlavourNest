@@ -173,6 +173,8 @@
         .then(response=>{
           console.log(response);
           alert("sikeres regisztráció");
+          $rootScope.user=response[0];
+          $rootScope.$applyAsync();
           $state.go("home");
         })
         .catch(e=> console.error(e))

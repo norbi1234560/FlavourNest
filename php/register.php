@@ -31,8 +31,12 @@ $query = "INSERT INTO `users` (`username`, `email`, `password`)
 
 $result = $db->execute($query, $params);
 
-$result2=$db->execute("")
+$params3 = [
+    ':id' => $result["firstInsertId"],
+];
+
+$result2= $db->execute("SELECT * FROM `users` WHERE `id`=:id",$params3);
 
 $db = null;
 
-Util::setResponse($result["firstInsertId"]);
+Util::setResponse($result2);
