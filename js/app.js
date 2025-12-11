@@ -35,11 +35,11 @@
         templateUrl: './html/home.html',
         controller: 'homeController'
       })
-      .state('page1', {
+      .state('recipes', {
         url: '/',
         parent: 'root',
-        templateUrl: './html/page1.html',
-        controller: 'page1Controller'
+        templateUrl: './html/recipes.html',
+        controller: 'recipesController'
       })
       .state('page2', {
         url: '/',
@@ -76,6 +76,14 @@
     '$state',
     function($rootScope,$state) {
       console.log('Run...');
+      $rootScope.menuItems=[
+        {url:"home",label:"Kezdőlap"},
+        {url:"recipes",label:"Receptek"},
+        {url:"",label:""},
+        {url:"",label:""},
+        {url:"",label:""},
+      ];
+
       $rootScope.logoutClick=()=>{
         $rootScope.user=null;
         $rootScope.$applyAsync();
@@ -106,15 +114,14 @@
     }
   ])
 
-  //page1 controller
-  .controller('page1Controller', [
+  //recipes controller
+  .controller('recipesController', [
     '$scope',
     '$state',
     '$timeout',
     '$rootScope',
     function($scope, $state, $timeout, $rootScope) {
-      console.log("page1");
-      console.log($rootScope.user);
+      console.log("recipes");
       
     }
   ])

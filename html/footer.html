@@ -13,15 +13,19 @@
         </p> 
     </div>
 
-      <!-- Quick Links(majd ng repeat lesz de még nem tudjuk pontosan milyen oldalak lesznek) -->
+      <!-- Quick Links -->
       <div class="col-lg-4 mb-4 mb-lg-0">
         <h5 class="fw-semibold mb-3">Gyorslinkek</h5>
         <ul class="list-unstyled">
-          <li class="mb-2"><a ui-sref="home" class="text-light text-decoration-none opacity-75 hover-opacity-100">Kezdőlap</a></li>
-          <li class="mb-2"><a ui-sref="recipes" class="text-light text-decoration-none opacity-75 hover-opacity-100">Receptek</a></li>
-          <li class="mb-2"><a ui-sref="categories" class="text-light text-decoration-none opacity-75 hover-opacity-100">Kategóriák</a></li>
-          <li class="mb-2"><a ui-sref="about" class="text-light text-decoration-none opacity-75 hover-opacity-100">Rólunk</a></li>
-          <li class="mb-2"><a ui-sref="contact" class="text-light text-decoration-none opacity-75 hover-opacity-100">Kapcsolat</a></li>
+          <li class="mb-2" ng-repeat="item in menuItems">
+            <a ui-sref="{{ item.url }}" 
+               class="text-light 
+                      text-decoration-none 
+                      opacity-75 
+                      hover-opacity-100">
+              {{ item.label }}
+            </a>
+          </li>
         </ul>
       </div>
 
