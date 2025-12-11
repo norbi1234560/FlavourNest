@@ -6,7 +6,7 @@ $args = Util::getArgs();
 
 $db = new Database(); 
 
-$query = "SELECT `image` FROM `recipes`";
+$query = "";
 
 $result = $db->execute($query);
 

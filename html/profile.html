@@ -18,8 +18,8 @@
     <!-- Row-->
     <div class="row justify-content-center">
       <div class="col-12 
-                  col-lg-11     <!-- Increased from col-lg-10 -->
-                  col-xl-10     <!-- Increased from col-xl-9 -->
+                  col-lg-11 
+                  col-xl-10 
                   mx-auto">
 
         <div class="bg-dark 
@@ -120,7 +120,7 @@
                          readonly>
                 </div>
 
-                <!-- ÚJ: Csatlakozva-->
+                <!-- Csatlakozva-->
                 <div class="col-12 col-md-6">
                   <label class="text-white-50 
                                 small 
@@ -146,6 +146,20 @@
               <h5 class="text-warning fw-bold mb-4">Jelszó módosítása</h5>
 
               <div class="row g-4">
+                <div class="col-12 col-md-6">
+                  <input type="text"
+                         class="form-control 
+                                form-control-lg 
+                                bg-secondary 
+                                text-white 
+                                border-warning 
+                                rounded 
+                                focus-ring 
+                                focus-ring-warning"
+                         placeholder="Jelenlegi jelszó"
+                         ng-model="user.password"
+                         readonly>
+                </div>
                 <div class="col-12 col-md-6">
                   <input type="password"
                          class="form-control 
@@ -175,8 +189,8 @@
               </div>
 
               <button class="btn btn-outline-warning px-5 py-3 fw-bold mt-4"
-                      ng-click="changePassword()"
-                      ng-disabled="!pw.new || pw.new !== pw.confirm || pw.new.length < 8">
+                      ng-click="changePasswordClick()"
+                      ng-disabled=" !password || password !== passwordConfirm || password.length < 8">
                 Jelszó módosítása
               </button>
 

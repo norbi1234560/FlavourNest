@@ -114,15 +114,8 @@
     '$timeout',
     'http',
     function($scope, $state, $timeout,http) {
-      console.log("Home")
-      http.request("./php/base.php")
-      .then(response=>{
-        let img=document.getElementsByTagName("img");
-        // for (let index = 0; index < response.length; index++) {
-        //   img[index].src = `data:image/jpeg;base64, ${response[index].image}`;
-          
-        // }
-      })
+      console.log("Home");
+
     }
   ])
 
@@ -210,6 +203,7 @@
     '$rootScope',
     function($scope, $state, http, $rootScope) {
       console.log("profile")
+      //delete account
       $scope.deleteAccountClick=()=>{
         let question=confirm("biztos kiakarod törölni?")
         if (question) {
@@ -229,6 +223,20 @@
           .catch(e=>console.error(e));
 
         }
+      }
+      //change password
+      $scope.changePasswordClick=()=>{
+        console.log("anyád");
+
+        http.request({
+          url:"./php/changePassword.php",
+          data: {id:$rootScope.user.id,password:$scope.password}
+        })
+        .then(response=>{
+          console.log(response);
+          
+        })
+        .catch(e=> console.error(e));
       }
     }
   ])

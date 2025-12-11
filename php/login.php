@@ -8,7 +8,7 @@ $db = new Database();
 
 $params = [
     ':email'    => $args['email'],
-    ':password' => $args['password'], // consider using password hashing
+    ':password' => $args['password'],
 ];
 
 $query = "SELECT * FROM `users`
