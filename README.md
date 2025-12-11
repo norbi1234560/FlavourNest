@@ -21,4 +21,5 @@
 
 ### Elinditási utmutató
 -   XAMPP-on Appache és Mysql szerver elinditása
+-   adatbázis importálása phpmyadmin felületen
 -   index.html megnyitása böngészöben majd a cimet localhostra átirni(http://localhost/mappa_neve/FlavourNest/#!/)
