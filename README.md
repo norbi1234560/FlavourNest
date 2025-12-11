@@ -22,4 +22,7 @@
 ### Elinditási utmutató
 -   XAMPP-on Appache és Mysql szerver elinditása
 -   adatbázis importálása phpmyadmin felületen
+-   common és components mappa egy szinten legyen a projektel
+    - https://github.com/odrya-keri-mako/components
+    - https://github.com/odrya-keri-mako/common
 -   index.html megnyitása böngészöben majd a cimet localhostra átirni(http://localhost/mappa_neve/FlavourNest/#!/)
