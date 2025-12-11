@@ -33,7 +33,7 @@
           <div class="card-body 
                       p-4 
                       p-md-5">
-            <form ng-click="login()" 
+            <form name="loginForm" 
                   novalidate>
               <!-- Email -->
 
@@ -90,12 +90,16 @@
                                 focus-ring-warning"
                          placeholder="••••••••"
                          ng-model="user.password"
-                         required>
+                         required
+                         minlength="8"
+                         maxlength="100">
                 </div>
               </div>
 
               <!-- Login Button -->
               <button type="button"
+                      ng-click="loginClick()"
+                      ng-disabled="loginForm.$invalid"
                       class=" btn 
                               btn-warning 
                               btn-lg 

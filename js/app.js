@@ -121,6 +121,9 @@
     '$timeout',
     function($scope, $state, $timeout) {
       console.log("login")
+      $scope.loginClick=()=>{
+        
+      }
     }
   ])
 
@@ -131,6 +134,10 @@
     '$timeout',
     function($scope, $state, $timeout) {
       console.log("register")
+      $scope.registerClick=()=>{
+        console.log("asd");
+        
+      }
     }
   ])
 
