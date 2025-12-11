@@ -7,7 +7,7 @@
 
     <!-- Fejléc -->
     <div class="text-center mb-5">
-      <h1 class=" fw-bold 
+      <h1 class="fw-bold 
                   display-4 
                   text-white">
         <span class="text-warning">Flavour</span>
@@ -16,21 +16,41 @@
       <p class="fs-3 text-white-50">Profilom</p>
     </div>
 
-    <!-- EGYETLEN nagy doboz -->
+    <!-- Row-->
     <div class="row justify-content-center">
       <div class="col-12 
-                  col-lg-10 
-                  col-xl-9 
+                  col-lg-11     <!-- Increased from col-lg-10 -->
+                  col-xl-10     <!-- Increased from col-xl-9 -->
                   mx-auto">
 
-        <div class="bg-dark border border-warning rounded-4 shadow-lg p-4 p-md-5">
+        <div class="bg-dark 
+                    border 
+                    border-warning 
+                    rounded-4 
+                    shadow-lg 
+                    p-4 
+                    p-md-5">
 
-          <!-- Vízszintes rész (md felett) -->
+          <!-- Row -->
           <div class="row g-5">
 
             <!-- BAL: Avatar + gombok -->
-            <div class="col-12 col-md-5 col-lg-4 text-center text-md-start">
-              <div class="mx-auto mx-md-0 bg-secondary border border-4 border-warning rounded-circle d-inline-flex align-items-center justify-content-center mb-4"
+            <div class="col-12 
+                        col-md-5 
+                        col-lg-4 
+                        text-center 
+                        text-md-start">
+              <div class="mx-auto 
+                          mx-md-0 
+                          bg-secondary 
+                          border 
+                          border-4 
+                          border-warning 
+                          rounded-circle 
+                          d-inline-flex 
+                          align-items-center 
+                          justify-content-center 
+                          mb-4"
                    style="width: 140px; height: 140px;">
                 <span class="text-warning fw-bold" style="font-size: 4.5rem;">
                   {{}}
@@ -43,15 +63,27 @@
 
               <!-- Gombok -->
               <div class="d-grid gap-3">
-                <button class="btn btn-warning btn-lg fw-bold text-dark shadow-sm"
+                <button class="btn 
+                                btn-warning 
+                                btn-lg 
+                                fw-bold 
+                                text-dark 
+                                shadow-sm"
                         ui-sref="home">
                   Főoldalra
                 </button>
-                <button class="btn btn-outline-warning btn-lg fw-bold"
+                <button class="btn 
+                                btn-outline-warning 
+                                btn-lg 
+                                fw-bold"
                         ng-click="logout()">
                   Kijelentkezés
                 </button>
-                <button class="btn btn-danger btn-lg fw-bold rounded-pill"
+                <button class="btn 
+                                btn-danger 
+                                btn-lg 
+                                fw-bold 
+                                rounded-pill"
                         ng-click="deleteAccountClick()">
                   Fiók törlése
                 </button>
@@ -64,17 +96,39 @@
               <h4 class="text-warning fw-bold mb-4">Személyes adataim</h4>
 
               <div class="row g-4 mb-5">
-                <div class="col-12 col-sm-6">
-                  <label class="text-white-50 small text-uppercase fw-semibold">Felhasználónév</label>
+                <div class="col-12 col-md-6">  <!-- Changed from col-sm-6 to col-md-6 -->
+                  <label class="text-white-50 
+                                small 
+                                text-uppercase 
+                                fw-semibold">
+                    Felhasználónév
+                  </label>
                   <input type="text"
-                         class="form-control form-control-lg bg-secondary text-white border-warning rounded mt-1"
-                         value="{{ user.username}}"
+                         class="form-control 
+                                form-control-lg 
+                                bg-secondary 
+                                text-white 
+                                border-warning 
+                                rounded 
+                                mt-1"
+                         value="{{ user.username }}"
                          readonly>
                 </div>
-                <div class="col-12 col-sm-6">
-                  <label class="text-white-50 small text-uppercase fw-semibold">Email cím</label>
+                <div class="col-12 col-md-6">  <!-- Changed from col-sm-6 to col-md-6 -->
+                  <label class="text-white-50 
+                                small 
+                                text-uppercase 
+                                fw-semibold">
+                    Email cím
+                  </label>
                   <input type="email"
-                         class="form-control form-control-lg bg-secondary text-white border-warning rounded mt-1"
+                         class="form-control 
+                                form-control-lg 
+                                bg-secondary 
+                                text-white 
+                                border-warning 
+                                rounded 
+                                mt-1"
                          value="{{ user.email }}"
                          readonly>
                 </div>
@@ -87,15 +141,29 @@
               <div class="row g-4">
                 <div class="col-12 col-md-6">
                   <input type="password"
-                         class="form-control form-control-lg bg-secondary text-white border-warning rounded focus-ring focus-ring-warning"
+                         class="form-control 
+                                form-control-lg 
+                                bg-secondary 
+                                text-white 
+                                border-warning 
+                                rounded 
+                                focus-ring 
+                                focus-ring-warning"
                          placeholder="Új jelszó (min. 8 karakter)"
-                         ng-model="pw.new">
+                         ng-model="password">
                 </div>
                 <div class="col-12 col-md-6">
                   <input type="password"
-                         class="form-control form-control-lg bg-secondary text-white border-warning rounded focus-ring focus-ring-warning"
+                         class="form-control 
+                                form-control-lg 
+                                bg-secondary 
+                                text-white 
+                                border-warning 
+                                rounded 
+                                focus-ring 
+                                focus-ring-warning"
                          placeholder="Új jelszó újra"
-                         ng-model="pw.confirm">
+                         ng-model="passwordConfirm">
                 </div>
               </div>
 

@@ -6,7 +6,6 @@ $args = Util::getArgs();
 
 $db = new Database();
 
-//paramsok
 $params = [
     ':username' => $args['username'],
     ':email'    => $args['email'],
@@ -27,11 +26,13 @@ if (!is_null($existingUser)) {
     Util::setResponse("foglalt email vagy felhasználónév");
 }
 
-$queryInsert = "INSERT INTO `users` (`username`, `email`, `password`)
+$query = "INSERT INTO `users` (`username`, `email`, `password`)
                 VALUES (:username, :email, :password)";
 
-$result = $db->execute($queryInsert, $params);
+$result = $db->execute($query, $params);
+
+$result2=$db->execute("")
 
 $db = null;
 
-Util::setResponse($result);
+Util::setResponse($result["firstInsertId"]);

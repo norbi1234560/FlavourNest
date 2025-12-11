@@ -73,15 +73,16 @@
   // Application run
   .run([
     '$rootScope',
-    function($rootScope) {
+    '$state',
+    function($rootScope,$state) {
       console.log('Run...');
       $rootScope.logoutClick=()=>{
         $rootScope.user=null;
         $rootScope.$applyAsync();
         setTimeout(() => {
           alert("sikeres kijentkezés");
+          $state.go("home");
         }, 50);
-        
       }
     }
   ])
@@ -171,8 +172,8 @@
         })
         .then(response=>{
           console.log(response);
-          //$rootScope.user==response[0];
-          //$rootScope.$applyAsync();
+          alert("sikeres regisztráció");
+          $state.go("home");
         })
         .catch(e=> console.error(e))
         
@@ -189,19 +190,24 @@
     function($scope, $state, http, $rootScope) {
       console.log("profile")
       $scope.deleteAccountClick=()=>{
-        console.log("asd")
-        http.request({
-          url:"./php/deleteAccount.php",
-          data:$rootScope.user,
-        })
-        .then(response=>{
-          console.log(response);
-          $rootScope.user=null;
-          $rootScope.$applyAsync();
-          alert("sikeres fiók törlés");
-          $state.go("home");
-        })
-        .catch(e=>console.error(e));
+        let question=confirm("biztos kiakarod törölni?")
+        if (question) {
+          
+          http.request({
+            url:"./php/deleteAccount.php",
+            data:$rootScope.user,
+          })
+          .then(response=>{
+            console.log(response);
+            $rootScope.user=null;
+            $rootScope.$applyAsync();
+            alert("sikeres fiók törlés");
+            $state.go("home");
+          })
+          
+          .catch(e=>console.error(e));
+
+        }
       }
     }
   ])
