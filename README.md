@@ -21,4 +21,4 @@
 
 ### Elinditási utmutató
 -   XAMPP-on Appache és Mysql szerver elinditása
--   index.html megnyitása bönglszöben majd a cimet localhostra átirni
+-   index.html megnyitása böngészöben majd a cimet localhostra átirni
