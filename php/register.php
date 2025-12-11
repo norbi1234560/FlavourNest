@@ -1,0 +1,37 @@
+<?php
+
+require_once("../../common/php/environment.php");
+
+$args = Util::getArgs();
+
+$db = new Database();
+
+//paramsok
+$params = [
+    ':username' => $args['username'],
+    ':email'    => $args['email'],
+    ':password'    => $args['password'],
+];
+
+$params2 = [
+    ':username' => $args['username'],
+    ':email'    => $args['email'],
+];
+
+$queryCheck = "SELECT * FROM `users` 
+               WHERE `username` = :username OR `email` = :email";
+
+$existingUser = $db->execute($queryCheck, $params2);
+
+if (!is_null($existingUser)) {
+    Util::setResponse("foglalt email vagy felhasználónév");
+}
+
+$queryInsert = "INSERT INTO `users` (`username`, `email`, `password`)
+                VALUES (:username, :email, :password)";
+
+$result = $db->execute($queryInsert, $params);
+
+$db = null;
+
+Util::setResponse($result);

@@ -78,7 +78,7 @@
                                 bg-secondary 
                                 border-warning 
                                 text-warning">
-                    <i class="fas fa-envelope"></i>
+                    <i class="fas fa-user"></i>
                   </span>
                   <input type="text"
                          class="form-control 
@@ -155,7 +155,8 @@
               <!-- register Button -->
               <button type="button"
                       ng-click="registerClick()"
-                      ng-disabled="registerForm.$invalid || user.password!=user.passwordConfirm"
+                      ng-disabled="registerForm.$invalid ||
+                      user.password!=user.passwordConfirm"
                       class=" btn 
                               btn-warning 
                               btn-lg 

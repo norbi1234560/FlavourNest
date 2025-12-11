@@ -131,11 +131,19 @@
   .controller('registerController', [
     '$scope',
     '$state',
-    '$timeout',
-    function($scope, $state, $timeout) {
+    'http',
+    function($scope, $state, http) {
       console.log("register")
       $scope.registerClick=()=>{
-        console.log("asd");
+        http.request({
+          url:"./php/register.php",
+          data:$scope.user,
+        })
+        .then(response=>{
+          console.log(response);
+          
+        })
+        .catch(e=> console.error(e))
         
       }
     }
