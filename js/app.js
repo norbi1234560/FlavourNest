@@ -92,7 +92,7 @@
           $state.go("home");
         }, 50);
       }
-
+      //ideiglenes csak azért van hogy ne kelljen folyton bejelentkezni így könnyebb a bugfixelés
       $rootScope.searchClick=()=>{
         $rootScope.user={
           "id": 1,
@@ -114,7 +114,7 @@
     '$timeout',
     'http',
     function($scope, $state, $timeout,http) {
-      console.log("Home");
+      console.log($state.current.name);
 
     }
   ])
@@ -126,7 +126,7 @@
     '$timeout',
     '$rootScope',
     function($scope, $state, $timeout, $rootScope) {
-      console.log("recipes");
+      console.log($state.current.name);
       
     }
   ])
@@ -137,7 +137,8 @@
     '$state',
     '$timeout',
     function($scope, $state, $timeout) {
-      console.log("page2")
+      console.log($state.current.name);
+
     }
   ])
   
@@ -148,7 +149,7 @@
     '$state',
     '$rootScope',
     function($scope, http, $state, $rootScope) {
-      console.log("login")
+      console.log($state.current.name)
       $scope.loginClick=()=>{
         http.request({
           url:"./php/login.php",
@@ -176,7 +177,7 @@
     'http',
     '$rootScope',
     function($scope, $state, http, $rootScope) {
-      console.log("register")
+      console.log($state.current.name)
       $scope.registerClick=()=>{
         http.request({
           url:"./php/register.php",
@@ -202,12 +203,12 @@
     'http',
     '$rootScope',
     function($scope, $state, http, $rootScope) {
-      console.log("profile")
+      console.log($state.current.name)
       //delete account
       $scope.deleteAccountClick=()=>{
         let question=confirm("biztos kiakarod törölni?")
         if (question) {
-          
+          //account delete
           http.request({
             url:"./php/deleteAccount.php",
             data:$rootScope.user,
@@ -226,7 +227,6 @@
       }
       //change password
       $scope.changePasswordClick=()=>{
-        console.log("anyád");
 
         http.request({
           url:"./php/changePassword.php",

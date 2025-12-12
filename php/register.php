@@ -32,7 +32,7 @@ $query = "INSERT INTO `users` (`username`, `email`, `password`)
 $result = $db->execute($query, $params);
 
 $params3 = [
-    ':id' => $result["firstInsertId"],
+    ':id' => $result["firstInsertId"]
 ];
 
 $result2= $db->execute("SELECT * FROM `users` WHERE `id`=:id",$params3);

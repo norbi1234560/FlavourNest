@@ -12,7 +12,8 @@ $params = [
 ];
 
 $query = "SELECT * FROM `users`
-          WHERE `email` = :email AND `password` = :password";
+          WHERE `email` = :email AND
+                `password` = :password";
 
 $result = $db->execute($query, $params);
 
