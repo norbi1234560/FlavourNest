@@ -19,7 +19,8 @@
 
             <!-- Email -->
             <div class="mb-4">
-              <label class="form-label fw-semibold text-warning fs-5">
+              <label class="form-label fw-semibold 
+                            text-warning fs-5">
                 Email cím
               </label>
 
@@ -118,7 +119,8 @@
                     class=" btn btn-warning btn-lg w-100 
                             fw-bold text-dark shadow-sm"
                     ng-click="registerClick()"
-                    ng-disabled="registerForm.$invalid || user.password !== user.passwordConfirm"
+                    ng-disabled=" registerForm.$invalid || 
+                                  user.password !== user.passwordConfirm"
             >
               Regisztráció
             </button>
@@ -133,8 +135,9 @@
 
               <a
                 ui-sref="login"
-                class="btn btn-outline-warning rounded-pill px-5 py-3 fw-medium"
-              >
+                class=" btn btn-outline-warning 
+                        rounded-pill px-5 
+                        py-3 fw-medium">
                 Bejelentkezés
               </a>
             </div>
