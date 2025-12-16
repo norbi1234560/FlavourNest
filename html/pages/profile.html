@@ -190,7 +190,7 @@
 
               <button class="btn btn-outline-warning px-5 py-3 fw-bold mt-4"
                       ng-click="changePasswordClick()"
-                      ng-disabled=" !password || password !== passwordConfirm || password.length < 8">
+                      ng-disabled="password===user.password ||!password || password !== passwordConfirm || password.length < 8">
                 Jelszó módosítása
               </button>
 
