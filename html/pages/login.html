@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
      
       <!-- Col-->
-      <div class="col-11 
+      <div class="col-11  
                   col-sm-9 
                   col-md-7 
                   col-lg-6 
@@ -73,7 +73,8 @@
                               text-warning">
                   <i class="fas fa-lock"></i>
                 </span>
-                <input type="password"
+                <input id="passwordInput"
+                       type="{{ showPassword ? 'text' : 'password' }}"
                        class="form-control 
                               form-control-lg 
                               bg-secondary 
@@ -86,6 +87,11 @@
                        required
                        minlength="8"
                        maxlength="100">
+                <button type="button"
+                        class="btn bg-secondary border-warning text-warning"
+                        ng-click="showPassword = !showPassword">
+                  <i class="fas {{ showPassword ? 'fa-eye-slash' : 'fa-eye' }}"></i>
+                </button>
               </div>
             </div>
 

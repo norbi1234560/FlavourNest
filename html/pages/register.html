@@ -88,7 +88,7 @@
               </div>
             </div>
 
-            <!-- Password -->
+            <!-- Password (with eye toggle) -->
             <div class="mb-4">
               <label class="form-label 
                             fw-semibold 
@@ -103,7 +103,8 @@
                               text-warning">
                   <i class="fas fa-lock"></i>
                 </span>
-                <input type="password"
+                <input id="passwordInput"
+                       type="{{ showPassword ? 'text' : 'password' }}"
                        class="form-control 
                               form-control-lg 
                               bg-secondary 
@@ -115,10 +116,15 @@
                        ng-model="user.password"
                        required
                        minlength="8">
+                <button type="button"
+                        class="btn bg-secondary border-warning text-warning"
+                        ng-click="showPassword = !showPassword">
+                  <i class="fas {{ showPassword ? 'fa-eye-slash' : 'fa-eye' }}"></i>
+                </button>
               </div>
             </div>
 
-            <!-- Password confirm -->
+            <!-- Password confirm (NO eye icon) -->
             <div class="mb-4">
               <label class="form-label 
                             fw-semibold 

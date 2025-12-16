@@ -8,7 +8,7 @@
     '$state',
     '$rootScope',
     function($scope, http, $state, $rootScope) {
-      console.log($state.current.name)
+      console.log($state.current.name);
       $scope.loginClick=()=>{
         http.request({
           url:"./php/login.php",
