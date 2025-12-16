@@ -9,7 +9,6 @@
     '$rootScope',
     function($scope, $state, http, $rootScope) {
       console.log($state.current.name)
-      
       //delete account
       $scope.deleteAccountClick=()=>{
         let question=confirm("biztos kiakarod törölni?")
@@ -39,9 +38,12 @@
         })
         .then(response=>{
           console.log(response);
-
-          $scope.$applyAsync();
+          console.log($scope.password);
+          $rootScope.user.password=$scope.password;
           $rootScope.$applyAsync();
+          $scope.password=null;
+          $scope.passwordConfirm=null;
+          $scope.$applyAsync();
         })
         .catch(e=> console.error(e));
       }
