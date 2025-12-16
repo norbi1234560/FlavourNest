@@ -21,10 +21,12 @@
             <!-- BAL: Avatar + gombok -->
             <div class="col-12 col-md-5 col-lg-4 text-center text-md-start">
 
-              <div class="mx-auto mx-md-0 bg-secondary border border-4 border-warning rounded-circle d-inline-flex align-items-center justify-content-center mb-4"
-                   style="width: 140px; height: 140px; overflow: hidden;">
-                <img ng-src="./media/avatar/{{user.avatar}}" style="width: 100%; height: 100%; object-fit: cover;">
+              <div  class="mx-auto mx-md-0 bg-secondary border border-4 border-warning rounded-circle d-inline-flex align-items-center justify-content-center mb-4"
+                    style="width: 140px; height: 140px; overflow: hidden;">
+                <img  ng-src="{{ user.avatar ? './media/avatar/' + user.avatar : './media/avatar/basic.jfif' }}"
+                      style="width: 100%; height: 100%; object-fit: cover;">
               </div>
+
 
               <!-- Gombok -->
               <div class="d-grid gap-3">
