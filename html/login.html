@@ -1,4 +1,4 @@
-<!-- Login Page-->
+<!-- Login Page - Without Card, Fixed Black Background -->
 <div class="vh-100 
             d-flex 
             align-items-center 
@@ -6,7 +6,7 @@
   <div class="container px-4">
     <div class="row justify-content-center">
      
-      <!-- Bigger card -->
+      <!-- Bigger area (same width as before) -->
       <div class="col-11 
                   col-sm-9 
                   col-md-7 
@@ -15,7 +15,7 @@
 
         <!-- Logo + Welcome -->
         <div class="text-center mb-5">
-          <h1 class=" fw-bold 
+          <h1 class="fw-bold 
                       display-4 
                       text-white">
             <span class="text-warning">Flavour</span>
@@ -24,115 +24,112 @@
           <p class="text-dark-50 fs-3">Üdvözöllek vissza!</p>
         </div>
 
-        <!-- Card -->
-        <div class="card 
-                    bg-dark 
+        <!-- Form area - solid black background -->
+        <div class="bg-dark 
                     border 
                     border-warning 
-                    shadow-lg">
-          <div class="card-body 
-                      p-4 
-                      p-md-5">
-            <form name="loginForm" 
-                  novalidate>
-              <!-- Email -->
-
-              <div class="mb-4">
-                <label class="form-label 
-                              fw-semibold 
-                              text-warning 
-                              fs-5">
-                  Email cím
-                </label>
-                <div class="input-group input-group-lg">
-                  <span class=" input-group-text 
-                                bg-secondary 
-                                border-warning 
-                                text-warning">
-                    <i class="fas fa-envelope"></i>
-                  </span>
-                  <input type="email"
-                         class="form-control 
-                                form-control-lg 
-                                bg-secondary 
-                                text-white 
-                                border-warning 
-                                focus-ring 
-                                focus-ring-warning"
-                         placeholder="pelda@konyha.hu"
-                         ng-model="user.email"
-                         required>
-                </div>
+                    rounded-3 
+                    shadow-lg 
+                    p-4 
+                    p-md-5">
+          <form name="loginForm" 
+                novalidate>
+            <!-- Email -->
+            <div class="mb-4">
+              <label class="form-label 
+                            fw-semibold 
+                            text-warning 
+                            fs-5">
+                Email cím
+              </label>
+              <div class="input-group input-group-lg">
+                <span class="input-group-text 
+                              bg-secondary 
+                              border-warning 
+                              text-warning">
+                  <i class="fas fa-envelope"></i>
+                </span>
+                <input type="email"
+                       class="form-control 
+                              form-control-lg 
+                              bg-secondary 
+                              text-white 
+                              border-warning 
+                              focus-ring 
+                              focus-ring-warning"
+                       placeholder="pelda@konyha.hu"
+                       ng-model="user.email"
+                       required>
               </div>
+            </div>
 
-              <!-- Password -->
-              <div class="mb-4">
-                <label class="form-label 
-                              fw-semibold 
-                              text-warning 
-                              fs-5">
-                  Jelszó
-                </label>
-                <div class="input-group input-group-lg">
-                  <span class=" input-group-text 
-                                bg-secondary 
-                                border-warning 
-                                text-warning">
-                    <i class="fas fa-lock"></i>
-                  </span>
-                  <input type="password"
-                         class="form-control 
-                                form-control-lg 
-                                bg-secondary 
-                                text-white 
-                                border-warning 
-                                focus-ring 
-                                focus-ring-warning"
-                         placeholder="••••••••"
-                         ng-model="user.password"
-                         required
-                         minlength="8"
-                         maxlength="100">
-                </div>
+            <!-- Password -->
+            <div class="mb-4">
+              <label class="form-label 
+                            fw-semibold 
+                            text-warning 
+                            fs-5">
+                Jelszó
+              </label>
+              <div class="input-group input-group-lg">
+                <span class="input-group-text 
+                              bg-secondary 
+                              border-warning 
+                              text-warning">
+                  <i class="fas fa-lock"></i>
+                </span>
+                <input type="password"
+                       class="form-control 
+                              form-control-lg 
+                              bg-secondary 
+                              text-white 
+                              border-warning 
+                              focus-ring 
+                              focus-ring-warning"
+                       placeholder="••••••••"
+                       ng-model="user.password"
+                       required
+                       minlength="8"
+                       maxlength="100">
               </div>
+            </div>
 
-              <!-- Login Button -->
-              <button type="button"
-                      ng-click="loginClick()"
-                      ng-disabled="loginForm.$invalid"
-                      class=" btn 
-                              btn-warning 
-                              btn-lg 
-                              w-100 
-                              fw-bold 
-                              text-dark 
-                              shadow-sm">
-                Bejelentkezés
-              </button>
-              <hr class="border-secondary my-5">
+            <!-- Login Button -->
+            <button type="button"
+                    ng-click="loginClick()"
+                    ng-disabled="loginForm.$invalid"
+                    class="btn 
+                            btn-warning 
+                            btn-lg 
+                            w-100 
+                            fw-bold 
+                            text-dark 
+                            shadow-sm">
+              Bejelentkezés
+            </button>
+            <hr class="border-secondary my-5">
 
-              <!-- Register -->
-              <div class="text-center">
-                <p class="text-white-50 mb-3">Még nincs fiókod?</p>
-                <a ui-sref="register"
-                   class="btn btn-outline-warning 
-                          rounded-pill 
-                          px-5 
-                          py-3 
-                          fw-medium">
-                  Regisztráció
-                </a>
-              </div>
+            <!-- Register -->
+            <div class="text-center">
+              <p class="text-white-50 mb-3">Még nincs fiókod?</p>
+              <a ui-sref="register"
+                 class="btn btn-outline-warning 
+                        rounded-pill 
+                        px-5 
+                        py-3 
+                        fw-medium">
+                Regisztráció
+              </a>
+            </div>
 
-            </form>
-          </div>
+          </form>
         </div>
         
         <!-- Back to home -->
         <div class="text-center mt-4">
-          <a  ui-sref="home" 
-              class=" text-warning 
-                      text-decoration-none">
+          <a ui-sref="home" 
+             class="text-warning 
+                    text-decoration-none">
             ← Vissza a főoldalra
           </a>
         </div>

@@ -1,4 +1,4 @@
-<!-- Login Page-->
+<!-- Register Page - Without Card, Solid Black Background -->
 <div class="vh-100 
             d-flex 
             align-items-center 
@@ -6,16 +6,16 @@
   <div class="container px-4">
     <div class="row justify-content-center">
      
-      <!-- Bigger card -->
+      <!-- Bigger area (same width as before) -->
       <div class="col-11 
                   col-sm-9 
                   col-md-7 
                   col-lg-6 
                   col-xl-5">
-        <!-- Logo + Welcome -->
 
+        <!-- Logo + Welcome -->
         <div class="text-center mb-5">
-          <h1 class=" fw-bold 
+          <h1 class="fw-bold 
                       display-4 
                       text-white">
             <span class="text-warning">Flavour</span>
@@ -24,174 +24,170 @@
           <p class="text-dark-50 fs-3">Üdvözöllek vissza!</p>
         </div>
 
-        <!-- Card -->
-        <div class="card 
-                    bg-dark 
+        <!-- Form area - solid black background (no card) -->
+        <div class="bg-dark 
                     border 
                     border-warning 
-                    shadow-lg">
-          <div class="card-body 
-                      p-4 
-                      p-md-5">
-            <form name="registerForm" 
-                  novalidate>
-              <!-- Email -->
-
-              <div class="mb-4">
-                <label class="form-label 
-                              fw-semibold 
-                              text-warning 
-                              fs-5">
-                  Email cím
-                </label>
-                <div class="input-group input-group-lg">
-                  <span class=" input-group-text 
-                                bg-secondary 
-                                border-warning 
-                                text-warning">
-                    <i class="fas fa-envelope"></i>
-                  </span>
-                  <input type="email"
-                         class="form-control 
-                                form-control-lg 
-                                bg-secondary 
-                                text-white 
-                                border-warning 
-                                focus-ring 
-                                focus-ring-warning"
-                         placeholder="pelda@konyha.hu"
-                         ng-model="user.email"
-                         required>
-                </div>
+                    rounded-3 
+                    shadow-lg 
+                    p-4 
+                    p-md-5">
+          <form name="registerForm" 
+                novalidate>
+            <!-- Email -->
+            <div class="mb-4">
+              <label class="form-label 
+                            fw-semibold 
+                            text-warning 
+                            fs-5">
+                Email cím
+              </label>
+              <div class="input-group input-group-lg">
+                <span class="input-group-text 
+                              bg-secondary 
+                              border-warning 
+                              text-warning">
+                  <i class="fas fa-envelope"></i>
+                </span>
+                <input type="email"
+                       class="form-control 
+                              form-control-lg 
+                              bg-secondary 
+                              text-white 
+                              border-warning 
+                              focus-ring 
+                              focus-ring-warning"
+                       placeholder="pelda@konyha.hu"
+                       ng-model="user.email"
+                       required>
               </div>
+            </div>
 
-              <!-- username -->
-              <div class="mb-4">
-                <label class="form-label 
-                              fw-semibold 
-                              text-warning 
-                              fs-5">
-                  Felhasználónév
-                </label>
-                <div class="input-group input-group-lg">
-                  <span class=" input-group-text 
-                                bg-secondary 
-                                border-warning 
-                                text-warning">
-                    <i class="fas fa-user"></i>
-                  </span>
-                  <input type="text"
-                         class="form-control 
-                                form-control-lg 
-                                bg-secondary 
-                                text-white 
-                                border-warning 
-                                focus-ring 
-                                focus-ring-warning"
-                         placeholder="pelda_felhasznalo"
-                         ng-model="user.username"
-                         required>
-                </div>
+            <!-- Username -->
+            <div class="mb-4">
+              <label class="form-label 
+                            fw-semibold 
+                            text-warning 
+                            fs-5">
+                Felhasználónév
+              </label>
+              <div class="input-group input-group-lg">
+                <span class="input-group-text 
+                              bg-secondary 
+                              border-warning 
+                              text-warning">
+                  <i class="fas fa-user"></i>
+                </span>
+                <input type="text"
+                       class="form-control 
+                              form-control-lg 
+                              bg-secondary 
+                              text-white 
+                              border-warning 
+                              focus-ring 
+                              focus-ring-warning"
+                       placeholder="pelda_felhasznalo"
+                       ng-model="user.username"
+                       required>
               </div>
+            </div>
 
-              <!-- Password -->
-              <div class="mb-4">
-                <label class="form-label 
-                              fw-semibold 
-                              text-warning 
-                              fs-5">
-                  Jelszó
-                </label>
-                <div class="input-group input-group-lg">
-                  <span class=" input-group-text 
-                                bg-secondary 
-                                border-warning 
-                                text-warning">
-                    <i class="fas fa-lock"></i>
-                  </span>
-                  <input type="password"
-                         class="form-control 
-                                form-control-lg 
-                                bg-secondary 
-                                text-white 
-                                border-warning 
-                                focus-ring 
-                                focus-ring-warning"
-                         placeholder="••••••••"
-                         ng-model="user.password"
-                         required
-                         minlength="8">
-                </div>
+            <!-- Password -->
+            <div class="mb-4">
+              <label class="form-label 
+                            fw-semibold 
+                            text-warning 
+                            fs-5">
+                Jelszó
+              </label>
+              <div class="input-group input-group-lg">
+                <span class="input-group-text 
+                              bg-secondary 
+                              border-warning 
+                              text-warning">
+                  <i class="fas fa-lock"></i>
+                </span>
+                <input type="password"
+                       class="form-control 
+                              form-control-lg 
+                              bg-secondary 
+                              text-white 
+                              border-warning 
+                              focus-ring 
+                              focus-ring-warning"
+                       placeholder="••••••••"
+                       ng-model="user.password"
+                       required
+                       minlength="8">
               </div>
+            </div>
 
-              <!-- Password confirm -->
-              <div class="mb-4">
-                <label class="form-label 
-                              fw-semibold 
-                              text-warning 
-                              fs-5">
-                  Jelszó újra
-                </label>
-                <div class="input-group input-group-lg">
-                  <span class=" input-group-text 
-                                bg-secondary 
-                                border-warning 
-                                text-warning">
-                    <i class="fas fa-lock"></i>
-                  </span>
-                  <input type="password"
-                         class="form-control 
-                                form-control-lg 
-                                bg-secondary 
-                                text-white 
-                                border-warning 
-                                focus-ring 
-                                focus-ring-warning"
-                         placeholder="••••••••"
-                         ng-model="user.passwordConfirm"                                                                                                            
-                         required
-                         minlength="8">
-                </div>
+            <!-- Password confirm -->
+            <div class="mb-4">
+              <label class="form-label 
+                            fw-semibold 
+                            text-warning 
+                            fs-5">
+                Jelszó újra
+              </label>
+              <div class="input-group input-group-lg">
+                <span class="input-group-text 
+                              bg-secondary 
+                              border-warning 
+                              text-warning">
+                  <i class="fas fa-lock"></i>
+                </span>
+                <input type="password"
+                       class="form-control 
+                              form-control-lg 
+                              bg-secondary 
+                              text-white 
+                              border-warning 
+                              focus-ring 
+                              focus-ring-warning"
+                       placeholder="••••••••"
+                       ng-model="user.passwordConfirm"
+                       required
+                       minlength="8">
               </div>
+            </div>
 
-              <!-- register Button -->
-              <button type="button"
-                      ng-click="registerClick()"
-                      ng-disabled="registerForm.$invalid ||
-                      user.password!=user.passwordConfirm"
-                      class=" btn 
-                              btn-warning 
-                              btn-lg 
-                              w-100 
-                              fw-bold 
-                              text-dark 
-                              shadow-sm">
-                Regisztráció
-              </button>
-              <hr class="border-secondary my-5">
+            <!-- Register Button -->
+            <button type="button"
+                    ng-click="registerClick()"
+                    ng-disabled="registerForm.$invalid || user.password != user.passwordConfirm"
+                    class="btn 
+                            btn-warning 
+                            btn-lg 
+                            w-100 
+                            fw-bold 
+                            text-dark 
+                            shadow-sm">
+              Regisztráció
+            </button>
+            <hr class="border-secondary my-5">
 
-              <!-- Register -->
-              <div class="text-center">
-                <p class="text-white-50 mb-3">Már van fiókod?</p>
-                <a ui-sref="login"
-                   class="btn btn-outline-warning 
-                          rounded-pill 
-                          px-5 
-                          py-3 
-                          fw-medium">
-                  Bejelentkezés
-                </a>
-              </div>
+            <!-- Login link -->
+            <div class="text-center">
+              <p class="text-white-50 mb-3">Már van fiókod?</p>
+              <a ui-sref="login"
+                 class="btn btn-outline-warning 
+                        rounded-pill 
+                        px-5 
+                        py-3 
+                        fw-medium">
+                Bejelentkezés
+              </a>
+            </div>
 
-            </form>
-          </div>
+          </form>
         </div>
-
+        
         <!-- Back to home -->
         <div class="text-center mt-4">
-          <a  ui-sref="home" 
-              class=" text-warning 
-                      text-decoration-none">
+          <a ui-sref="home" 
+             class="text-warning 
+                    text-decoration-none">
             ← Vissza a főoldalra
           </a>
         </div>
