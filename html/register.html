@@ -1,9 +1,6 @@
-<!-- Register Page - Without Card, Solid Black Background -->
-<div class="vh-100 
-            d-flex 
-            align-items-center 
-            justify-content-center">
-  <div class="container px-4">
+<!-- Login Page - Without Card, Fixed Black Background, NO Vertical Centering -->
+<div class="vh-100 d-flex flex-column justify-content-start bg-black">
+  <div class="container px-4 py-5">
     <div class="row justify-content-center">
      
       <!-- Bigger area (same width as before) -->
@@ -24,7 +21,7 @@
           <p class="text-dark-50 fs-3">Üdvözöllek vissza!</p>
         </div>
 
-        <!-- Form area - solid black background (no card) -->
+        <!-- Form area - solid black background -->
         <div class="bg-dark 
                     border 
                     border-warning 
@@ -32,7 +29,7 @@
                     shadow-lg 
                     p-4 
                     p-md-5">
-          <form name="registerForm" 
+          <form name="loginForm" 
                 novalidate>
             <!-- Email -->
             <div class="mb-4">
@@ -63,35 +60,6 @@
               </div>
             </div>
 
-            <!-- Username -->
-            <div class="mb-4">
-              <label class="form-label 
-                            fw-semibold 
-                            text-warning 
-                            fs-5">
-                Felhasználónév
-              </label>
-              <div class="input-group input-group-lg">
-                <span class="input-group-text 
-                              bg-secondary 
-                              border-warning 
-                              text-warning">
-                  <i class="fas fa-user"></i>
-                </span>
-                <input type="text"
-                       class="form-control 
-                              form-control-lg 
-                              bg-secondary 
-                              text-white 
-                              border-warning 
-                              focus-ring 
-                              focus-ring-warning"
-                       placeholder="pelda_felhasznalo"
-                       ng-model="user.username"
-                       required>
-              </div>
-            </div>
-
             <!-- Password -->
             <div class="mb-4">
               <label class="form-label 
@@ -118,44 +86,15 @@
                        placeholder="••••••••"
                        ng-model="user.password"
                        required
-                       minlength="8">
+                       minlength="8"
+                       maxlength="100">
               </div>
             </div>
 
-            <!-- Password confirm -->
-            <div class="mb-4">
-              <label class="form-label 
-                            fw-semibold 
-                            text-warning 
-                            fs-5">
-                Jelszó újra
-              </label>
-              <div class="input-group input-group-lg">
-                <span class="input-group-text 
-                              bg-secondary 
-                              border-warning 
-                              text-warning">
-                  <i class="fas fa-lock"></i>
-                </span>
-                <input type="password"
-                       class="form-control 
-                              form-control-lg 
-                              bg-secondary 
-                              text-white 
-                              border-warning 
-                              focus-ring 
-                              focus-ring-warning"
-                       placeholder="••••••••"
-                       ng-model="user.passwordConfirm"
-                       required
-                       minlength="8">
-              </div>
-            </div>
-
-            <!-- Register Button -->
+            <!-- Login Button -->
             <button type="button"
-                    ng-click="registerClick()"
-                    ng-disabled="registerForm.$invalid || user.password != user.passwordConfirm"
+                    ng-click="loginClick()"
+                    ng-disabled="loginForm.$invalid"
                     class="btn 
                             btn-warning 
                             btn-lg 
@@ -163,20 +102,20 @@
                             fw-bold 
                             text-dark 
                             shadow-sm">
-              Regisztráció
+              Bejelentkezés
             </button>
             <hr class="border-secondary my-5">
 
-            <!-- Login link -->
+            <!-- Register -->
             <div class="text-center">
-              <p class="text-white-50 mb-3">Már van fiókod?</p>
-              <a ui-sref="login"
+              <p class="text-white-50 mb-3">Még nincs fiókod?</p>
+              <a ui-sref="register"
                  class="btn btn-outline-warning 
                         rounded-pill 
                         px-5 
                         py-3 
                         fw-medium">
-                Bejelentkezés
+                Regisztráció
               </a>
             </div>
 
