@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Dec 11. 13:38
+-- Létrehozás ideje: 2025. Dec 16. 10:47
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -237,29 +237,29 @@ CREATE TABLE `users` (
   `username` varchar(100) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `avatar` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `password`, `created_at`) VALUES
-(1, 'admin', 'admin@aa.com', 'adminadmin', '2025-11-11 05:30:36'),
-(2, 'moderator', 'mod@example.com', 'mod', '2025-11-11 05:30:36'),
-(3, 'chefanna', 'anna@example.com', 'anna', '2025-11-11 05:30:36'),
-(4, 'foodiejoe', 'joe@example.com', 'joe', '2025-11-11 05:30:36'),
-(5, 'mariacook', 'maria@example.com', 'maria', '2025-11-11 05:30:36'),
-(7, 'meseljrola', 'adawdaw@aa.aa', '11111111111111', '2025-12-11 08:24:06'),
-(12, 'aadawdawda', 'adawdawd@aa.aa', '1111111111111111', '2025-12-11 08:29:05'),
-(16, 'meseljroladawdawdaw', 'adawdawdaw@aa.aa', '1111111111111', '2025-12-11 10:00:46'),
-(17, 'meseljroladawdawdawa', 'adawdawdaw@aa.aaa', '1111111111111', '2025-12-11 10:01:41'),
-(18, 'meseljrola1231', 'dawdawdaw@aa.aa', '11111111111111', '2025-12-11 10:14:18'),
-(19, 'meseljrola12311', 'dawdawdaw@aa.aa1', '11111111111111', '2025-12-11 10:14:27'),
-(20, 'mawelsjeorla', 'awdawdawda@aa.aaa', '11111111111111', '2025-12-11 10:48:55'),
-(23, 'melsaenawkl', 'asdasda@aa.aa', 'adminadmin', '2025-12-11 12:35:50'),
-(24, 'meslejkorla', 'awdawdawd@aa.aa', 'adminadmin', '2025-12-11 12:36:26'),
-(25, 'mdioawjlawjd', 'adawjldawva@aa.aa', 'adminadmin', '2025-12-11 12:36:56');
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `created_at`, `avatar`) VALUES
+(1, 'admin', 'admin@aa.com', 'adminadmin', '2025-11-11 05:30:36', 'random.jpg'),
+(3, 'chefanna', 'anna@example.com', 'annaanna', '2025-11-11 05:30:36', NULL),
+(4, 'foodiejoe', 'joe@example.com', 'joe', '2025-11-11 05:30:36', NULL),
+(5, 'mariacook', 'maria@example.com', 'maria', '2025-11-11 05:30:36', NULL),
+(7, 'meseljrola', 'adawdaw@aa.aa', '11111111111111', '2025-12-11 08:24:06', NULL),
+(12, 'aadawdawda', 'adawdawd@aa.aa', '1111111111111111', '2025-12-11 08:29:05', NULL),
+(16, 'meseljroladawdawdaw', 'adawdawdaw@aa.aa', '1111111111111', '2025-12-11 10:00:46', NULL),
+(17, 'meseljroladawdawdawa', 'adawdawdaw@aa.aaa', '1111111111111', '2025-12-11 10:01:41', NULL),
+(18, 'meseljrola1231', 'dawdawdaw@aa.aa', '11111111111111', '2025-12-11 10:14:18', NULL),
+(19, 'meseljrola12311', 'dawdawdaw@aa.aa1', '11111111111111', '2025-12-11 10:14:27', NULL),
+(20, 'mawelsjeorla', 'awdawdawda@aa.aaa', '11111111111111', '2025-12-11 10:48:55', NULL),
+(23, 'melsaenawkl', 'asdasda@aa.aa', 'adminadmin', '2025-12-11 12:35:50', NULL),
+(24, 'meslejkorla', 'awdawdawd@aa.aa', 'adminadmin', '2025-12-11 12:36:26', NULL),
+(26, 'meseljrola123', 'dawnkldanwldnaw@aa.aa', 'adminadmin', '2025-12-16 06:49:38', NULL);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -386,7 +386,7 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT a táblához `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Megkötések a kiírt táblákhoz
