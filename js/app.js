@@ -1,5 +1,4 @@
-(function(window, angular) {
-
+;(function(window, angular) {
   'use strict';
 
   // Application module
@@ -10,61 +9,62 @@
 
   // Application config
   .config([
-    '$stateProvider', 
-    '$urlRouterProvider', 
+    '$stateProvider',
+    '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
 
       $stateProvider
-      .state('root', {
-        abstract: true,
-        views: {
-          '@': {
-            templateUrl: './html/root.html'
-          },
-          'header@root': {
-            templateUrl: './html/header.html'
-          },
-          'footer@root': {
-            templateUrl: './html/footer.html'
+        .state('root', {
+          views: {
+            '': {
+              templateUrl: './html/layouts/root.html',
+              controller: 'headerController'
+            },
+            'header@root': {
+              templateUrl: './html/components/header.html'
+            },
+            'footer@root': {
+              templateUrl: './html/components/footer.html',
+              controller: 'footerController'
+            }
           }
-        }
-      })
-      .state('home', {
-        url: '/',
-        parent: 'root',
-        templateUrl: './html/home.html',
-        controller: 'homeController'
-      })
-      .state('recipes', {
-        url: '/',
-        parent: 'root',
-        templateUrl: './html/recipes.html',
-        controller: 'recipesController'
-      })
-      .state('page2', {
-        url: '/',
-        parent: 'root',
-        templateUrl: './html/page2.html',
-        controller: 'page2Controller'
-      })
-      .state('login', {
-        url: '/',
-        parent: 'root',
-        templateUrl: './html/login.html',
-        controller: 'loginController'
-      })
-      .state('register', {
-        url: '/',
-        parent: 'root',
-        templateUrl: './html/register.html',
-        controller: 'registerController'
-      })
-      .state('profile', {
-        url: '/',
-        parent: 'root',
-        templateUrl: './html/profile.html',
-        controller: 'profileController'
-      })
+        })
+        .state('home', {
+          url: '/',
+          parent: 'root',
+          templateUrl: './html/pages/home.html',
+          controller: 'homeController'
+        })
+        .state('login', {
+          url: '/login',       
+          parent: 'root',
+          templateUrl: './html/pages/login.html',
+          controller: 'loginController'
+        })
+        .state('page2', {
+          url: '/page2',       
+          parent: 'root',
+          templateUrl: './html/pages/page2.html',
+          controller: 'page2Controller'
+        })
+        .state('profile', {
+          url: '/profile',       
+          parent: 'root',
+          templateUrl: './html/pages/profile.html',
+          controller: 'profileController'
+        })
+        .state('register', {
+          url: '/register',       
+          parent: 'root',
+          templateUrl: './html/pages/register.html',
+          controller: 'registerController'
+        })
+        .state('recipes', {
+          url: '/recipes',       
+          parent: 'root',
+          templateUrl: './html/pages/recipes.html',
+          controller: 'recipesController'
+        });
 
       $urlRouterProvider.otherwise('/');
     }
@@ -105,143 +105,6 @@
         $rootScope.$applyAsync();
       }
     }
-  ])
-  
-  //home controller
-  .controller('homeController', [
-    '$scope',
-    '$state',
-    '$timeout',
-    'http',
-    function($scope, $state, $timeout,http) {
-      console.log($state.current.name);
-
-    }
-  ])
-
-  //recipes controller
-  .controller('recipesController', [
-    '$scope',
-    '$state',
-    '$timeout',
-    '$rootScope',
-    function($scope, $state, $timeout, $rootScope) {
-      console.log($state.current.name);
-      
-    }
-  ])
-
-  //page2 controller
-  .controller('page2Controller', [
-    '$scope',
-    '$state',
-    '$timeout',
-    function($scope, $state, $timeout) {
-      console.log($state.current.name);
-
-    }
-  ])
-  
-  //Login controller
-  .controller('loginController', [
-    '$scope',
-    'http',
-    '$state',
-    '$rootScope',
-    function($scope, http, $state, $rootScope) {
-      console.log($state.current.name)
-      $scope.loginClick=()=>{
-        http.request({
-          url:"./php/login.php",
-          data:$scope.user,
-        })
-        .then(response=>{
-          if (response==null) {
-            alert("helytelen jelszó vagy email cím");
-          }
-          else{
-            $rootScope.user=response[0];
-            $rootScope.$applyAsync();
-            $state.go("home");
-          }
-        })
-        .catch(e=> console.error(e));
-      }
-    }
-  ])
-
-  //register controller
-  .controller('registerController', [
-    '$scope',
-    '$state',
-    'http',
-    '$rootScope',
-    function($scope, $state, http, $rootScope) {
-      console.log($state.current.name)
-      $scope.registerClick=()=>{
-        http.request({
-          url:"./php/register.php",
-          data:$scope.user,
-        })
-        .then(response=>{
-          console.log(response);
-          alert("sikeres regisztráció");
-          $rootScope.user=response[0];
-          $rootScope.$applyAsync();
-          $state.go("home");
-        })
-        .catch(e=> console.error(e))
-        
-      }
-    }
-  ])
-
-  //profile controller
-  .controller('profileController', [
-    '$scope',
-    '$state',
-    'http',
-    '$rootScope',
-    function($scope, $state, http, $rootScope) {
-      console.log($state.current.name)
-      //delete account
-      $scope.deleteAccountClick=()=>{
-        let question=confirm("biztos kiakarod törölni?")
-        if (question) {
-          //account delete
-          http.request({
-            url:"./php/deleteAccount.php",
-            data:$rootScope.user,
-          })
-          .then(response=>{
-            console.log(response);
-            $rootScope.user=null;
-            $rootScope.$applyAsync();
-            alert("sikeres fiók törlés");
-            $state.go("home");
-          })
-          
-          .catch(e=>console.error(e));
-
-        }
-      }
-      //change password
-      $scope.changePasswordClick=()=>{
-
-        http.request({
-          url:"./php/changePassword.php",
-          data: {id:$rootScope.user.id,password:$scope.password}
-        })
-        .then(response=>{
-          console.log(response);
-          
-        })
-        .catch(e=> console.error(e));
-      }
-    }
-  ])
-
-
-
+  ]);
 
 })(window, angular);
