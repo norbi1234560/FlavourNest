@@ -1,7 +1,8 @@
 <div class="vh-100">
   <div class="container px-4">
     <div class="row justify-content-center">
-      <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5">
+      <div class="col-11 col-sm-9 col-md-7 
+                  col-lg-6 col-xl-5">
 
         <!-- Logo -->
         <div class="text-center pt-5 mb-5">
@@ -12,7 +13,8 @@
         </div>
 
         <!-- Form wrapper -->
-        <div class="bg-dark border border-warning rounded-3 shadow-lg p-4 p-md-5">
+        <div class="bg-dark border border-warning 
+                    rounded-3 shadow-lg p-4 p-md-5">
           <form name="registerForm" novalidate>
 
             <!-- Email -->
@@ -22,16 +24,17 @@
               </label>
 
               <div class="input-group input-group-lg">
-                <span class="input-group-text bg-secondary text-warning border-warning">
+                <span class=" input-group-text bg-secondary 
+                              text-warning border-warning">
                   <i class="fas fa-envelope"></i>
                 </span>
 
-                <input
-                  type="email"
-                  class="form-control bg-secondary text-white border-warning"
-                  placeholder="pelda@konyha.hu"
-                  ng-model="user.email"
-                  required
+                <input  type="email"
+                        class=" form-control bg-secondary 
+                                text-white border-warning"
+                        placeholder="pelda@konyha.hu"
+                        ng-model="user.email"
+                        required
                 >
               </div>
             </div>
@@ -43,16 +46,17 @@
               </label>
 
               <div class="input-group input-group-lg">
-                <span class="input-group-text bg-secondary text-warning border-warning">
+                <span class=" input-group-text bg-secondary 
+                              text-warning border-warning">
                   <i class="fas fa-user"></i>
                 </span>
 
-                <input
-                  type="text"
-                  class="form-control bg-secondary text-white border-warning"
-                  placeholder="pelda_felhasznalo"
-                  ng-model="user.username"
-                  required
+                <input  type="text"
+                        class=" form-control bg-secondary 
+                                text-white border-warning"
+                        placeholder="pelda_felhasznalo"
+                        ng-model="user.username"
+                        required
                 >
               </div>
             </div>
@@ -64,23 +68,22 @@
               </label>
 
               <div class="input-group input-group-lg">
-                <span class="input-group-text bg-secondary text-warning border-warning">
+                <span class=" input-group-text bg-secondary 
+                              text-warning border-warning">
                   <i class="fas fa-lock"></i>
                 </span>
 
-                <input
-                  type="{{ showPassword ? 'text' : 'password' }}"
-                  class="form-control bg-secondary text-white border-warning"
-                  placeholder="••••••••"
-                  ng-model="user.password"
-                  minlength="8"
-                  required
+                <input  type="{{ showPassword ? 'text' : 'password' }}"
+                        class="form-control bg-secondary text-white border-warning"
+                        placeholder="••••••••"
+                        ng-model="user.password"
+                        minlength="8"
+                        required
                 >
 
-                <button
-                  type="button"
-                  class="btn bg-secondary text-warning border-warning"
-                  ng-click="showPassword = !showPassword"
+                <button type="button"
+                        class="btn bg-secondary text-warning border-warning"
+                        ng-click="showPassword = !showPassword"
                 >
                   <i class="fas {{ showPassword ? 'fa-eye-slash' : 'fa-eye' }}"></i>
                 </button>
@@ -94,27 +97,28 @@
               </label>
 
               <div class="input-group input-group-lg">
-                <span class="input-group-text bg-secondary text-warning border-warning">
+                <span class=" input-group-text bg-secondary 
+                              text-warning border-warning">
                   <i class="fas fa-lock"></i>
                 </span>
 
-                <input
-                  type="password"
-                  class="form-control bg-secondary text-white border-warning"
-                  placeholder="••••••••"
-                  ng-model="user.passwordConfirm"
-                  minlength="8"
-                  required
+                <input  type="password"
+                        class=" form-control bg-secondary 
+                                text-white border-warning"
+                        placeholder="••••••••"
+                        ng-model="user.passwordConfirm"
+                        minlength="8"
+                        required
                 >
               </div>
             </div>
 
             <!-- Register -->
-            <button
-              type="button"
-              class="btn btn-warning btn-lg w-100 fw-bold text-dark shadow-sm"
-              ng-click="registerClick()"
-              ng-disabled="registerForm.$invalid || user.password !== user.passwordConfirm"
+            <button type="button"
+                    class=" btn btn-warning btn-lg w-100 
+                            fw-bold text-dark shadow-sm"
+                    ng-click="registerClick()"
+                    ng-disabled="registerForm.$invalid || user.password !== user.passwordConfirm"
             >
               Regisztráció
             </button>

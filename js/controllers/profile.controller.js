@@ -9,6 +9,9 @@
     '$rootScope',
     function($scope, $state, http, $rootScope) {
       console.log($state.current.name)
+      if (!$rootScope.user) {
+        $state.go("home");
+      }
       //delete account
       $scope.deleteAccountClick=()=>{
         let question=confirm("biztos kiakarod törölni?")
