@@ -3,11 +3,8 @@
 
   angular.module('app')
   .controller('homeController', [
-    '$scope',
     '$state',
-    '$timeout',
-    'http',
-    function($scope, $state, $timeout,http) {
+    function($state) {
       console.log($state.current.name);
 
     }
