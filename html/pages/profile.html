@@ -15,10 +15,11 @@
         <div class="bg-dark border 
                     border-warning rounded-4 
                     shadow-lg p-4 p-md-5">
+          
           <!-- Row -->
           <div class="row g-5">
 
-            <!-- Profile picture and buttons -->
+            <!-- Profile picture, buttons -->
             <div class="col-12 col-md-5 col-lg-4 text-center text-md-start">
               <div class="mx-auto mx-md-0 
                             bg-secondary 
@@ -39,7 +40,7 @@
                 </div>
               </div>
 
-              <!-- Buttons for homepage and delete account -->
+              <!-- home, delete account buttons -->
               <div class="d-grid gap-3">
                 <button class="btn btn-warning 
                                 btn-lg fw-bold 
@@ -59,12 +60,13 @@
 
             </div>
 
-            <!-- JOBB: Adatok + jelszó -->
+            <!-- adatok, jelszó -->
             <div class="col-12 col-md-7 col-lg-8">
 
               <h4 class="text-warning fw-bold mb-4">Személyes adataim</h4>
 
               <div class="row g-4 mb-5">
+                
                 <!-- Username -->
                 <div class="col-12 col-md-6">
                   <label class="text-white-50 small text-uppercase fw-semibold">
@@ -91,7 +93,7 @@
                          readonly>
                 </div>
 
-                <!-- Date of register -->
+                <!-- registered -->
                 <div class="col-12 col-md-6">
                   <label class="text-white-50 small text-uppercase fw-semibold">
                     Csatlakozva
@@ -111,7 +113,8 @@
 
               <!-- Password change -->
               <div class="row g-4">
-                <!-- Jelenlegi jelszó – teljes szélességű saját sorban -->
+                
+                <!-- current password-->
                 <div class="col-12">
                   <input type="password"
                          class="form-control form-control-lg 
@@ -122,7 +125,7 @@
                          ng-model="currentPassword">
                 </div>
 
-                <!-- Új jelszó és Új jelszó újra – egymás mellett -->
+                <!-- password, password confirm -->
                 <div class="col-12 col-md-6">
                   <input type="password"
                          class="form-control form-control-lg 
@@ -143,7 +146,7 @@
                 </div>
               </div>
 
-              <!-- Button for password change confirm -->
+              <!-- Button -->
               <div class="mt-4">
                 <button class="btn btn-outline-warning px-5 py-3 fw-bold"
                         ng-click="changePasswordClick()"
