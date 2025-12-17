@@ -9,27 +9,27 @@ $db = new Database();
 $params = [
     ':username' => $args['username'],
     ':email'    => $args['email'],
-    ':password'    => $args['password'],
-];
-
-$params2 = [
-    ':username' => $args['username'],
-    ':email'    => $args['email'],
 ];
 
 $queryCheck = "SELECT * FROM `users` 
                WHERE `username` = :username OR `email` = :email";
 
-$existingUser = $db->execute($queryCheck, $params2);
+$existingUser = $db->execute($queryCheck, $params);
 
 if (!is_null($existingUser)) {
     Util::setResponse("foglalt email vagy felhasználónév");
 }
 
+$params2 = [
+    ':username' => $args['username'],
+    ':email'    => $args['email'],
+    ':password'    => $args['password'],
+];
+
 $query = "INSERT INTO `users` (`username`, `email`, `password`)
                 VALUES (:username, :email, :password)";
 
-$result = $db->execute($query, $params);
+$result = $db->execute($query, $params2);
 
 $params3 = [
     ':id' => $result["firstInsertId"]
