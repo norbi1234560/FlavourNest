@@ -5,7 +5,7 @@
   .controller('page2Controller', [
     '$scope',
     function($scope) {
-      console.log('Page2 controller...');
+      console.log($state.current.name);
     }
   ]);
 

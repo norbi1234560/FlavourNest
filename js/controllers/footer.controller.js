@@ -8,9 +8,9 @@
       $scope.menuItems=[
         {url:"home",label:"Kezdőlap"},
         {url:"recipes",label:"Receptek"},
-        {url:"",label:""},
-        {url:"",label:""},
-        {url:"",label:""},
+        // {url:"",label:""},
+        // {url:"",label:""},
+        // {url:"",label:""},
       ];
     }
   ]);
