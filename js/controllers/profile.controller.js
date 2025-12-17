@@ -41,9 +41,10 @@
         })
         .then(response=>{
           console.log(response);
-          $rootScope.user.password=$scope.password;
+          $rootScope.user.password=$scope.password
           $scope.password=null;
           $scope.passwordConfirm=null;
+          $scope.currentPassword=null;
           $rootScope.$applyAsync();
           $scope.$applyAsync();
         })
