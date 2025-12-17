@@ -9,14 +9,15 @@
     '$rootScope',
     function($scope, $state, http, $rootScope) {
       console.log($state.current.name)
+      //check if user logged in
       if (!$rootScope.user) {
         $state.go("home");
       }
+
       //delete account
       $scope.deleteAccountClick=()=>{
         let question=confirm("biztos kiakarod törölni?")
         if (question) {
-          //account delete
           http.request({
             url:"./php/deleteAccount.php",
             data:$rootScope.user,
@@ -33,6 +34,7 @@
 
         }
       }
+
       //change password
       $scope.changePasswordClick=()=>{
         http.request({

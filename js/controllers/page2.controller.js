@@ -4,7 +4,8 @@
   angular.module('app')
   .controller('page2Controller', [
     '$scope',
-    function($scope) {
+    '$state',
+    function($scope,$state) {
       console.log($state.current.name);
     }
   ]);

@@ -8,7 +8,7 @@
     'http',
     '$rootScope',
     function($scope, $state, http, $rootScope) {
-      console.log($state.current.name)
+      console.log($state.current.name);
       $scope.registerClick=()=>{
         http.request({
           url:"./php/register.php",
