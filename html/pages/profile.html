@@ -1,7 +1,7 @@
 <div class="min-vh-100 bg-white py-5">
   <div class="container px-4 px-lg-5">
 
-    <!-- Fejléc -->
+    <!-- Header -->
     <div class="text-center mb-5">
       <h1 class="fw-bold display-4 text-white">
         <span class="text-warning">Flavour</span>
@@ -12,17 +12,14 @@
     <!-- Row -->
     <div class="row justify-content-center">
       <div class="col-12 col-lg-11 col-xl-10 mx-auto">
-
         <div class="bg-dark border 
                     border-warning rounded-4 
                     shadow-lg p-4 p-md-5">
-
           <!-- Row -->
           <div class="row g-5">
 
-            <!-- BAL: Avatar + gombok -->
+            <!-- Profile picture and buttons -->
             <div class="col-12 col-md-5 col-lg-4 text-center text-md-start">
-
               <div  class=" mx-auto mx-md-0 
                             bg-secondary 
                             border border-4 
@@ -35,7 +32,7 @@
               </div>
 
 
-              <!-- Gombok -->
+              <!-- Buttons for homepage and delete account -->
               <div class="d-grid gap-3">
                 <button class=" btn btn-warning 
                                 btn-lg fw-bold 
@@ -61,6 +58,7 @@
               <h4 class="text-warning fw-bold mb-4">Személyes adataim</h4>
 
               <div class="row g-4 mb-5">
+                <!-- Username -->
                 <div class="col-12 col-md-6">
                   <label class="text-white-50 small text-uppercase fw-semibold">
                     Felhasználónév
@@ -72,6 +70,8 @@
                          value="{{ user.username }}"
                          readonly>
                 </div>
+
+                <!-- Email -->
                 <div class="col-12 col-md-6">
                   <label class="text-white-50 small text-uppercase fw-semibold">
                     Email cím
@@ -84,7 +84,7 @@
                          readonly>
                 </div>
 
-                <!-- Csatlakozva -->
+                <!-- Date of register -->
                 <div class="col-12 col-md-6">
                   <label class="text-white-50 small text-uppercase fw-semibold">
                     Csatlakozva
@@ -102,6 +102,7 @@
 
               <h5 class="text-warning fw-bold mb-4">Jelszó módosítása</h5>
 
+              <!-- Password change -->
               <div class="row g-4">
                 <div class="col-12 col-md-6">
                   <input type="text"
@@ -135,6 +136,7 @@
                 </div>
               </div>
 
+              <!-- Button for password change confirm -->
               <button class="btn btn-outline-warning px-5 py-3 fw-bold mt-4"
                       ng-click="changePasswordClick()"
                       ng-disabled=" !password ||
