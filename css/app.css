@@ -1,0 +1,11 @@
+.avatar-overlay{
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    cursor: pointer;
+}
+.imgUpload:hover .avatar-overlay{
+    opacity: 1;
+}
+.imgUpload:hover .profilePicture{
+    opacity: 0.5;
+}
