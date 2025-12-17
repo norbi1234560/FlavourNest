@@ -3,11 +3,8 @@
 
   angular.module('app')
   .controller('recipesController', [
-    '$scope',
     '$state',
-    '$timeout',
-    '$rootScope',
-    function($scope, $state, $timeout, $rootScope) {
+    function($state) {
       console.log($state.current.name);
       
     }

@@ -77,7 +77,6 @@
     function($rootScope,$state) {
       console.log('Run...');
       
-
       $rootScope.logoutClick=()=>{
         $rootScope.user=null;
         $rootScope.$applyAsync();
