@@ -17,7 +17,7 @@ $queryCheck = "SELECT * FROM `users`
 $existingUser = $db->execute($queryCheck, $params);
 
 if (!is_null($existingUser)) {
-    Util::setResponse("foglalt email vagy felhasználónév");
+    Util::setResponse(false);
 }
 
 $params2 = [

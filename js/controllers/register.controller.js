@@ -15,11 +15,17 @@
           data:$scope.user,
         })
         .then(response=>{
-          console.log(response);
-          alert("sikeres regisztráció");
-          $rootScope.user=response[0];
-          $rootScope.$applyAsync();
-          $state.go("home");
+          if (response==false) {
+            alert("foglalt email vagy jelszó");
+          }
+          else{
+            console.log(response);
+            alert("sikeres regisztráció");
+            $rootScope.user=response[0];
+            $rootScope.$applyAsync();
+            $state.go("home");
+          }
+          
         })
         .catch(e=> console.error(e))
         
