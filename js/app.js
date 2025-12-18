@@ -77,15 +77,6 @@
     function($rootScope,$state) {
       console.log('Run...');
       
-      $rootScope.logoutClick=()=>{
-        $rootScope.user=null;
-        $rootScope.$applyAsync();
-        setTimeout(() => {
-          alert("sikeres kijentkezés");
-          $state.go("home");
-        }, 50);
-      }
-      
     }
   ]);
 

@@ -6,7 +6,7 @@
     '$scope',
     '$rootScope',
     function($scope,$rootScope) {
-      //ideiglenes csak azért van hogy ne kelljen folyton bejelentkezni így könnyebb a bugfixelés
+      //ideiglenes csak azért van hogy ne kelljen folyton bejelentkezni így könnyebb volt a profile html designját megnézni
       $scope.searchClick=()=>{
         $rootScope.user={
           "id": 1,
@@ -17,6 +17,15 @@
           "avatar": "speed-ishowspeed.gif"
         }
         $rootScope.$applyAsync();
+      }
+
+      $rootScope.logoutClick=()=>{
+        $rootScope.user=null;
+        $rootScope.$applyAsync();
+        setTimeout(() => {
+          alert("sikeres kijentkezés");
+          $state.go("home");
+        }, 50);
       }
     }
   ]);
