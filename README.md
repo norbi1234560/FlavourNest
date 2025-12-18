@@ -1,5 +1,8 @@
 # FLAVOURNEST
 
+### Rövid oldal leírás
+Egy weboldal teli receptekkel
+
 ### Tags:
 
 -   Répa Norbert
