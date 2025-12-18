@@ -16,7 +16,7 @@
         })
         .then(response=>{
           if (response==false) {
-            alert("foglalt email vagy jelszó");
+            alert("foglalt email vagy felhasználónév");
           }
           else{
             console.log(response);

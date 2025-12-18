@@ -14,7 +14,7 @@
           "email": "admin@aa.com",
           "password": "adminadmin",
           "created_at": "2025-11-11 06:30:36",
-          "avatar": "batman1teeth.webp"
+          "avatar": "speed-ishowspeed.gif"
         }
         $rootScope.$applyAsync();
       }
