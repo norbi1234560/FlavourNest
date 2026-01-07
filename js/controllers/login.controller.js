@@ -9,6 +9,7 @@
     '$rootScope',
     function($scope, http, $state, $rootScope) {
       console.log($state.current.name);
+      
       //login
       $scope.loginClick=()=>{
         http.request({

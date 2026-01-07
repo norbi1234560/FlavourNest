@@ -9,6 +9,7 @@
     '$rootScope',
     function($scope, $state, http, $rootScope) {
       console.log($state.current.name)
+      
       //check if user logged in
       if (!$rootScope.user) {
         $state.go("home");

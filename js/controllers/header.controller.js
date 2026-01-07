@@ -6,6 +6,7 @@
     '$scope',
     '$rootScope',
     function($scope,$rootScope) {
+      
       //ideiglenes csak azért van hogy ne kelljen folyton bejelentkezni így könnyebb volt a profile html designját megnézni
       $scope.searchClick=()=>{
         $rootScope.user={
@@ -18,6 +19,7 @@
         }
         $rootScope.$applyAsync();
       }
+      
       //logout
       $rootScope.logoutClick=()=>{
         $rootScope.user=null;
