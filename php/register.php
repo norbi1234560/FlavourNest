@@ -39,4 +39,4 @@ $result2= $db->execute("SELECT * FROM `users` WHERE `id`=:id",$params3);
 
 $db = null;
 
-Util::setResponse($result2);
+Util::setResponse($result);

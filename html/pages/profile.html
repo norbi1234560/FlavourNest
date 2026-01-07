@@ -157,7 +157,7 @@
                 <button class="btn btn-outline-warning px-5 py-3 fw-bold"
                         ng-click="changePasswordClick()"
                         ng-disabled="!user.password || !password ||
-                                     password.length < 8 ||
+                                     password.length &lt; 8 ||
                                      password !== passwordConfirm||
                                      currentPassword!==user.password">
                   Jelszó módosítása

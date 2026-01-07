@@ -55,6 +55,7 @@
                               focus-ring-warning"
                        placeholder="pelda@konyha.hu"
                        ng-model="user.email"
+                       autocomplete="email"
                        required>
               </div>
             </div>
@@ -87,7 +88,8 @@
                        ng-model="user.password"
                        required
                        minlength="8"
-                       maxlength="100">
+                       maxlength="100"
+                       autocomplete="current-password">
                 <button type="button"
                         class="btn bg-secondary border-warning text-warning"
                         ng-click="showPassword = !showPassword">

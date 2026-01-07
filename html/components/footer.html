@@ -17,7 +17,9 @@
       <!-- Quick Links -->
       <div class="col-lg-4 mb-4 mb-lg-0">
         <h5 class="fw-semibold mb-3">Gyorslinkek</h5>
-        <ul class="list-unstyled">
+        <ul class="list-unstyled"
+            ng-init="menuItems=[{url:'home',label:'Kezdőlap'},
+                                {url:'recipes',label:'Receptek'}]">
           <li class="mb-2" ng-repeat="item in menuItems">
             <a ui-sref="{{ item.url }}" 
                class="text-light 

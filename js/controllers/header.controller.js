@@ -7,7 +7,8 @@
     '$rootScope',
     function($scope,$rootScope) {
       
-      //ideiglenes csak azért van hogy ne kelljen folyton bejelentkezni így könnyebb volt a profile html designját megnézni
+      //ideiglenes csak azért van hogy ne kelljen folyton bejelentkezni 
+      // így könnyebb volt a profile html designját megnézni
       $scope.searchClick=()=>{
         $rootScope.user={
           "id": 1,
