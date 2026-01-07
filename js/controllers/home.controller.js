@@ -6,7 +6,6 @@
     '$state',
     function($state) {
       console.log($state.current.name);
-
     }
   ]);
 

@@ -17,16 +17,12 @@
           data:$scope.user,
         })
         .then(response=>{
-          if (response==null) {
-            alert("helytelen jelszó vagy email cím");
-          }
-          else{
             $rootScope.user=response[0];
+            console.log(response);
             $rootScope.$applyAsync();
             $state.go("home");
-          }
         })
-        .catch(e=> console.error(e));
+        .catch(e=> alert(e));
       }
     }
   ]);

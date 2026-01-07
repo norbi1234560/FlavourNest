@@ -17,25 +17,13 @@ $queryCheck = "SELECT * FROM `users`
 $existingUser = $db->execute($queryCheck, $params);
 
 if (!is_null($existingUser)) {
-    Util::setResponse(false);
+    Util::setError("Már létezik ilyen nevű vagy email című felhasználó");
 }
 
-$params2 = [
-    ':username' => $args['username'],
-    ':email'    => $args['email'],
-    ':password'    => $args['password'],
-];
+$query = "INSERT INTO `users` (`username`, `email`, `password`,`created_at`)
+                VALUES (:username, :email, :password, :created_at)";
 
-$query = "INSERT INTO `users` (`username`, `email`, `password`)
-                VALUES (:username, :email, :password)";
-
-$result = $db->execute($query, $params2);
-
-$params3 = [
-    ':id' => $result["firstInsertId"]
-];
-
-$result2= $db->execute("SELECT * FROM `users` WHERE `id`=:id",$params3);
+$result = $db->execute($query,$args);
 
 $db = null;
 
