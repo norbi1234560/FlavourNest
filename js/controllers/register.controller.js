@@ -18,9 +18,7 @@
         dateYear=date.getFullYear(),
         dateMonth=date.getMonth(),
         dateDay=date.getDate(),
-        created_at=`${dateYear}-${(dateMonth+1).toString().padStart(2,"0")}-${dateDay.toString().padStart(2,"0")}`;
-        console.log(created_at);    
-
+        created_at=`${dateYear}-${(dateMonth+1).toString().padStart(2,"0")}-${dateDay.toString().padStart(2,"0")}`; 
         
         http.request({
           url:"./php/register.php",
@@ -30,7 +28,7 @@
                   created_at:created_at
         }})
         .then(response=>{
-        alert("sikeres regisztráció");
+          alert("sikeres regisztráció");
           $rootScope.user=$scope.user;
           $rootScope.user.id=response["lastInsertId"];
           $rootScope.user.created_at=created_at;
