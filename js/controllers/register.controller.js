@@ -9,6 +9,7 @@
     '$rootScope',
     function($scope, $state, http, $rootScope) {
       console.log($state.current.name);
+      //register
       $scope.registerClick=()=>{
         http.request({
           url:"./php/register.php",

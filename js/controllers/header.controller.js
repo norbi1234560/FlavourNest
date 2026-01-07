@@ -18,7 +18,7 @@
         }
         $rootScope.$applyAsync();
       }
-
+      //logout
       $rootScope.logoutClick=()=>{
         $rootScope.user=null;
         $rootScope.$applyAsync();
