@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Dec 16. 10:47
+-- Létrehozás ideje: 2026. Jan 07. 07:47
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -20,11 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Adatbázis: `flavournest`
 --
-DROP DATABASE IF EXISTS flavournest;
-CREATE DATABASE flavournest
-  CHARACTER SET utf8mb4
-  COLLATE utf8mb4_general_ci;
-USE flavournest;
+
 -- --------------------------------------------------------
 
 --
@@ -91,6 +87,27 @@ CREATE TABLE `ratings` (
   `score` tinyint(4) NOT NULL CHECK (`score` between 1 and 5),
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- A tábla adatainak kiíratása `ratings`
+--
+
+INSERT INTO `ratings` (`id`, `recipe_id`, `user_id`, `score`, `created_at`) VALUES
+(1, 1, 1, 5, '2026-01-07 06:40:32'),
+(2, 1, 3, 4, '2026-01-07 06:40:32'),
+(3, 1, 4, 3, '2026-01-07 06:40:32'),
+(4, 1, 5, 2, '2026-01-07 06:40:32'),
+(5, 1, 7, 1, '2026-01-07 06:40:32'),
+(6, 2, 1, 4, '2026-01-07 06:40:32'),
+(7, 2, 3, 5, '2026-01-07 06:40:32'),
+(8, 2, 4, 4, '2026-01-07 06:40:32'),
+(9, 2, 5, 3, '2026-01-07 06:40:32'),
+(10, 2, 7, 2, '2026-01-07 06:40:32'),
+(11, 3, 1, 3, '2026-01-07 06:40:32'),
+(12, 3, 3, 4, '2026-01-07 06:40:32'),
+(13, 3, 4, 5, '2026-01-07 06:40:32'),
+(14, 3, 5, 2, '2026-01-07 06:40:32'),
+(15, 3, 7, 1, '2026-01-07 06:40:32');
 
 -- --------------------------------------------------------
 
@@ -246,8 +263,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `created_at`, `avatar`) VALUES
-(1, 'admin', 'admin@aa.com', 'adminadmin', '2025-11-11 05:30:36', 'random.jpg'),
-(3, 'chefanna', 'anna@example.com', 'annaanna', '2025-11-11 05:30:36', NULL),
+(1, 'admin', 'admin@aa.com', 'adminadmin', '2025-11-11 05:30:36', '200w.gif'),
+(3, 'chefanna', 'anna@aa.com', 'annaanna', '2025-11-11 05:30:36', NULL),
 (4, 'foodiejoe', 'joe@example.com', 'joe', '2025-11-11 05:30:36', NULL),
 (5, 'mariacook', 'maria@example.com', 'maria', '2025-11-11 05:30:36', NULL),
 (7, 'meseljrola', 'adawdaw@aa.aa', '11111111111111', '2025-12-11 08:24:06', NULL),
@@ -259,7 +276,8 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `created_at`, `avata
 (20, 'mawelsjeorla', 'awdawdawda@aa.aaa', '11111111111111', '2025-12-11 10:48:55', NULL),
 (23, 'melsaenawkl', 'asdasda@aa.aa', 'adminadmin', '2025-12-11 12:35:50', NULL),
 (24, 'meslejkorla', 'awdawdawd@aa.aa', 'adminadmin', '2025-12-11 12:36:26', NULL),
-(26, 'meseljrola123', 'dawnkldanwldnaw@aa.aa', 'adminadmin', '2025-12-16 06:49:38', NULL);
+(26, 'meseljrola123', 'dawnkldanwldnaw@aa.aa', 'adminadmin', '2025-12-16 06:49:38', NULL),
+(27, 'adminadmin', 'admin@aa.com2', 'adminadmin', '2025-12-18 08:41:11', NULL);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -356,7 +374,7 @@ ALTER TABLE `ingredients`
 -- AUTO_INCREMENT a táblához `ratings`
 --
 ALTER TABLE `ratings`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT a táblához `recipes`
@@ -386,7 +404,7 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT a táblához `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Megkötések a kiírt táblákhoz
