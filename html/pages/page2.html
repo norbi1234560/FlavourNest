@@ -1,29 +1,67 @@
-<div class="min-vh-100 bg-light py-5">
+<div class="min-vh-100 py-5" style="background-color: #fff8e1;">
   <div class="container px-4 px-lg-5 py-4 bg-white shadow-lg rounded-4">
 
-    <!-- Recipe title -->
+    <!-- Header Section -->
     <div class="text-center mb-5 pt-3">
-      <h1 class="fw-bold display-5 text-dark mb-4">Palacsinta</h1>
+      <!-- Category Badge -->
       <div class="mb-4">
-        <img src="./media/avatar/speed-ishowspeed.gif" alt="Palacsinta" class="img-fluid rounded-4 shadow-lg recipe-image" style="max-height: 400px; object-fit: cover;">
+        <span class="badge bg-warning text-dark fs-6 px-4 py-2 rounded-pill mb-3">
+          <i class="bi bi-award me-1"></i>Klasszikus Recept
+        </span>
+        <h1 class="fw-bold display-4 text-dark mb-3">Palacsinta</h1>
+        <p class="lead text-muted mb-4">Hagyományos magyar palacsinta tökéletes állaggal - egyszerűen és gyorsan elkészíthető</p>
       </div>
-      <p class="lead text-muted mb-3">Klasszikus magyar palacsinta recept - könnyen és gyorsan elkészíthető</p>
-      <div class="row justify-content-center g-4 mt-4">
-        <div class="col-auto">
-          <div class="d-flex align-items-center">
-            <i class="bi bi-clock text-warning me-2 fs-5"></i>
-            <div>
-              <div class="fw-bold">Elkészítési idő</div>
-              <div class="text-muted">20 perc</div>
+
+      <!-- Image -->
+      <div class="mb-5">
+        <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow">
+          <img src="./media/avatar/speed-ishowspeed.gif" alt="Palacsinta" class="img-fluid object-fit-cover">
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="row justify-content-center g-3 mb-4">
+        <div class="col-6 col-md-3">
+          <div class="card h-100 border-0 bg-light shadow-sm">
+            <div class="card-body text-center py-3">
+              <div class="text-warning mb-2">
+                <i class="bi bi-clock fs-4"></i>
+              </div>
+              <h5 class="fw-bold mb-1 fs-6">Elkészítési idő</h5>
+              <p class="text-muted mb-0">20 perc</p>
             </div>
           </div>
         </div>
-        <div class="col-auto">
-          <div class="d-flex align-items-center">
-            <i class="bi bi-people text-warning me-2 fs-5"></i>
-            <div>
-              <div class="fw-bold">Adag</div>
-              <div class="text-muted">4 személy</div>
+        <div class="col-6 col-md-3">
+          <div class="card h-100 border-0 bg-light shadow-sm">
+            <div class="card-body text-center py-3">
+              <div class="text-warning mb-2">
+                <i class="bi bi-people fs-4"></i>
+              </div>
+              <h5 class="fw-bold mb-1 fs-6">Adag</h5>
+              <p class="text-muted mb-0">4 személy</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="card h-100 border-0 bg-light shadow-sm">
+            <div class="card-body text-center py-3">
+              <div class="text-warning mb-2">
+                <i class="bi bi-bar-chart fs-4"></i>
+              </div>
+              <h5 class="fw-bold mb-1 fs-6">Nehézség</h5>
+              <p class="text-muted mb-0">Könnyű</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="card h-100 border-0 bg-light shadow-sm">
+            <div class="card-body text-center py-3">
+              <div class="text-warning mb-2">
+                <i class="bi bi-egg fs-4"></i>
+              </div>
+              <h5 class="fw-bold mb-1 fs-6">Tészta</h5>
+              <p class="text-muted mb-0">Folyékony</p>
             </div>
           </div>
         </div>
@@ -31,151 +69,216 @@
     </div>
 
     <!-- Tags -->
-    <div class="mb-5 text-center">
-      <h5 class="mb-3 text-secondary">Kategóriák</h5>
+    <div class="mb-5">
+      <h5 class="text-center text-secondary mb-4"><i class="bi bi-tags me-2"></i>Kategóriák</h5>
       <div class="d-flex flex-wrap justify-content-center gap-2">
-        <span class="badge bg-warning text-dark fs-6 py-2 px-3 rounded-pill">
+        <span class="badge bg-warning bg-opacity-25 text-dark fs-6 py-2 px-3 rounded-pill">
           <i class="bi bi-cup-straw me-1"></i> Desszert
         </span>
-        <span class="badge bg-warning text-dark fs-6 py-2 px-3 rounded-pill">
+        <span class="badge bg-warning bg-opacity-25 text-dark fs-6 py-2 px-3 rounded-pill">
           <i class="bi bi-sun me-1"></i> Reggeli
         </span>
-        <span class="badge bg-warning text-dark fs-6 py-2 px-3 rounded-pill">
+        <span class="badge bg-warning bg-opacity-25 text-dark fs-6 py-2 px-3 rounded-pill">
           <i class="bi bi-lightning me-1"></i> Gyors
+        </span>
+        <span class="badge bg-warning bg-opacity-25 text-dark fs-6 py-2 px-3 rounded-pill">
+          <i class="bi bi-heart me-1"></i> Családi
         </span>
       </div>
     </div>
 
-    <!-- Ingredients -->
-    <div class="mb-5">
-      <div class="d-flex align-items-center mb-4">
-        <i class="bi bi-basket2-fill text-warning fs-3 me-3"></i>
-        <h4 class="mb-0 fw-bold">Hozzávalók</h4>
-      </div>
-      <div class="row">
-        <div class="col-md-8 col-lg-6">
-          <div class="list-group shadow-sm rounded-3">
-            <div class="list-group-item d-flex justify-content-between align-items-center py-3 border-0">
-              <div>
-                <i class="bi bi-circle-fill text-warning me-3" style="font-size: 0.5rem;"></i>
-                <span class="fw-medium">Liszt</span>
-              </div>
-              <span class="badge bg-warning text-dark rounded-pill px-3 py-2">200 g</span>
+    <div class="row g-4">
+      <!-- Left Column - Ingredients -->
+      <div class="col-lg-4">
+        <!-- Ingredients Card -->
+        <div class="card border-0 shadow-sm mb-4">
+          <div class="card-header bg-warning text-white border-0 rounded-top">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-basket2-fill fs-4 me-3"></i>
+              <h4 class="mb-0 fw-bold">Hozzávalók</h4>
             </div>
-            <div class="list-group-item d-flex justify-content-between align-items-center py-3 border-top">
-              <div>
-                <i class="bi bi-circle-fill text-warning me-3" style="font-size: 0.5rem;"></i>
-                <span class="fw-medium">Cukor</span>
-              </div>
-              <span class="badge bg-warning text-dark rounded-pill px-3 py-2">30 g</span>
+            <p class="mb-0 mt-1 small opacity-90">4 személyre, kb. 8-10 palacsinta</p>
+          </div>
+          <div class="card-body p-0">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                <div>
+                  <span class="fw-bold">Liszt</span>
+                  <div class="text-muted small">Finom liszt</div>
+                </div>
+                <span class="badge bg-warning bg-opacity-25 text-dark px-3 py-2">200 g</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                <div>
+                  <span class="fw-bold">Cukor</span>
+                  <div class="text-muted small">Finom cristal</div>
+                </div>
+                <span class="badge bg-warning bg-opacity-25 text-dark px-3 py-2">30 g</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                <div>
+                  <span class="fw-bold">Só</span>
+                  <div class="text-muted small">Ízlés szerint</div>
+                </div>
+                <span class="badge bg-warning bg-opacity-25 text-dark px-3 py-2">2 g</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                <div>
+                  <span class="fw-bold">Tojás</span>
+                  <div class="text-muted small">M-es méret</div>
+                </div>
+                <span class="badge bg-warning bg-opacity-25 text-dark px-3 py-2">2 db</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                <div>
+                  <span class="fw-bold">Tej</span>
+                  <div class="text-muted small">2,8% zsírtartalom</div>
+                </div>
+                <span class="badge bg-warning bg-opacity-25 text-dark px-3 py-2">300 ml</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                <div>
+                  <span class="fw-bold">Vaj</span>
+                  <div class="text-muted small">Sütéshez</div>
+                </div>
+                <span class="badge bg-warning bg-opacity-25 text-dark px-3 py-2">20 g</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Tips Card -->
+        <div class="card border-warning">
+          <div class="card-header bg-white border-warning">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-lightbulb-fill text-warning fs-4 me-3"></i>
+              <h5 class="mb-0 fw-bold">Szakács tippek</h5>
             </div>
-            <div class="list-group-item d-flex justify-content-between align-items-center py-3 border-top">
-              <div>
-                <i class="bi bi-circle-fill text-warning me-3" style="font-size: 0.5rem;"></i>
-                <span class="fw-medium">Só</span>
+          </div>
+          <div class="card-body">
+            <div class="d-flex mb-3">
+              <div class="bg-warning bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 32px; height: 32px;">
+                <i class="bi bi-hourglass-split text-warning"></i>
               </div>
-              <span class="badge bg-warning text-dark rounded-pill px-3 py-2">2 g</span>
+              <div class="small">Hagyd pihenni a tésztát 10-15 percet</div>
             </div>
-            <div class="list-group-item d-flex justify-content-between align-items-center py-3 border-top">
-              <div>
-                <i class="bi bi-circle-fill text-warning me-3" style="font-size: 0.5rem;"></i>
-                <span class="fw-medium">Tojás</span>
+            <div class="d-flex mb-3">
+              <div class="bg-warning bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 32px; height: 32px;">
+                <i class="bi bi-water text-warning"></i>
               </div>
-              <span class="badge bg-warning text-dark rounded-pill px-3 py-2">2 db</span>
+              <div class="small">Szódavíz helyettesítheti a tejet</div>
             </div>
-            <div class="list-group-item d-flex justify-content-between align-items-center py-3 border-top">
-              <div>
-                <i class="bi bi-circle-fill text-warning me-3" style="font-size: 0.5rem;"></i>
-                <span class="fw-medium">Tej</span>
+            <div class="d-flex">
+              <div class="bg-warning bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 32px; height: 32px;">
+                <i class="bi bi-snow text-warning"></i>
               </div>
-              <span class="badge bg-warning text-dark rounded-pill px-3 py-2">300 ml</span>
-            </div>
-            <div class="list-group-item d-flex justify-content-between align-items-center py-3 border-top border-bottom">
-              <div>
-                <i class="bi bi-circle-fill text-warning me-3" style="font-size: 0.5rem;"></i>
-                <span class="fw-medium">Vaj</span>
-              </div>
-              <span class="badge bg-warning text-dark rounded-pill px-3 py-2">20 g</span>
+              <div class="small">Hűtőben tárolva friss marad</div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Steps -->
-    <div class="mb-5">
-      <div class="d-flex align-items-center mb-4">
-        <i class="bi bi-list-ol text-warning fs-3 me-3"></i>
-        <h4 class="mb-0 fw-bold">Elkészítés</h4>
-      </div>
-      <div class="row">
-        <div class="col-lg-10">
-          <div class="list-group shadow-sm rounded-3">
-            <div class="list-group-item border-0 py-4">
+      <!-- Right Column - Steps & Comments -->
+      <div class="col-lg-8">
+        <!-- Steps Card -->
+        <div class="card border-0 shadow-sm mb-4">
+          <div class="card-header bg-dark text-white border-0 rounded-top">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-list-ol fs-4 me-3"></i>
+              <h4 class="mb-0 fw-bold">Elkészítés lépésről lépésre</h4>
+            </div>
+          </div>
+          <div class="card-body p-0">
+            <!-- Step 1 -->
+            <div class="p-4">
               <div class="d-flex">
-                <div class="bg-warning text-white rounded-circle d-flex align-items-center justify-content-center me-4" style="width: 40px; height: 40px;">
+                <div class="bg-warning text-white rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 40px; height: 40px;">
                   <strong>1</strong>
                 </div>
-                <div class="flex-grow-1">
-                  <h5 class="fw-bold mb-2">Lisztes alap elkészítése</h5>
+                <div>
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h5 class="fw-bold mb-0">Lisztes alap elkészítése</h5>
+                    <span class="badge bg-warning bg-opacity-25 text-dark">5 perc</span>
+                  </div>
                   <p class="mb-0">A lisztet, cukrot és sót egy tálban jól elkeverjük. Használhatsz szitát is a liszthez, így a tészta simább lesz.</p>
+                  <div class="mt-3 p-3 bg-warning bg-opacity-10 rounded">
+                    <small class="text-muted"><i class="bi bi-info-circle me-1"></i> Használj mély tálat a könnyebb keveréshez</small>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="list-group-item border-top py-4">
+            
+            <hr class="m-0">
+            
+            <!-- Step 2 -->
+            <div class="p-4">
               <div class="d-flex">
-                <div class="bg-warning text-white rounded-circle d-flex align-items-center justify-content-center me-4" style="width: 40px; height: 40px;">
+                <div class="bg-warning text-white rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 40px; height: 40px;">
                   <strong>2</strong>
                 </div>
-                <div class="flex-grow-1">
-                  <h5 class="fw-bold mb-2">Tésztához való folyadék hozzáadása</h5>
-                  <p class="mb-0">Adj hozzá a tojásokat és fokozatosan keverd hozzá a tejet. Fontos, hogy folyamatosan keverd, hogy ne keletkezzenek csomók. A tészta állaga folyós, de nem vékony legyen.</p>
+                <div>
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h5 class="fw-bold mb-0">Tésztához való folyadék hozzáadása</h5>
+                    <span class="badge bg-warning bg-opacity-25 text-dark">5 perc</span>
+                  </div>
+                  <p class="mb-0">Adj hozzá a tojásokat és fokozatosan keverd hozzá a tejet. Fontos, hogy folyamatosan keverd, hogy ne keletkezzenek csomók.</p>
+                  <div class="mt-3 p-3 bg-warning bg-opacity-10 rounded">
+                    <small class="text-muted"><i class="bi bi-info-circle me-1"></i> A tészta állaga olyan legyen, mint a sűrű tejszín</small>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="list-group-item border-top border-bottom py-4">
+            
+            <hr class="m-0">
+            
+            <!-- Step 3 -->
+            <div class="p-4">
               <div class="d-flex">
-                <div class="bg-warning text-white rounded-circle d-flex align-items-center justify-content-center me-4" style="width: 40px; height: 40px;">
+                <div class="bg-warning text-white rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 40px; height: 40px;">
                   <strong>3</strong>
                 </div>
-                <div class="flex-grow-1">
-                  <h5 class="fw-bold mb-2">Sütés</h5>
-                  <p class="mb-0">Egy serpenyőt kevés vajjal vagy olajjal kivékezünk, közepes lángon felmelegítjük. Mindkét oldalát pirosra sütjük. Tipp: Az első palacsinta mindig próba, állítsd be a hőmérsékletet és a tészta mennyiségét.</p>
+                <div>
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h5 class="fw-bold mb-0">Sütés és tálalás</h5>
+                    <span class="badge bg-warning bg-opacity-25 text-dark">10 perc</span>
+                  </div>
+                  <p class="mb-0">Egy serpenyőt kevés vajjal vagy olajjal kivékezünk, közepes lángon felmelegítjük. Mindkét oldalát pirosra sütjük.</p>
+                  <div class="mt-3">
+                    <h6 class="fw-bold text-warning mb-2"><i class="bi bi-egg-fried me-1"></i>Tálalási ötletek:</h6>
+                    <div class="d-flex flex-wrap gap-2">
+                      <span class="badge bg-warning bg-opacity-10 text-dark py-2">Lekváros</span>
+                      <span class="badge bg-warning bg-opacity-10 text-dark py-2">Nutellás</span>
+                      <span class="badge bg-warning bg-opacity-10 text-dark py-2">Tejfölös</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Tips -->
-    <div class="mb-5 p-4 bg-warning bg-opacity-10 rounded-4 border border-warning border-opacity-25">
-      <div class="d-flex align-items-center mb-3">
-        <i class="bi bi-lightbulb-fill text-warning fs-3 me-3"></i>
-        <h5 class="mb-0 fw-bold">Tippek és trükkök</h5>
-      </div>
-      <ul class="list-unstyled mb-0">
-        <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i> Hagyd pihenni a tésztát 10-15 percet, így eltűnnek a lehetséges levegőbuborékok</li>
-        <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i> Szódavíz egy részét felhasználhatod tej helyett, így könnyebb lesz a palacsinta</li>
-        <li><i class="bi bi-check-circle-fill text-warning me-2"></i> Érlelt palacsintát hűtőben tárolj és másnapra is friss marad</li>
-      </ul>
-    </div>
-
-    <!-- Comments -->
-    <div class="mb-5">
-      <div class="d-flex align-items-center mb-4">
-        <i class="bi bi-chat-dots-fill text-warning fs-3 me-3"></i>
-        <h4 class="mb-0 fw-bold">Vélemények</h4>
-      </div>
-      <div class="row g-4">
-        <div class="col-lg-8">
-          <div class="card border-0 shadow-sm mb-3">
-            <div class="card-body">
+        <!-- Comments Section -->
+        <div class="card border-0 shadow-sm">
+          <div class="card-header bg-white border-0">
+            <div class="d-flex align-items-center justify-content-between">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-chat-dots-fill text-warning fs-4 me-3"></i>
+                <h4 class="mb-0 fw-bold">Vélemények</h4>
+              </div>
+              <div>
+                <span class="badge bg-warning text-white px-3 py-2">4.7 <i class="bi bi-star-fill ms-1"></i></span>
+              </div>
+            </div>
+            <p class="text-muted mb-0 mt-2 small">Már 124 fő kipróbálta ezt a receptet</p>
+          </div>
+          
+          <div class="card-body">
+            <!-- Comment 1 -->
+            <div class="mb-4">
               <div class="d-flex justify-content-between align-items-start mb-2">
                 <div class="d-flex align-items-center">
-                  <div class="bg-warning bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
-                    <i class="bi bi-person-fill text-warning"></i>
+                  <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                    <i class="bi bi-person-fill text-white"></i>
                   </div>
                   <div>
                     <h6 class="mb-0 fw-bold">Anonim</h6>
@@ -191,14 +294,22 @@
                 </div>
               </div>
               <p class="mb-0">Nagyon finom lett, köszönöm a receptet! A család imádta, különösen a gyerekek. Már többször elkészítettem.</p>
+              <div class="mt-2 d-flex align-items-center">
+                <button class="btn btn-sm btn-outline-warning me-2">
+                  <i class="bi bi-hand-thumbs-up"></i> 21
+                </button>
+                <button class="btn btn-sm btn-outline-secondary">
+                  <i class="bi bi-chat"></i> Válasz
+                </button>
+              </div>
             </div>
-          </div>
-          <div class="card border-0 shadow-sm">
-            <div class="card-body">
+            
+            <!-- Comment 2 -->
+            <div class="mb-4">
               <div class="d-flex justify-content-between align-items-start mb-2">
                 <div class="d-flex align-items-center">
-                  <div class="bg-warning bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
-                    <i class="bi bi-person-fill text-warning"></i>
+                  <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                    <i class="bi bi-person-fill text-white"></i>
                   </div>
                   <div>
                     <h6 class="mb-0 fw-bold">Anonim</h6>
@@ -215,16 +326,38 @@
               </div>
               <p class="mb-0">Klasszikus ízvilág, imádom. Pont ilyen palacsintákat készített anyukám is. A tippek nagyon hasznosak voltak!</p>
             </div>
+            
+            <!-- Add Comment Form -->
+            <div class="pt-3 border-top">
+              <h5 class="fw-bold mb-3">Oszd meg véleményed!</h5>
+              <div class="mb-3">
+                <label class="form-label fw-medium">Értékelés</label>
+                <div class="mb-3">
+                  <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-warning"><i class="bi bi-star"></i></button>
+                    <button type="button" class="btn btn-outline-warning"><i class="bi bi-star"></i></button>
+                    <button type="button" class="btn btn-outline-warning"><i class="bi bi-star"></i></button>
+                    <button type="button" class="btn btn-outline-warning"><i class="bi bi-star"></i></button>
+                    <button type="button" class="btn btn-outline-warning"><i class="bi bi-star"></i></button>
+                  </div>
+                </div>
+                <textarea class="form-control" rows="3" placeholder="Írd le véleményed a receptről..."></textarea>
+              </div>
+              <button class="btn btn-warning fw-bold">
+                <i class="bi bi-send me-2"></i>Küldés
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Back button -->
-    <div class="text-center pt-3">
+    <!-- Back Button -->
+    <div class="text-center pt-5 mt-4">
       <a href="index.html" class="btn btn-warning btn-lg fw-bold px-5 py-3 rounded-pill shadow">
         <i class="bi bi-arrow-left me-2"></i> Vissza a receptekhez
       </a>
+      <p class="text-muted mt-3">Könnyű, gyors és finom - tökéletes választás bármilyen alkalomra!</p>
     </div>
 
   </div>
