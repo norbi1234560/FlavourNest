@@ -5,18 +5,19 @@
   .controller('headerController', [
     '$scope',
     '$rootScope',
-    function($scope,$rootScope) {
+    '$state',
+    function($scope,$rootScope,$state) {
       
       //ideiglenes csak azért van hogy ne kelljen folyton bejelentkezni 
       // így könnyebb volt a profile html designját megnézni
       $scope.searchClick=()=>{
         $rootScope.user={
-          "id": 1,
-          "username": "admin",
-          "email": "admin@aa.com",
-          "password": "adminadmin",
-          "created_at": "2025-11-11 06:30:36",
-          "avatar": "speed-ishowspeed.gif"
+          id: 1,
+          username: "admin",
+          email: "admin@aa.com",
+          password: "adminadmin",
+          created_at: "2025-11-11 06:30:36",
+          avatar: "speed-ishowspeed.gif"
         }
         $rootScope.$applyAsync();
       }

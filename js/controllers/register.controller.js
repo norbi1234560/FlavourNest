@@ -18,7 +18,8 @@
         dateYear=date.getFullYear(),
         dateMonth=date.getMonth(),
         dateDay=date.getDate(),
-        created_at=`${dateYear}-${(dateMonth+1).toString().padStart(2,"0")}-${dateDay.toString().padStart(2,"0")}`; 
+        created_at=`${dateYear}-${(dateMonth+1).toString().padStart(2,"0")}
+        -${dateDay.toString().padStart(2,"0")}`; 
         
         http.request({
           url:"./php/register.php",

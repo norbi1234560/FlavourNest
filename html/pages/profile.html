@@ -159,6 +159,7 @@
                         ng-disabled="!user.password || !password ||
                                      password.length &lt; 8 ||
                                      password !== passwordConfirm||
+                                     password  == currentPassword||
                                      currentPassword!==user.password">
                   Jelszó módosítása
                 </button>

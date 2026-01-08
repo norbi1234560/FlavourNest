@@ -5,10 +5,7 @@
   .controller('footerController', [
     '$scope',
     function($scope) {
-      // $scope.menuItems=[
-      //   {url:"home",label:"Kezdőlap"},
-      //   {url:"recipes",label:"Receptek"}
-      // ];
+      
     }
   ]);
 

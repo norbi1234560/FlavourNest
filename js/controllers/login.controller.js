@@ -17,7 +17,7 @@
           data:$scope.user,
         })
         .then(response=>{
-            $rootScope.user=response[0];
+            $rootScope.user=response;
             console.log(response);
             $rootScope.$applyAsync();
             $state.go("home");
