@@ -32,10 +32,11 @@
                 
             <!-- Email -->
             <div class="mb-4">
-              <label class="form-label 
-                            fw-semibold 
-                            text-warning 
-                            fs-5">
+              <label  for="emailInput" 
+                      class=" form-label 
+                              fw-semibold 
+                              text-warning 
+                              fs-5">
                 Email cím
               </label>
               <div class="input-group input-group-lg">
@@ -45,27 +46,29 @@
                               text-warning">
                   <i class="fas fa-envelope"></i>
                 </span>
-                <input type="email"
-                       class="form-control 
-                              form-control-lg 
-                              bg-secondary 
-                              text-white 
-                              border-warning 
-                              focus-ring 
-                              focus-ring-warning"
-                       placeholder="pelda@konyha.hu"
-                       ng-model="user.email"
-                       autocomplete="email"
-                       required>
+                <input  type="email"
+                        id="emailInput"
+                        class="form-control 
+                               form-control-lg 
+                               bg-secondary 
+                               text-white 
+                               border-warning 
+                               focus-ring 
+                               focus-ring-warning"
+                        placeholder="pelda@konyha.hu"
+                        ng-model="user.email"
+                        autocomplete="email"
+                        required>
               </div>
             </div>
 
             <!-- Password -->
             <div class="mb-4">
-              <label class="form-label 
-                            fw-semibold 
-                            text-warning 
-                            fs-5">
+              <label  for="passwordInput" 
+                      class=" form-label 
+                              fw-semibold 
+                              text-warning 
+                              fs-5">
                 Jelszó
               </label>
               <div class="input-group input-group-lg">
@@ -89,7 +92,8 @@
                        required
                        minlength="8"
                        maxlength="100"
-                       autocomplete="current-password">
+                       autocomplete="current-password"
+                       ng-keydown="$event.key === 'Enter' && loginClick()">
                 <button type="button"
                         class="btn bg-secondary border-warning text-warning"
                         ng-click="showPassword = !showPassword">

@@ -19,8 +19,9 @@
 
             <!-- Email -->
             <div class="mb-4">
-              <label class="form-label fw-semibold 
-                            text-warning fs-5">
+              <label  id="emailInput"
+                      class=" form-label fw-semibold 
+                              text-warning fs-5">
                 Email cím
               </label>
 
@@ -30,7 +31,8 @@
                   <i class="fas fa-envelope"></i>
                 </span>
 
-                <input  type="email"
+                <input  id="emailInput"
+                        type="email"
                         class=" form-control bg-secondary 
                                 text-white border-warning"
                         placeholder="pelda@konyha.hu"
@@ -42,7 +44,9 @@
 
             <!-- Username -->
             <div class="mb-4">
-              <label class="form-label fw-semibold text-warning fs-5">
+              <label  for="usernameInput"
+                      class="form-label fw-semibold 
+                            text-warning fs-5">
                 Felhasználónév
               </label>
 
@@ -52,7 +56,8 @@
                   <i class="fas fa-user"></i>
                 </span>
 
-                <input  type="text"
+                <input  id="usernameInput"
+                        type="text"
                         class=" form-control bg-secondary 
                                 text-white border-warning"
                         placeholder="pelda_felhasznalo"
@@ -64,7 +69,9 @@
 
             <!-- Password -->
             <div class="mb-4">
-              <label class="form-label fw-semibold text-warning fs-5">
+              <label  for="passwordInput"
+                      class=" form-label fw-semibold 
+                              text-warning fs-5">
                 Jelszó
               </label>
 
@@ -74,7 +81,8 @@
                   <i class="fas fa-lock"></i>
                 </span>
 
-                <input  type="{{ showPassword ? 'text' : 'password' }}"
+                <input  id="passwordInput"
+                        type="{{ showPassword ? 'text' : 'password' }}"
                         class=" form-control bg-secondary 
                                 text-white border-warning"
                         placeholder="••••••••"
@@ -93,7 +101,9 @@
 
             <!-- Password confirm -->
             <div class="mb-4">
-              <label class="form-label fw-semibold text-warning fs-5">
+              <label  for="passwordConfirmInput"
+                      class=" form-label fw-semibold 
+                              text-warning fs-5">
                 Jelszó újra
               </label>
 
@@ -103,7 +113,8 @@
                   <i class="fas fa-lock"></i>
                 </span>
 
-                <input  type="password"
+                <input  id="passwordConfirmInput"
+                        type="password"
                         class=" form-control bg-secondary 
                                 text-white border-warning"
                         placeholder="••••••••"
@@ -119,6 +130,7 @@
                     class=" btn btn-warning btn-lg w-100 
                             fw-bold text-dark shadow-sm"
                     ng-click="registerClick()"
+                    ng-keydown="$event.key === 'Enter' && registerClick()"
                     ng-disabled=" registerForm.$invalid || 
                                   user.password !== user.passwordConfirm">
               Regisztráció

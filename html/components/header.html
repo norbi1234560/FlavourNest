@@ -25,7 +25,9 @@
       </ul>
 
       <!-- Search form -->
-      <form class="d-flex my-3 my-lg-0 mx-lg-4" ng-submit="searchClick()">
+      <form name="searchForm"
+            class="d-flex my-3 my-lg-0 mx-lg-4" 
+            ng-click="searchClick()">
         <div class="input-group">
           <input class="form-control bg-secondary text-white border-warning"
                  type="search"

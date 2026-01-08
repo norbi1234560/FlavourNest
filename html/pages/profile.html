@@ -30,9 +30,10 @@
                             position-relative avatar-container
                             imgUpload"
                     style="width: 140px; height: 140px; overflow: hidden;">
-                <img class="profilePicture"  
-                     ng-src="{{ user.avatar ? './media/avatar/' + user.avatar : './media/avatar/basic.jpg' }}"
-                     style="width: 100%; height: 100%; object-fit: cover;">
+                <img  alt="Kép"
+                      class="profilePicture"  
+                      ng-src="{{ user.avatar ? './media/avatar/' + user.avatar : './media/avatar/basic.jpg' }}"
+                      style="width: 100%; height: 100%; object-fit: cover;">
 
                 <div class="avatar-overlay position-absolute 
                             top-0 start-0 w-100 h-100 
@@ -72,44 +73,50 @@
                 
                 <!-- Username -->
                 <div class="col-12 col-md-6">
-                  <label class="text-white-50 small 
-                                text-uppercase fw-semibold">
+                  <label  for="usernameInput"
+                          class=" text-white-50 small 
+                                  text-uppercase fw-semibold">
                     Felhasználónév
                   </label>
-                  <input type="text"
-                         class="form-control form-control-lg 
+                  <input  type="text"
+                          id="usernameInput"
+                          class="form-control form-control-lg 
                                 bg-secondary text-white 
                                 border-warning rounded mt-1"
-                         value="{{ user.username }}"
-                         readonly>
+                          value="{{ user.username }}"
+                          readonly>
                 </div>
 
                 <!-- Email -->
                 <div class="col-12 col-md-6">
-                  <label class="text-white-50 small 
-                                text-uppercase fw-semibold">
+                  <label  for="emailInput"
+                          class=" text-white-50 small 
+                                  text-uppercase fw-semibold">
                     Email cím
                   </label>
-                  <input type="email"
-                         class="form-control form-control-lg 
+                  <input  id="emailInput"
+                          type="email"
+                          class="form-control form-control-lg 
                                 bg-secondary text-white 
                                 border-warning rounded mt-1"
-                         value="{{ user.email }}"
-                         readonly>
+                          value="{{ user.email }}"
+                          readonly>
                 </div>
 
                 <!-- registered -->
                 <div class="col-12 col-md-6">
-                  <label class="text-white-50 small 
-                                text-uppercase fw-semibold">
+                  <label  for="createdatInput"
+                          class=" text-white-50 small 
+                                  text-uppercase fw-semibold">
                     Csatlakozva
                   </label>
-                  <input type="text"
-                         class="form-control form-control-lg 
+                  <input  id="createdatInput"
+                          type="text"
+                          class="form-control form-control-lg 
                                 bg-secondary text-white 
                                 border-warning rounded mt-1"
-                         value="{{ user.created_at}}"
-                         readonly>
+                          value="{{ user.created_at}}"
+                          readonly>
                 </div>
               </div>
 
@@ -122,35 +129,50 @@
                 
                 <!-- current password-->
                 <div class="col-12">
-                  <input type="password"
-                         class="form-control form-control-lg 
-                                bg-secondary text-white 
-                                border-warning rounded 
-                                focus-ring focus-ring-warning"
-                         placeholder="Jelenlegi jelszó"
-                         ng-model="currentPassword">
+                  <label class="form-label 
+                                text-white-50"
+                          for="currentPasswordInput">
+                    Jelenlegi jelszó
+                  </label>
+                  <input  id="currentPasswordInput"
+                          type="password"
+                          class=" form-control form-control-lg 
+                                  bg-secondary text-white 
+                                  border-warning rounded"
+                          ng-model="currentPassword">
+                </div>
+              
+                <!-- New password -->
+                <div class="col-12 col-md-6">
+                  <label  for="newPasswordInput"
+                          class=" form-label 
+                                  text-white-50">
+                    Új jelszó
+                  </label>
+                  <input  id="newPasswordInput"
+                          type="password"
+                          class=" form-control form-control-lg 
+                                  bg-secondary text-white 
+                                  border-warning rounded"
+                          ng-model="password">
+                  <small class="text-white-50">Minimum 8 karakter</small>
+                </div>
+              
+                <!-- Confirm password -->
+                <div class="col-12 col-md-6">
+                  <label  for="confirmPasswordInput"
+                          class=" form-label 
+                                  text-white-50">
+                    Új jelszó újra
+                  </label>
+                  <input  id="confirmPasswordInput"
+                          type="password"
+                          class=" form-control form-control-lg 
+                                  bg-secondary text-white 
+                                  border-warning rounded"
+                          ng-model="passwordConfirm">
                 </div>
 
-                <!-- password, password confirm -->
-                <div class="col-12 col-md-6">
-                  <input type="password"
-                         class="form-control form-control-lg 
-                                bg-secondary text-white 
-                                border-warning rounded 
-                                focus-ring focus-ring-warning"
-                         placeholder="Új jelszó (min. 8 karakter)"
-                         ng-model="password">
-                </div>
-                <div class="col-12 col-md-6">
-                  <input type="password"
-                         class="form-control form-control-lg 
-                                bg-secondary text-white 
-                                border-warning rounded 
-                                focus-ring focus-ring-warning"
-                         placeholder="Új jelszó újra"
-                         ng-model="passwordConfirm">
-                </div>
-              </div>
 
               <!-- Button -->
               <div class="mt-4">
