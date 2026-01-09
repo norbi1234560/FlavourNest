@@ -11,8 +11,11 @@
 
       <!-- Image -->
       <div class="mb-5">
-        <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow">
-          <img src="./media/avatar/speed-ishowspeed.gif" alt="Palacsinta" class="img-fluid object-fit-cover">
+        <div class="ratio ratio-16x9 rounded-4 
+                    overflow-hidden shadow">
+          <img  src="./media/avatar/speed-ishowspeed.gif" 
+                alt="Palacsinta" 
+                class="img-fluid object-fit-cover">
         </div>
       </div>
 
@@ -45,9 +48,15 @@
 
     <!-- Tags -->
     <div class="mb-5">
-      <h5 class="text-center text-secondary mb-4"><i class="bi bi-tags me-2"></i>Kategóriák</h5>
+      <h5 class="text-center text-secondary mb-4">
+        <i class="bi bi-tags me-2"></i>Kategóriák
+      </h5>
       <div class="d-flex flex-wrap justify-content-center gap-2">
-        <span ng-repeat="tag in recipe.tags" class="badge bg-warning bg-opacity-25 text-dark fs-6 py-2 px-3 rounded-pill">{{tag}}</span>
+        <span ng-repeat="tag in recipe.tags" 
+              class=" badge bg-warning bg-opacity-25 
+                      text-dark fs-6 py-2 px-3 rounded-pill">
+          {{tag}}
+        </span>
       </div>
     </div>
 
@@ -71,7 +80,8 @@
                 </div>
                 <span class="badge bg-warning bg-opacity-25 text-dark px-3 py-2">200 g</span>
               </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+              <li class=" list-group-item d-flex justify-content-between 
+                          align-items-center py-3">
                 <div>
                   <span class="fw-bold">Cukor</span>
                   <div class="text-muted small">Finom cristal</div>
@@ -125,7 +135,9 @@
             <!-- Step 1 -->
             <div ng-repeat="step in recipe.steps" class="p-4">
               <div class="d-flex">
-                <div class="bg-warning text-white rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 40px; height: 40px;">
+                <div class="bg-warning text-white rounded-circle 
+                            d-flex align-items-center 
+                            justify-content-center me-3 flex-shrink-0" style="width: 40px; height: 40px;">
                   <strong>{{step.position}}</strong>
                 </div>
                 <div>
