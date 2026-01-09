@@ -1,5 +1,23 @@
-<div class="container bg-img bg-img-contain h-100">
-	<div class="row justify-content-center align-items-center h-100">
-		<h1 class="display-3 text-center">recipes</h1>
-	</div>
+<div class="container py-5">
+  <div class="row">
+
+    <!-- Recipe cards -->
+    <div class="col-12 col-md-6 col-lg-3 mb-4" ng-repeat="recipe in recipes">
+      <div class="card h-100">
+
+        <!-- Image -->
+        <img ng-src="{{recipe.image}}" 
+             alt="{{recipe.title}}" 
+             class="card-img-top">
+
+        <!-- Card Body -->
+        <div class="card-body">
+          <h5 class="card-title">{{recipe.title}}</h5>
+          <p class="card-text text-muted">{{recipe.description}}</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
 </div>

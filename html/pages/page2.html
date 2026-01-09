@@ -13,7 +13,7 @@
       <div class="mb-5">
         <div class="ratio ratio-16x9 rounded-4 
                     overflow-hidden shadow">
-          <img  src="./media/avatar/speed-ishowspeed.gif" 
+          <img  src="./media/avatar/200w.gif" 
                 alt="Palacsinta" 
                 class="img-fluid object-fit-cover">
         </div>
@@ -72,49 +72,12 @@
             </div>
           </div>
           <div class="card-body p-0">
-            <ul class="list-group list-group-flush">
+            <ul ng-repeat="ingredient in recipe.ingredients" class="list-group list-group-flush">
               <li class="list-group-item d-flex justify-content-between align-items-center py-3">
                 <div>
-                  <span class="fw-bold">Liszt</span>
-                  <div class="text-muted small">Finom liszt</div>
+                  <span class="fw-bold">{{ingredient.name}}</span>
                 </div>
-                <span class="badge bg-warning bg-opacity-25 text-dark px-3 py-2">200 g</span>
-              </li>
-              <li class=" list-group-item d-flex justify-content-between 
-                          align-items-center py-3">
-                <div>
-                  <span class="fw-bold">Cukor</span>
-                  <div class="text-muted small">Finom cristal</div>
-                </div>
-                <span class="badge bg-warning bg-opacity-25 text-dark px-3 py-2">30 g</span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center py-3">
-                <div>
-                  <span class="fw-bold">Só</span>
-                  <div class="text-muted small">Ízlés szerint</div>
-                </div>
-                <span class="badge bg-warning bg-opacity-25 text-dark px-3 py-2">2 g</span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center py-3">
-                <div>
-                  <span class="fw-bold">Tojás</span>
-                  <div class="text-muted small">M-es méret</div>
-                </div>
-                <span class="badge bg-warning bg-opacity-25 text-dark px-3 py-2">2 db</span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center py-3">
-                <div>
-                  <span class="fw-bold">Tej</span>
-                  <div class="text-muted small">2,8% zsírtartalom</div>
-                </div>
-                <span class="badge bg-warning bg-opacity-25 text-dark px-3 py-2">300 ml</span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center py-3">
-                <div>
-                  <span class="fw-bold">Vaj</span>
-                  <div class="text-muted small">Sütéshez</div>
-                </div>
-                <span class="badge bg-warning bg-opacity-25 text-dark px-3 py-2">20 g</span>
+                <span class="badge bg-warning bg-opacity-25 text-dark px-3 py-2">{{ingredient.quantity}}{{ingredient.unit}}</span>
               </li>
             </ul>
           </div>
