@@ -4,9 +4,15 @@
   angular.module('app')
   .controller('recipesController', [
     '$state',
-    function($state) {
+    'http',
+    '$scope',
+    function($state,http,$scope) {
       console.log($state.current.name);
-      
+      http.request("./php/allRecipe.php")
+      .then(response=>{
+        $scope.recipe=response;
+        $scope.$applyAsync();
+      })
     }
   ]);
 

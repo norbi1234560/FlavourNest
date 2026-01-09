@@ -78,13 +78,12 @@
     function($rootScope,$state,http) {
       console.log('Run...');
 
-      http.request("./php/recipe.php")
-      .then(response => {
+      // http.request("./php/recipe.php")
+      // .then(response => {
 
-        console.log(response);
-        $rootScope.recipes=response;
-        $rootScope.$applyAsync();
-      });
+      //   $rootScope.recipes=response;
+      //   $rootScope.$applyAsync();
+      // });
       
     }
   ]);
