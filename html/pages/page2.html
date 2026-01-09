@@ -5,7 +5,8 @@
     <div class="text-center mb-5 pt-3">
       <!-- Category Badge -->
       <div class="mb-4">
-        <h1 class="fw-bold display-4 text-dark mb-3">Palacsinta</h1>
+        <h1 class="fw-bold display-4 text-dark mb-3">{{recipe.title}}</h1>
+        <p class="lead text-muted mb-4">{{recipe.description}}</p>
       </div>
 
       <!-- Image -->
@@ -24,7 +25,7 @@
                 <i class="bi bi-clock fs-4"></i>
               </div>
               <h5 class="fw-bold mb-1 fs-6">Elkészítési idő</h5>
-              <p class="text-muted mb-0">20 perc</p>
+              <p class="text-muted mb-0">{{recipe.prep_time_minutes}}</p>
             </div>
           </div>
         </div>
@@ -35,19 +36,7 @@
                 <i class="bi bi-people fs-4"></i>
               </div>
               <h5 class="fw-bold mb-1 fs-6">Adag</h5>
-              <div class="d-flex align-items-center justify-content-center mt-2">
-                <button class="btn btn-outline-warning btn-sm rounded-circle p-0" style="width: 28px; height: 28px;">
-                  <i class="fa-solid fa-minus"></i>
-                </button>
-              
-                <span class="mx-2 fs-5 fw-bold text-dark">4</span>
-              
-                <button class="btn btn-outline-warning btn-sm rounded-circle p-0" style="width: 28px; height: 28px;">
-                  <i class="fa-solid fa-plus"></i>
-                </button>
-              </div>
-
-              <p class="text-muted mb-0 mt-2">személy</p>
+              <p class="text-muted mb-0">{{recipe.servings}}</p>
             </div>
           </div>
         </div>
@@ -58,18 +47,7 @@
     <div class="mb-5">
       <h5 class="text-center text-secondary mb-4"><i class="bi bi-tags me-2"></i>Kategóriák</h5>
       <div class="d-flex flex-wrap justify-content-center gap-2">
-        <span class="badge bg-warning bg-opacity-25 text-dark fs-6 py-2 px-3 rounded-pill">
-          <i class="bi bi-cup-straw me-1"></i> Desszert
-        </span>
-        <span class="badge bg-warning bg-opacity-25 text-dark fs-6 py-2 px-3 rounded-pill">
-          <i class="bi bi-sun me-1"></i> Reggeli
-        </span>
-        <span class="badge bg-warning bg-opacity-25 text-dark fs-6 py-2 px-3 rounded-pill">
-          <i class="bi bi-lightning me-1"></i> Gyors
-        </span>
-        <span class="badge bg-warning bg-opacity-25 text-dark fs-6 py-2 px-3 rounded-pill">
-          <i class="bi bi-heart me-1"></i> Családi
-        </span>
+        <span ng-repeat="tag in recipe.tags" class="badge bg-warning bg-opacity-25 text-dark fs-6 py-2 px-3 rounded-pill">{{tag}}</span>
       </div>
     </div>
 
@@ -143,143 +121,20 @@
               <h4 class="mb-0 fw-bold">Elkészítés lépésről lépésre</h4>
             </div>
           </div>
-          <div class="card-body p-0">
+          <div  class="card-body p-0">
             <!-- Step 1 -->
-            <div class="p-4">
+            <div ng-repeat="step in recipe.steps" class="p-4">
               <div class="d-flex">
                 <div class="bg-warning text-white rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 40px; height: 40px;">
-                  <strong>1</strong>
+                  <strong>{{step.position}}</strong>
                 </div>
                 <div>
-                  <p class="mb-0">A lisztet, cukrot és sót egy tálban jól elkeverjük. Használhatsz szitát is a liszthez, így a tészta simább lesz.</p>
+                  <p class="mb-0">{{step.instruction}}</p>
                 </div>
               </div>
             </div>
             
             <hr class="m-0">
-            
-            <!-- Step 2 -->
-            <div class="p-4">
-              <div class="d-flex">
-                <div class="bg-warning text-white rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 40px; height: 40px;">
-                  <strong>2</strong>
-                </div>
-                <div>
-                  <p class="mb-0">Adj hozzá a tojásokat és fokozatosan keverd hozzá a tejet. Fontos, hogy folyamatosan keverd, hogy ne keletkezzenek csomók.</p>
-                </div>
-              </div>
-            </div>
-            
-            <hr class="m-0">
-            
-            <!-- Step 3 -->
-            <div class="p-4">
-              <div class="d-flex">
-                <div class="bg-warning text-white rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 40px; height: 40px;">
-                  <strong>3</strong>
-                </div>
-                <div>
-                  <p class="mb-0">Egy serpenyőt kevés vajjal vagy olajjal kivékezünk, közepes lángon felmelegítjük. Mindkét oldalát pirosra sütjük.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Comments Section -->
-        <div class="card border-0 shadow-sm">
-          <div class="card-header bg-white border-0">
-            <div class="d-flex align-items-center justify-content-between">
-              <div class="d-flex align-items-center">
-                <i class="bi bi-chat-dots-fill text-warning fs-4 me-3"></i>
-                <h4 class="mb-0 fw-bold">Vélemények</h4>
-              </div>
-              <div>
-                <span class="badge bg-warning text-white px-3 py-2">4.7 <i class="fa fa-star star-yellow big-star"></i>
-</span>
-              </div>
-            </div>
-          </div>
-          
-          <div class="card-body">
-            <!-- Comment 1 -->
-            <div class="mb-4">
-              <div class="d-flex justify-content-between align-items-start mb-2">
-                <div class="d-flex align-items-center">
-                  <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
-                    <i class="bi bi-person-fill text-white"></i>
-                  </div>
-                  <div>
-                    <h6 class="mb-0 fw-bold">Anonim</h6>
-                    <small class="text-muted">2025.11.11 06:30</small>
-                  </div>
-                </div>
-                <div class="text-warning">
-                  <i class="fa fa-star star-yellow big-star"></i>
-
-                  <i class="fa fa-star star-yellow big-star"></i>
-
-                  <i class="fa fa-star star-yellow big-star"></i>
-
-                  <i class="fa fa-star star-yellow big-star"></i>
-
-                  <i class="fa fa-star star-yellow big-star"></i>
-
-                </div>
-              </div>
-              <p class="mb-0">Nagyon finom lett, köszönöm a receptet! A család imádta, különösen a gyerekek. Már többször elkészítettem.</p>
-            </div>
-            
-            <!-- Comment 2 -->
-            <div class="mb-4">
-              <div class="d-flex justify-content-between align-items-start mb-2">
-                <div class="d-flex align-items-center">
-                  <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
-                    <i class="bi bi-person-fill text-white"></i>
-                  </div>
-                  <div>
-                    <h6 class="mb-0 fw-bold">Anonim</h6>
-                    <small class="text-muted">2025.11.11 06:31</small>
-                  </div>
-                </div>
-                <div class="text-warning">
-                  <i class="fa fa-star star-yellow big-star"></i>
-
-                  <i class="fa fa-star star-yellow big-star"></i>
-
-                  <i class="fa fa-star star-yellow big-star"></i>
-
-                  <i class="fa fa-star star-yellow big-star"></i>
-
-                  <i class="bi bi-star-half"></i>
-                </div>
-              </div>
-              <p class="mb-0">Klasszikus ízvilág, imádom. Pont ilyen palacsintákat készített anyukám is. A tippek nagyon hasznosak voltak!</p>
-            </div>
-            
-            <!-- Add Comment Form -->
-            <div class="pt-3 border-top">
-              <h5 class="fw-bold mb-3">Oszd meg véleményed!</h5>
-              <div class="mb-3">
-                <label class="form-label fw-medium">Értékelés</label>
-                <div class="mb-3">
-                  <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-outline-warning"><i class="fa fa-star star-yellow big-star"></i></button>
-                    <button type="button" class="btn btn-outline-warning"><i class="fa fa-star star-yellow big-star"></i></button>
-                    <button type="button" class="btn btn-outline-warning"><i class="fa fa-star star-yellow big-star"></i></button>
-                    <button type="button" class="btn btn-outline-warning"><i class="fa fa-star star-yellow big-star"></i></button>
-                    <button type="button" class="btn btn-outline-warning"><i class="fa fa-star star-yellow big-star"></i></button>
-                  </div>
-                </div>
-                <textarea class="form-control" rows="3" placeholder="Írd le véleményed a receptről..."></textarea>
-              </div>
-              <button class="btn btn-warning fw-bold">
-                <i class="bi bi-send me-2"></i>Küldés
-              </button>
-            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
