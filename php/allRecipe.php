@@ -6,8 +6,8 @@ $args = Util::getArgs();
 
 $db = new Database(); 
 
-// Simple query: only title, description, image
 $query = "SELECT
+            servings,
             id,
             title,
             description,
@@ -18,5 +18,4 @@ $result = $db->execute($query);
 
 $db = null;
 
-// Send response as JSON
 Util::setResponse($result);

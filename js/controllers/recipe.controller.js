@@ -15,14 +15,11 @@
       .then(response=>{
         console.log(response);
         let r = response[0];
-        
-        r.ingredients = JSON.parse(r.ingredients || '[]');
-        r.steps       = JSON.parse(r.steps || '[]');
-        r.tags        = JSON.parse(r.tags || '[]');
-        r.comments    = JSON.parse(r.comments || '[]');
+        ['ingredients','steps','tags'].forEach(key => r[key] = JSON.parse(r[key]));
 
         $scope.recipe = r;
         $scope.$applyAsync();
+
       })
       .catch(e=> console.error(e));
     }

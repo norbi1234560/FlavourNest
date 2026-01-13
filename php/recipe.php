@@ -2,7 +2,7 @@
 
 require_once("../../common/php/environment.php");
 
-$args = Util::getArgs(); // e.g., contains ['id' => 2]
+$args = Util::getArgs();
 
 $db = new Database(); 
 
