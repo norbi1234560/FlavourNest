@@ -8,37 +8,54 @@
     '$scope',
     '$stateParams',
     function($state, http, $scope, $stateParams) {
+
       console.log("hello");
-      
-      console.log($stateParams.id)
-      http.request({url:"./php/recipe.php",data:{id:$stateParams.id}})
-      .then(response=>{
-        console.log(response);
+      console.log($stateParams.id);
+
+      http.request({
+        url: "./php/recipe.php",
+        data: { id: $stateParams.id }
+      })
+      .then(response => {
         let r = response[0];
-        let originalQuantity=r.servings;
-        ['ingredients','steps','tags'].forEach(key => r[key] = JSON.parse(r[key]));
+
+        ['ingredients','steps','tags'].forEach(
+          key => r[key] = JSON.parse(r[key])
+        );
+
+        let originalServings = r.servings;
+
+        r.ingredients.forEach(i => {
+          i.originalQuantity = i.quantity;
+        });
 
         $scope.recipe = r;
         $scope.$applyAsync();
-        
-        $scope.servingMinus=()=>{
-          $scope.recipe.servings-=1;
-          calculateServigns()
+
+        $scope.servingMinus = () => {
+          if ($scope.recipe.servings > 1) {
+            $scope.recipe.servings -= 1;
+            calculateServings();
+            $scope.$applyAsync();
+          }
+        };
+
+        $scope.servingPlus = () => {
+          $scope.recipe.servings += 1;
+          calculateServings();
           $scope.$applyAsync();
+        };
+
+        function calculateServings() {
+          let factor = $scope.recipe.servings / originalServings;
+
+          r.ingredients.forEach(i => {
+            i.quantity = i.originalQuantity * factor;
+          });
         }
 
-        $scope.servingPlus=()=>{
-          $scope.recipe.servings+=1;
-          calculateServigns()
-          $scope.$applyAsync();
-        }
-
-        function calculateServigns() {
-          let factor = $scope.recipe.servings / originalQuantity;
-          r.ingredients.forEach(i => i.quantity *= factor);
-        }
       })
-      .catch(e=> console.error(e));
+      .catch(e => console.error(e));
     }
   ]);
 
