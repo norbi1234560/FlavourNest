@@ -18,20 +18,15 @@
       })
       .then(response => {
         let r = response[0];
-
-        ['ingredients','steps','tags'].forEach(
-          key => r[key] = JSON.parse(r[key])
-        );
-
-        let originalServings = r.servings;
-
+        ['ingredients','steps','tags'].forEach(key => r[key] = JSON.parse(r[key]));
+        
         r.ingredients.forEach(i => {
           i.originalQuantity = i.quantity;
         });
-
+        
         $scope.recipe = r;
         $scope.$applyAsync();
-
+        
         $scope.servingMinus = () => {
           if ($scope.recipe.servings > 1) {
             $scope.recipe.servings -= 1;
@@ -39,13 +34,15 @@
             $scope.$applyAsync();
           }
         };
-
+        
         $scope.servingPlus = () => {
           $scope.recipe.servings += 1;
           calculateServings();
           $scope.$applyAsync();
         };
-
+        
+        let originalServings = r.servings;
+        
         function calculateServings() {
           let factor = $scope.recipe.servings / originalServings;
 
