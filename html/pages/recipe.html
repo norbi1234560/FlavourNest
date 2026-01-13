@@ -13,7 +13,7 @@
       <div class="mb-5">
         <div class="ratio ratio-16x9 rounded-4 
                     overflow-hidden shadow">
-          <img  src="./media/avatar/200w.gif" 
+          <img  ng-src="./media/avatar/{{recipe.image}}" 
                 alt="Palacsinta" 
                 class="img-fluid object-fit-cover">
         </div>
@@ -95,7 +95,7 @@
             </div>
           </div>
           <div  class="card-body p-0">
-            <!-- Step 1 -->
+            <!-- Steps -->
             <div ng-repeat="step in recipe.steps" class="p-4">
               <div class="d-flex">
                 <div class="bg-warning text-white rounded-circle 

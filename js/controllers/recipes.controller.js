@@ -10,8 +10,10 @@
       console.log($state.current.name);
       http.request("./php/allRecipe.php")
       .then(response=>{
-        $scope.recipe=response;
+        $scope.allRecipes=response;
         $scope.$applyAsync();
+        console.log(response);
+        
       })
     }
   ]);

@@ -41,11 +41,11 @@
           templateUrl: './html/pages/login.html',
           controller: 'loginController'
         })
-        .state('page2', {
-          url: '/page2',       
+        .state('recipe', {
+          url: '/recipe/:id',
           parent: 'root',
-          templateUrl: './html/pages/page2.html',
-          controller: 'page2Controller'
+          templateUrl: './html/pages/recipe.html',
+          controller: 'recipeController'
         })
         .state('profile', {
           url: '/profile',       
