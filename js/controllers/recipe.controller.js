@@ -15,11 +15,28 @@
       .then(response=>{
         console.log(response);
         let r = response[0];
+        let originalQuantity=r.servings;
         ['ingredients','steps','tags'].forEach(key => r[key] = JSON.parse(r[key]));
 
         $scope.recipe = r;
         $scope.$applyAsync();
+        
+        $scope.servingMinus=()=>{
+          $scope.recipe.servings-=1;
+          calculateServigns()
+          $scope.$applyAsync();
+        }
 
+        $scope.servingPlus=()=>{
+          $scope.recipe.servings+=1;
+          calculateServigns()
+          $scope.$applyAsync();
+        }
+
+        function calculateServigns() {
+          let factor = $scope.recipe.servings / originalQuantity;
+          r.ingredients.forEach(i => i.quantity *= factor);
+        }
       })
       .catch(e=> console.error(e));
     }

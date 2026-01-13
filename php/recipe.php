@@ -41,7 +41,7 @@ $query = "SELECT
         WHERE r.id = :id
         GROUP BY r.id";
 
-$result = $db->execute($query,$args);
+$result = $db->execute($query,$args["id"]);
 
 $db = null;
 
