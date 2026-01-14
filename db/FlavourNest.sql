@@ -171,15 +171,15 @@ CREATE TABLE `recipes` (
 --
 
 INSERT INTO `recipes` (`id`, `title`, `description`, `author_id`, `servings`, `prep_time_minutes`, `created_at`, `image`) VALUES
-(1, 'Palacsinta', 'Klasszikus magyar palacsinta recept.', NULL, 4, 20, '2025-11-11 06:30:36', 'BenjiNoWar.jfif'),
-(2, 'Csirkés tészta', 'Krémes csirkés tészta paradicsommal és sajttal.', NULL, 2, 30, '2025-11-11 06:30:36', 'HumanNoAi.jfif'),
-(3, 'Zöldséges omlett', 'Egészséges reggeli zöldségekkel.', NULL, 1, 15, '2025-11-11 06:30:36', 'SpongeNoAi.jfif'),
-(4, 'Húsleves', 'Hagyományos magyar húsleves zöldségekkel.', 3, 6, 120, '2026-01-07 07:00:00', 'husleves.jpg'),
-(5, 'Uborkasaláta', 'Friss, fokhagymás uborkasaláta joghurttal.', 4, 4, 15, '2026-01-07 07:00:00', 'uborkasalata.jpg'),
-(6, 'Pörkölt', 'Hagyományos magyar pörkölt galuskával.', 5, 4, 90, '2026-01-07 07:00:00', 'porkolt.jpg'),
-(7, 'Csokoládétorta', 'Gazdag csokoládétorta tejszínhabbal.', 1, 8, 180, '2026-01-07 07:00:00', 'csokitorta.jpg'),
+(1, 'Palacsinta', 'Klasszikus magyar palacsinta recept.', NULL, 4, 20, '2025-11-11 06:30:36', 'palacsinta.webp'),
+(2, 'Csirkés tészta', 'Krémes csirkés tészta paradicsommal és sajttal.', NULL, 2, 30, '2025-11-11 06:30:36', 'csirkes_teszta.jpeg'),
+(3, 'Zöldséges omlett', 'Egészséges reggeli zöldségekkel.', NULL, 1, 15, '2025-11-11 06:30:36', 'zoldseges_omlett.jpg'),
+(4, 'Húsleves', 'Hagyományos magyar húsleves zöldségekkel.', 3, 6, 120, '2026-01-07 07:00:00', 'husleves.webp'),
+(5, 'Uborkasaláta', 'Friss, fokhagymás uborkasaláta joghurttal.', 4, 4, 15, '2026-01-07 07:00:00', 'uborkasalata.webp'),
+(6, 'Pörkölt', 'Hagyományos magyar pörkölt galuskával.', 5, 4, 90, '2026-01-07 07:00:00', 'porkolt.jpeg'),
+(7, 'Csokoládétorta', 'Gazdag csokoládétorta tejszínhabbal.', 1, 8, 180, '2026-01-07 07:00:00', 'csokitorta.webp'),
 (8, 'Grillezett lazac', 'Grillezett lazac citromos kapor mártással.', 7, 2, 25, '2026-01-07 07:00:00', 'lazac.jpg'),
-(9, 'Brokkoli krémleves', 'Krémes brokkolileves sajttal.', 3, 4, 35, '2026-01-07 07:30:00', 'brokkolileves.jpg'),
+(9, 'Brokkoli krémleves', 'Krémes brokkolileves sajttal.', 3, 4, 35, '2026-01-07 07:30:00', 'brokkoli_kremleves.webp'),
 (10, 'Carbonara', 'Klasszikus olasz carbonara tészta.', 4, 2, 20, '2026-01-07 07:30:00', 'carbonara.jpg');
 
 -- --------------------------------------------------------
