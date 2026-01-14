@@ -36,6 +36,7 @@
                         class=" form-control bg-secondary 
                                 text-white border-warning"
                         placeholder="pelda@konyha.hu"
+                        ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]+$/"
                         ng-model="user.email"
                         autocomplete="email"
                         required>

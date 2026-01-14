@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2026. Jan 07. 07:47
+-- Létrehozás ideje: 2026. Jan 14. 13:30
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -73,37 +73,37 @@ CREATE TABLE `ingredients` (
 
 INSERT INTO `ingredients` (`id`, `name`) VALUES
 (11, 'Bazsalikom'),
+(12, 'Bors'),
+(31, 'Brokkoli'),
+(13, 'Burgonya'),
+(29, 'Citrom'),
+(16, 'Csirkealap'),
 (8, 'Csirkemell'),
+(25, 'Csokoládé'),
 (2, 'Cukor'),
+(21, 'Darálthús'),
+(19, 'Fokhagyma'),
+(24, 'Hagyma'),
+(18, 'Joghurt'),
+(30, 'Kapor'),
+(20, 'Kapribogyó'),
+(28, 'Lazac'),
 (1, 'Liszt'),
 (7, 'Olívaolaj'),
+(23, 'Paprika'),
 (9, 'Paradicsom'),
+(15, 'Petrezselyem'),
+(27, 'Porcukor'),
+(14, 'Répa'),
+(22, 'Rizs'),
 (10, 'Sajt'),
 (3, 'Só'),
 (5, 'Tej'),
-(4, 'Tojás'),
-(6, 'Vaj'),
-(12, 'Bors'),
-(13, 'Burgonya'),
-(14, 'Répa'),
-(15, 'Petrezselyem'),
-(16, 'Csirkealap'),
-(17, 'Uborka'),
-(18, 'Joghurt'),
-(19, 'Fokhagyma'),
-(20, 'Kapribogyó'),
-(21, 'Darálthús'),
-(22, 'Rizs'),
-(23, 'Paprika'),
-(24, 'Hagyma'),
-(25, 'Csokoládé'),
 (26, 'Tejszín'),
-(27, 'Porcukor'),
-(28, 'Lazac'),
-(29, 'Citrom'),
-(30, 'Kapor'),
-(31, 'Brokkoli'),
-(32, 'Tészta');
+(32, 'Tészta'),
+(4, 'Tojás'),
+(17, 'Uborka'),
+(6, 'Vaj');
 
 -- --------------------------------------------------------
 
@@ -171,7 +171,7 @@ CREATE TABLE `recipes` (
 --
 
 INSERT INTO `recipes` (`id`, `title`, `description`, `author_id`, `servings`, `prep_time_minutes`, `created_at`, `image`) VALUES
-(1, 'Palacsinta', 'Klasszikus magyar palacsinta recept.', NULL, 4, 20, '2025-11-11 06:30:36', 'palacsinta.webp'),
+(1, 'Palacsinta', 'Klasszikus magyar palacsinta recept.', NULL, 4, 20, '2025-11-11 06:30:36', '200w.gif'),
 (2, 'Csirkés tészta', 'Krémes csirkés tészta paradicsommal és sajttal.', NULL, 2, 30, '2025-11-11 06:30:36', 'csirkes_teszta.jpeg'),
 (3, 'Zöldséges omlett', 'Egészséges reggeli zöldségekkel.', NULL, 1, 15, '2025-11-11 06:30:36', 'zoldseges_omlett.jpg'),
 (4, 'Húsleves', 'Hagyományos magyar húsleves zöldségekkel.', 3, 6, 120, '2026-01-07 07:00:00', 'husleves.webp'),
@@ -365,12 +365,12 @@ INSERT INTO `tags` (`id`, `name`) VALUES
 (5, 'Egészséges'),
 (2, 'Főétel'),
 (3, 'Gyors'),
-(6, 'Reggeli'),
-(4, 'Vegetáriánus'),
 (7, 'Leves'),
-(8, 'Saláta'),
 (9, 'Magyar'),
-(10, 'Olasz');
+(10, 'Olasz'),
+(6, 'Reggeli'),
+(8, 'Saláta'),
+(4, 'Vegetáriánus');
 
 -- --------------------------------------------------------
 
@@ -383,7 +383,7 @@ CREATE TABLE `users` (
   `username` varchar(100) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` date NOT NULL,
   `avatar` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -392,21 +392,29 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `created_at`, `avatar`) VALUES
-(1, 'admin', 'admin@aa.com', 'adminadmin', '2025-11-11 05:30:36', '200w.gif'),
-(3, 'chefanna', 'anna@aa.com', 'annaanna', '2025-11-11 05:30:36', NULL),
-(4, 'foodiejoe', 'joe@example.com', 'joe', '2025-11-11 05:30:36', NULL),
-(5, 'mariacook', 'maria@example.com', 'maria', '2025-11-11 05:30:36', NULL),
-(7, 'meseljrola', 'adawdaw@aa.aa', '11111111111111', '2025-12-11 08:24:06', NULL),
-(12, 'aadawdawda', 'adawdawd@aa.aa', '1111111111111111', '2025-12-11 08:29:05', NULL),
-(16, 'meseljroladawdawdaw', 'adawdawdaw@aa.aa', '1111111111111', '2025-12-11 10:00:46', NULL),
-(17, 'meseljroladawdawdawa', 'adawdawdaw@aa.aaa', '1111111111111', '2025-12-11 10:01:41', NULL),
-(18, 'meseljrola1231', 'dawdawdaw@aa.aa', '11111111111111', '2025-12-11 10:14:18', NULL),
-(19, 'meseljrola12311', 'dawdawdaw@aa.aa1', '11111111111111', '2025-12-11 10:14:27', NULL),
-(20, 'mawelsjeorla', 'awdawdawda@aa.aaa', '11111111111111', '2025-12-11 10:48:55', NULL),
-(23, 'melsaenawkl', 'asdasda@aa.aa', 'adminadmin', '2025-12-11 12:35:50', NULL),
-(24, 'meslejkorla', 'awdawdawd@aa.aa', 'adminadmin', '2025-12-11 12:36:26', NULL),
-(26, 'meseljrola123', 'dawnkldanwldnaw@aa.aa', 'adminadmin', '2025-12-16 06:49:38', NULL),
-(27, 'adminadmin', 'admin@aa.com2', 'adminadmin', '2025-12-18 08:41:11', NULL);
+(1, 'admin', 'admin@aa.com', 'adminadmin', '2025-11-11', '200w.gif'),
+(3, 'chefanna', 'anna@aa.com', 'annaanna', '2025-11-11', NULL),
+(4, 'foodiejoe', 'joe@example.com', 'joe', '2025-11-11', NULL),
+(5, 'mariacook', 'maria@example.com', 'maria', '2025-11-11', NULL),
+(7, 'meseljrola', 'adawdaw@aa.aa', '11111111111111', '2025-12-11', NULL),
+(12, 'aadawdawda', 'adawdawd@aa.aa', '1111111111111111', '2025-12-11', NULL),
+(16, 'meseljroladawdawdaw', 'adawdawdaw@aa.aa', '1111111111111', '2025-12-11', NULL),
+(17, 'meseljroladawdawdawa', 'adawdawdaw@aa.aaa', '1111111111111', '2025-12-11', NULL),
+(18, 'meseljrola1231', 'dawdawdaw@aa.aa', '11111111111111', '2025-12-11', NULL),
+(19, 'meseljrola12311', 'dawdawdaw@aa.aa1', '11111111111111', '2025-12-11', NULL),
+(20, 'mawelsjeorla', 'awdawdawda@aa.aaa', '11111111111111', '2025-12-11', NULL),
+(23, 'melsaenawkl', 'asdasda@aa.aa', 'adminadmin', '2025-12-11', NULL),
+(24, 'meslejkorla', 'awdawdawd@aa.aa', 'adminadmin', '2025-12-11', NULL),
+(26, 'meseljrola123', 'dawnkldanwldnaw@aa.aa', 'adminadmin', '2025-12-16', NULL),
+(27, 'adminadmin', 'admin@aa.com2', 'adminadmin', '2025-12-18', NULL),
+(28, 'awkhbdakwsd', 'awdiuabwd@aa.com', 'adminadmin', '0000-00-00', NULL),
+(29, 'aldjnawndl', 'akljbdniaowda@aa.com', 'adminadmin', '0000-00-00', NULL),
+(32, 'aklwdnaowndaow', 'aiwubdaiwonda@aa.com', 'adminadmin', '0000-00-00', NULL),
+(33, 'awkdbawkd', 'aljdnawod@aa.com', 'adminadmin', '0000-00-00', NULL),
+(35, 'adonbwakldbjnaw', 'awdlawbnoda@aa.com', 'adminadmin', '0000-00-00', NULL),
+(36, 'awkjdnawod', 'awldinawoidna@aa.com', 'adminadmin', '2026-01-14', NULL),
+(38, 'awkjdbawkbdaw', 'awljdjbnawkdbnawakwdna@aa.com', 'adminadmin', '0000-00-00', NULL),
+(39, 'awljdbawkbda', 'ajdjw@aa.com', 'adminadmin', '2026-01-14', NULL);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -533,7 +541,7 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT a táblához `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- Megkötések a kiírt táblákhoz
