@@ -7,7 +7,6 @@ $args = Util::getArgs();
 $db = new Database(); 
 
 $query = "SELECT
-            servings,
             id,
             title,
             description,
