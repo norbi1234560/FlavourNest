@@ -48,7 +48,13 @@ INSERT INTO `comments` (`id`, `recipe_id`, `user_id`, `content`, `created_at`, `
 (1, 1, NULL, 'Nagyon finom lett, köszönöm a receptet!', '2025-11-11 06:30:36', 0),
 (2, 1, NULL, 'Klasszikus ízvilág, imádom.', '2025-11-11 06:30:36', 0),
 (3, 2, NULL, 'Gyors és ízletes, új kedvenc!', '2025-11-11 06:30:36', 0),
-(4, 3, NULL, 'Tökéletes reggeli ötlet.', '2025-11-11 06:30:36', 0);
+(4, 3, NULL, 'Tökéletes reggeli ötlet.', '2025-11-11 06:30:36', 0),
+(5, 4, 4, 'A téli időszakban tökéletes melegítő leves!', '2026-01-07 07:00:00', 0),
+(6, 5, 5, 'Könnyű és frissítő, nyári kedvenc.', '2026-01-07 07:05:00', 0),
+(7, 6, 3, 'Laktató és krémes, a család minden tagja szereti.', '2026-01-07 07:10:00', 0),
+(8, 7, 1, 'Fantasztikus desszert különleges alkalmakra.', '2026-01-07 07:15:00', 0),
+(9, 8, 7, 'Gyors és egészséges vacsora ötlet.', '2026-01-07 07:20:00', 0),
+(10, 2, 4, 'Szerettem volna több fűszert hozzáadni.', '2026-01-07 07:25:00', 0);
 
 -- --------------------------------------------------------
 
@@ -76,7 +82,28 @@ INSERT INTO `ingredients` (`id`, `name`) VALUES
 (3, 'Só'),
 (5, 'Tej'),
 (4, 'Tojás'),
-(6, 'Vaj');
+(6, 'Vaj'),
+(12, 'Bors'),
+(13, 'Burgonya'),
+(14, 'Répa'),
+(15, 'Petrezselyem'),
+(16, 'Csirkealap'),
+(17, 'Uborka'),
+(18, 'Joghurt'),
+(19, 'Fokhagyma'),
+(20, 'Kapribogyó'),
+(21, 'Darálthús'),
+(22, 'Rizs'),
+(23, 'Paprika'),
+(24, 'Hagyma'),
+(25, 'Csokoládé'),
+(26, 'Tejszín'),
+(27, 'Porcukor'),
+(28, 'Lazac'),
+(29, 'Citrom'),
+(30, 'Kapor'),
+(31, 'Brokkoli'),
+(32, 'Tészta');
 
 -- --------------------------------------------------------
 
@@ -111,7 +138,16 @@ INSERT INTO `ratings` (`id`, `recipe_id`, `user_id`, `score`, `created_at`) VALU
 (12, 3, 3, 4, '2026-01-07 06:40:32'),
 (13, 3, 4, 5, '2026-01-07 06:40:32'),
 (14, 3, 5, 2, '2026-01-07 06:40:32'),
-(15, 3, 7, 1, '2026-01-07 06:40:32');
+(15, 3, 7, 1, '2026-01-07 06:40:32'),
+(16, 4, 1, 5, '2026-01-07 07:00:00'),
+(17, 4, 3, 4, '2026-01-07 07:00:00'),
+(18, 4, 5, 5, '2026-01-07 07:00:00'),
+(19, 5, 4, 4, '2026-01-07 07:00:00'),
+(20, 5, 7, 3, '2026-01-07 07:00:00'),
+(21, 6, 1, 5, '2026-01-07 07:00:00'),
+(22, 6, 3, 5, '2026-01-07 07:00:00'),
+(23, 7, 4, 4, '2026-01-07 07:00:00'),
+(24, 8, 5, 5, '2026-01-07 07:00:00');
 
 -- --------------------------------------------------------
 
@@ -137,7 +173,14 @@ CREATE TABLE `recipes` (
 INSERT INTO `recipes` (`id`, `title`, `description`, `author_id`, `servings`, `prep_time_minutes`, `created_at`, `image`) VALUES
 (1, 'Palacsinta', 'Klasszikus magyar palacsinta recept.', NULL, 4, 20, '2025-11-11 06:30:36', 'BenjiNoWar.jfif'),
 (2, 'Csirkés tészta', 'Krémes csirkés tészta paradicsommal és sajttal.', NULL, 2, 30, '2025-11-11 06:30:36', 'HumanNoAi.jfif'),
-(3, 'Zöldséges omlett', 'Egészséges reggeli zöldségekkel.', NULL, 1, 15, '2025-11-11 06:30:36', 'SpongeNoAi.jfif');
+(3, 'Zöldséges omlett', 'Egészséges reggeli zöldségekkel.', NULL, 1, 15, '2025-11-11 06:30:36', 'SpongeNoAi.jfif'),
+(4, 'Húsleves', 'Hagyományos magyar húsleves zöldségekkel.', 3, 6, 120, '2026-01-07 07:00:00', 'husleves.jpg'),
+(5, 'Uborkasaláta', 'Friss, fokhagymás uborkasaláta joghurttal.', 4, 4, 15, '2026-01-07 07:00:00', 'uborkasalata.jpg'),
+(6, 'Pörkölt', 'Hagyományos magyar pörkölt galuskával.', 5, 4, 90, '2026-01-07 07:00:00', 'porkolt.jpg'),
+(7, 'Csokoládétorta', 'Gazdag csokoládétorta tejszínhabbal.', 1, 8, 180, '2026-01-07 07:00:00', 'csokitorta.jpg'),
+(8, 'Grillezett lazac', 'Grillezett lazac citromos kapor mártással.', 7, 2, 25, '2026-01-07 07:00:00', 'lazac.jpg'),
+(9, 'Brokkoli krémleves', 'Krémes brokkolileves sajttal.', 3, 4, 35, '2026-01-07 07:30:00', 'brokkolileves.jpg'),
+(10, 'Carbonara', 'Klasszikus olasz carbonara tészta.', 4, 2, 20, '2026-01-07 07:30:00', 'carbonara.jpg');
 
 -- --------------------------------------------------------
 
@@ -172,7 +215,48 @@ INSERT INTO `recipe_ingredients` (`id`, `recipe_id`, `ingredient_id`, `quantity`
 (12, 3, 4, 2.000, 'db'),
 (13, 3, 7, 1.000, 'ek'),
 (14, 3, 3, 1.000, 'csipet'),
-(15, 3, 11, 1.000, 'ek');
+(15, 3, 11, 1.000, 'ek'),
+(16, 4, 8, 500.000, 'g'),
+(17, 4, 13, 300.000, 'g'),
+(18, 4, 14, 200.000, 'g'),
+(19, 4, 24, 1.000, 'db'),
+(20, 4, 3, 10.000, 'g'),
+(21, 4, 12, 5.000, 'g'),
+(22, 4, 15, 1.000, 'köteg'),
+(23, 4, 16, 2.000, 'l'),
+(24, 5, 17, 400.000, 'g'),
+(25, 5, 18, 200.000, 'ml'),
+(26, 5, 19, 2.000, 'gerezd'),
+(27, 5, 3, 5.000, 'g'),
+(28, 5, 20, 50.000, 'g'),
+(29, 6, 21, 600.000, 'g'),
+(30, 6, 24, 2.000, 'db'),
+(31, 6, 23, 2.000, 'db'),
+(32, 6, 7, 2.000, 'ek'),
+(33, 6, 3, 10.000, 'g'),
+(34, 6, 12, 5.000, 'g'),
+(35, 6, 22, 200.000, 'g'),
+(36, 7, 25, 200.000, 'g'),
+(37, 7, 26, 200.000, 'ml'),
+(38, 7, 4, 3.000, 'db'),
+(39, 7, 1, 150.000, 'g'),
+(40, 7, 27, 100.000, 'g'),
+(41, 7, 6, 100.000, 'g'),
+(42, 8, 28, 400.000, 'g'),
+(43, 8, 29, 1.000, 'db'),
+(44, 8, 30, 10.000, 'g'),
+(45, 8, 7, 2.000, 'ek'),
+(46, 8, 3, 5.000, 'g'),
+(47, 9, 31, 500.000, 'g'),
+(48, 9, 24, 1.000, 'db'),
+(49, 9, 16, 1.000, 'l'),
+(50, 9, 10, 100.000, 'g'),
+(51, 9, 5, 200.000, 'ml'),
+(52, 10, 32, 250.000, 'g'),
+(53, 10, 4, 2.000, 'db'),
+(54, 10, 10, 100.000, 'g'),
+(55, 10, 21, 150.000, 'g'),
+(56, 10, 12, 2.000, 'g');
 
 -- --------------------------------------------------------
 
@@ -199,7 +283,32 @@ INSERT INTO `recipe_steps` (`id`, `recipe_id`, `position`, `instruction`) VALUES
 (5, 2, 2, 'Add hozzá a paradicsomot és a sajtot.'),
 (6, 2, 3, 'Főzd össze, majd tálald melegen.'),
 (7, 3, 1, 'A tojásokat verd fel sóval és bazsalikommal.'),
-(8, 3, 2, 'Süsd meg olívaolajon, amíg aranybarna nem lesz.');
+(8, 3, 2, 'Süsd meg olívaolajon, amíg aranybarna nem lesz.'),
+(9, 4, 1, 'A csirkét és a zöldségeket tedd egy nagy fazékba.'),
+(10, 4, 2, 'Öntsd fel vízzel, add hozzá a fűszereket.'),
+(11, 4, 3, 'Főzd lassú tűzön 2 órán át.'),
+(12, 4, 4, 'Szűrd le és tálald forrón.'),
+(13, 5, 1, 'Az uborkát vágd vékony szeletekre.'),
+(14, 5, 2, 'Keverd össze a joghurttal, fokhagymával és sóval.'),
+(15, 5, 3, 'Hűtsd le 30 percig, majd add hozzá a kaprit.'),
+(16, 6, 1, 'A hagymát pirítsd meg az olajon.'),
+(17, 6, 2, 'Add hozzá a darált húst és pirítsd meg.'),
+(18, 6, 3, 'Tedd hozzá a paprikát és a fűszereket.'),
+(19, 6, 4, 'Öntsd fel vízzel és főzd puhára.'),
+(20, 7, 1, 'Olvaszd meg a csokoládét vajjal.'),
+(21, 7, 2, 'Keverd össze a tojásokkal, liszttel és cukorral.'),
+(22, 7, 3, 'Süsd 180°C-on 40 percig.'),
+(23, 7, 4, 'Díszítsd tejszínhabbal.'),
+(24, 8, 1, 'A lazacot sózd, borsozd meg.'),
+(25, 8, 2, 'Grillázd 4-5 perc mindkét oldalán.'),
+(26, 8, 3, 'Készítsd el a citromos kapor mártást.'),
+(27, 9, 1, 'A brokkolit és hagymát párold meg.'),
+(28, 9, 2, 'Add hozzá a csirkealaplevet és főzd puhára.'),
+(29, 9, 3, 'Turmixold simára, add hozzá a tejet és sajtot.'),
+(30, 10, 1, 'Főzd meg a tésztát sós vízben.'),
+(31, 10, 2, 'Süsd meg a darált húst.'),
+(32, 10, 3, 'Keverd össze a tojással és sajttal.'),
+(33, 10, 4, 'Forgasd össze a tésztával és tálald azonnal.');
 
 -- --------------------------------------------------------
 
@@ -222,7 +331,19 @@ INSERT INTO `recipe_tags` (`recipe_id`, `tag_id`) VALUES
 (2, 2),
 (2, 5),
 (3, 4),
-(3, 6);
+(3, 6),
+(4, 2),
+(4, 5),
+(5, 4),
+(5, 5),
+(6, 2),
+(7, 1),
+(8, 2),
+(8, 5),
+(9, 4),
+(9, 5),
+(10, 2),
+(10, 3);
 
 -- --------------------------------------------------------
 
@@ -245,7 +366,11 @@ INSERT INTO `tags` (`id`, `name`) VALUES
 (2, 'Főétel'),
 (3, 'Gyors'),
 (6, 'Reggeli'),
-(4, 'Vegetáriánus');
+(4, 'Vegetáriánus'),
+(7, 'Leves'),
+(8, 'Saláta'),
+(9, 'Magyar'),
+(10, 'Olasz');
 
 -- --------------------------------------------------------
 
@@ -366,43 +491,43 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT a táblához `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT a táblához `ingredients`
 --
 ALTER TABLE `ingredients`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT a táblához `ratings`
 --
 ALTER TABLE `ratings`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT a táblához `recipes`
 --
 ALTER TABLE `recipes`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT a táblához `recipe_ingredients`
 --
 ALTER TABLE `recipe_ingredients`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT a táblához `recipe_steps`
 --
 ALTER TABLE `recipe_steps`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT a táblához `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT a táblához `users`
