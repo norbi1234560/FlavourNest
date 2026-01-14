@@ -122,7 +122,8 @@
                         ng-model="user.passwordConfirm"
                         minlength="8"
                         autocomplete="current-password"
-                        required>
+                        required
+                        ng-keydown="$event.key === 'Enter' && registerClick()">
               </div>
             </div>
 
@@ -131,7 +132,6 @@
                     class=" btn btn-warning btn-lg w-100 
                             fw-bold text-dark shadow-sm"
                     ng-click="registerClick()"
-                    ng-keydown="$event.key === 'Enter' && registerClick()"
                     ng-disabled=" registerForm.$invalid || 
                                   user.password !== user.passwordConfirm">
               Regisztráció
