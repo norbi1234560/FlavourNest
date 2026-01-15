@@ -64,6 +64,12 @@
           parent: 'root',
           templateUrl: './html/pages/recipes.html',
           controller: 'recipesController'
+        })
+        .state('recipeUpload', {
+          url: '/recipes',       
+          parent: 'root',
+          templateUrl: './html/pages/recipeUpload.html',
+          controller: 'recipeUploadController'
         });
 
       $urlRouterProvider.otherwise('/');
@@ -78,13 +84,6 @@
     function($rootScope,$state,http) {
       console.log('Run...');
 
-      // http.request("./php/recipe.php")
-      // .then(response => {
-
-      //   $rootScope.recipes=response;
-      //   $rootScope.$applyAsync();
-      // });
-      
     }
   ]);
 
