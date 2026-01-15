@@ -47,8 +47,7 @@ $query = "SELECT
                   'id', c.id,
                   'content', c.content,
                   'user_id', c.user_id,
-                  'created_at', c.created_at,
-                  'is_hidden', c.is_hidden
+                  'created_at', c.created_at
               ) ORDER BY c.created_at DESC), ']')
               FROM comments c
               WHERE c.recipe_id = r.id

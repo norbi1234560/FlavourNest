@@ -7,7 +7,8 @@
     'http',
     '$scope',
     '$stateParams',
-    function($state, http, $scope, $stateParams) {
+    '$rootScope',
+    function($state, http, $scope, $stateParams,$rootScope) {
 
       let originalServings;
       
@@ -27,15 +28,27 @@
         $scope.$applyAsync();
       }
 
-      
-      $scope.data={
-        comment:"",
-        rating:null
-      }
+        $scope.data={
+          comment:"",
+          rating:null
+        }      
 
       //comment click
       $scope.commentClick=()=>{
         console.log($scope.data.comment);
+        http.request({
+          url:"./php/commentUpload.php",
+          data:{
+            content:$scope.data.comment,
+            recipe_id:$scope.recipe.id,
+            user_id:$rootScope.user.id
+          }})
+        .then(response=>{
+          alert("sikeres hozzászólás");
+          $scope.data.comment="";
+          $scope.$applyAsync();
+        })
+        .catch(e=> console.error(e))
       }
 
       //calculate servings(- / +)
@@ -47,7 +60,7 @@
         });
       }
 
-      //single recipe complicated data fetch
+      //single recipe data fetch
       http.request({
         url: "./php/recipe.php",
         data: { id: $stateParams.id }
@@ -63,8 +76,6 @@
         $scope.recipe = r;
         originalServings = r.servings;
         $scope.$applyAsync();
-        console.log(r);
-        
       })
       .catch(e => console.error(e));
       }

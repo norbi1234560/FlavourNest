@@ -11,9 +11,7 @@
       http.request("./php/allRecipe.php")
       .then(response=>{
         $scope.allRecipes=response;
-        $scope.$applyAsync();
-        console.log(response);
-        
+        $scope.$applyAsync(); 
       })
     }
   ]);
