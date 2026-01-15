@@ -8,23 +8,34 @@
     '$scope',
     '$stateParams',
     function($state, http, $scope, $stateParams) {
-      console.log($stateParams.id);
 
       let originalServings;
       
       //servings minus button click
-      $scope.servingMinus = () => {
+      $scope.servingMinus=()=>{
         if ($scope.recipe.servings > 1) {
           $scope.recipe.servings -= 1;
           calculateServings();
           $scope.$applyAsync();  
         }
       }
+
       //servings plus button click
-      $scope.servingPlus = () => {
+      $scope.servingPlus=()=>{
         $scope.recipe.servings += 1;
         calculateServings();
         $scope.$applyAsync();
+      }
+
+      
+      $scope.data={
+        comment:"",
+        rating:null
+      }
+
+      //comment click
+      $scope.commentClick=()=>{
+        console.log($scope.data.comment);
       }
 
       //calculate servings(- / +)
