@@ -3,19 +3,31 @@
 
     <!-- Header Section -->
     <div class="text-center mb-5 pt-3">
-      <!-- Category Badge -->
-      <div class="mb-4">
-        <h1 class="fw-bold display-4 text-dark mb-3">{{recipe.title}}</h1>
-        <p class="lead text-muted mb-4">{{recipe.description}}</p>
+
+      <!-- Title -->
+      <div class="mb-2">
+        <h1 class="fw-bold display-4 text-dark mb-2">{{recipe.title}}</h1>
       </div>
+
+      <!-- ⭐ Average Rating (TOP) -->
+      <div class="d-flex justify-content-center align-items-center gap-2 mb-3">
+        <i class="fa fa-star text-warning"></i>
+        <i class="fa fa-star text-warning"></i>
+        <i class="fa fa-star text-warning"></i>
+        <i class="fa fa-star text-warning"></i>
+        <i class="fa fa-star-o text-warning"></i>
+        <span class="fw-bold ms-2">4.5 / 5</span>
+      </div>
+
+      <!-- Description -->
+      <p class="lead text-muted mb-4">{{recipe.description}}</p>
 
       <!-- Image -->
       <div class="mb-5">
-        <div class="ratio ratio-16x9 rounded-4 
-                    overflow-hidden shadow">
-          <img  ng-src="./media/avatar/{{recipe.image}}" 
-                alt="recipe.image" 
-                class="img-fluid object-fit-cover">
+        <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow">
+          <img ng-src="./media/avatar/{{recipe.image}}" 
+               alt="recipe.image" 
+               class="img-fluid object-fit-cover">
         </div>
       </div>
 
@@ -32,6 +44,7 @@
             </div>
           </div>
         </div>
+
         <div class="col-6 col-md-3">
           <div class="card h-100 border-0 bg-light shadow-sm">
             <div class="card-body text-center py-3">
@@ -40,18 +53,17 @@
               </div>
               <h5 class="fw-bold mb-1 fs-6">Adag</h5>
               <div class="d-flex justify-content-center align-items-center gap-2">
-                <button class="btn btn-sm btn-outline-warning" ng-click="servingMinus()">
+                <button ng-click="servingMinus()" class="btn btn-sm btn-outline-warning">
                   <i class="fa fa-minus"></i>
                 </button>
                 <span class="fw-bold">{{recipe.servings}}</span>
-                <button class="btn btn-sm btn-outline-warning" ng-click="servingPlus()">
+                <button ng-click="servingPlus()" class="btn btn-sm btn-outline-warning">
                   <i class="fa fa-plus"></i>
                 </button>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
 
@@ -62,17 +74,16 @@
       </h5>
       <div class="d-flex flex-wrap justify-content-center gap-2">
         <span ng-repeat="tag in recipe.tags" 
-              class=" badge bg-warning bg-opacity-25 
-                      text-dark fs-6 py-2 px-3 rounded-pill">
+              class="badge bg-warning bg-opacity-25 text-dark fs-6 py-2 px-3 rounded-pill">
           {{tag}}
         </span>
       </div>
     </div>
 
     <div class="row g-4">
+
       <!-- Left Column - Ingredients -->
       <div class="col-lg-4">
-        <!-- Ingredients Card -->
         <div class="card border-0 shadow-sm mb-4">
           <div class="card-header bg-warning text-white border-0 rounded-top">
             <div class="d-flex align-items-center">
@@ -83,18 +94,19 @@
           <div class="card-body p-0">
             <ul ng-repeat="ingredient in recipe.ingredients" class="list-group list-group-flush">
               <li class="list-group-item d-flex justify-content-between align-items-center py-3">
-                <div>
-                  <span class="fw-bold">{{ingredient.name}}</span>
-                </div>
-                <span class="badge bg-warning bg-opacity-25 text-dark px-3 py-2"> {{ ingredient.quantity | number:1 }}{{ ingredient.unit }}</span>
+                <span class="fw-bold">{{ingredient.name}}</span>
+                <span class="badge bg-warning bg-opacity-25 text-dark px-3 py-2">
+                  {{ ingredient.quantity | number:1 }}{{ ingredient.unit }}
+                </span>
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      <!-- Right Column - Steps & Comments -->
+      <!-- Right Column -->
       <div class="col-lg-8">
+
         <!-- Steps Card -->
         <div class="card border-0 shadow-sm mb-4">
           <div class="card-header bg-dark text-white border-0 rounded-top">
@@ -103,22 +115,86 @@
               <h4 class="mb-0 fw-bold">Elkészítés lépésről lépésre</h4>
             </div>
           </div>
-          <div  class="card-body p-0">
-            <!-- Steps -->
+          <div class="card-body p-0">
             <div ng-repeat="step in recipe.steps" class="p-4">
               <div class="d-flex">
                 <div class="bg-warning text-white rounded-circle 
                             d-flex align-items-center 
-                            justify-content-center me-3 flex-shrink-0" style="width: 40px; height: 40px;">
+                            justify-content-center me-3 flex-shrink-0"
+                     style="width:40px;height:40px;">
                   <strong>{{step.position}}</strong>
                 </div>
-                <div>
-                  <p class="mb-0">{{step.instruction}}</p>
-                </div>
+                <p class="mb-0">{{step.instruction}}</p>
               </div>
             </div>
-            
             <hr class="m-0">
           </div>
         </div>
+
+        <!-- Rating & Comments Card -->
+        <div class="card border-0 shadow-sm mt-4">
+          <div class="card-header bg-warning text-white border-0 rounded-top">
+            <div class="d-flex align-items-center">
+              <i class="fa fa-comments fs-4 me-3"></i>
+              <h4 class="mb-0 fw-bold">Rating & Comments</h4>
+            </div>
+          </div>
+
+          <div class="card-body">
+
+            <!-- rating (if not logged in) -->
+            <div ng-if="!user">
+              <p>értékeléshez és kommenteléshez <a ui-sref="login">jelentkezz</a> be</p>
+            </div>
+            <!-- rating (if logged in) -->
+            <div ng-if="user">
+              <div class="mb-4 text-center">
+                <h5 class="fw-bold mb-3">Értékeld a receptet</h5>
+
+                <div class="d-flex justify-content-center gap-2 mb-2">
+                  <i class="fa fa-star fs-3 text-warning"></i>
+                  <i class="fa fa-star fs-3 text-warning"></i>
+                  <i class="fa fa-star fs-3 text-warning"></i>
+                  <i class="fa fa-star fs-3 text-warning"></i>
+                  <i class="fa fa-star fs-3 text-warning"></i>
+                </div>
+              </div>
+
+              <hr>
+
+              <!-- add comment -->
+              <div class="mb-4">
+                <h5 class="fw-bold mb-3">Hozzászólások ({{recipe.comments.length}})</h5>
+                <textarea class="form-control mb-2"
+                          rows="3"
+                          placeholder="Új hozzászólás"
+                          ng-model="comment">
+                </textarea>
+                <button class="btn btn-warning">
+                  <i class="fa fa-paper-plane me-1"></i> 
+                  Hozzászólás küldése
+                </button>
+              </div>
+            </div>
+            <hr>
+
+            <!-- comments -->
+            <div ng-repeat="comment in recipe.comments">
+              <div class="mb-3">
+                <div class="p-3 bg-light rounded-3 shadow-sm">
+                  <div class="d-flex justify-content-between mb-1">
+                    <strong>{{comment.id}}</strong>
+                    <small class="text-muted">{{comment.created_at}}</small>
+                  </div>
+                  <p class="mb-0">{{comment.content}}</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
+    </div>
+  </div>
+</div>

@@ -36,12 +36,28 @@ $query = "SELECT
               FROM recipe_tags rt
               JOIN tags t ON t.id = rt.tag_id
               WHERE rt.recipe_id = r.id
-            ) AS tags
+            ) AS tags,
+            (
+              SELECT CONCAT('[', GROUP_CONCAT(rt.score), ']')
+              FROM ratings rt
+              WHERE rt.recipe_id = r.id
+            ) AS ratings,
+            (
+              SELECT CONCAT('[', GROUP_CONCAT(JSON_OBJECT(
+                  'id', c.id,
+                  'content', c.content,
+                  'user_id', c.user_id,
+                  'created_at', c.created_at,
+                  'is_hidden', c.is_hidden
+              ) ORDER BY c.created_at DESC), ']')
+              FROM comments c
+              WHERE c.recipe_id = r.id
+            ) AS comments
         FROM recipes r
         WHERE r.id = :id
         GROUP BY r.id";
 
-$result = $db->execute($query,$args["id"]);
+$result = $db->execute($query, $args["id"]);
 
 $db = null;
 
