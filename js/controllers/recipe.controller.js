@@ -10,6 +10,8 @@
     '$rootScope',
     function($state, http, $scope, $stateParams,$rootScope) {
 
+      
+      console.log("Recipe controller runing...")
       let originalServings;
       
       //servings minus button click

@@ -45,7 +45,10 @@
           url: '/recipe/:id',
           parent: 'root',
           templateUrl: './html/pages/recipe.html',
-          controller: 'recipeController'
+          controller: 'recipeController',
+          params: {
+					  id: null
+				  }
         })
         .state('profile', {
           url: '/profile',       
@@ -82,6 +85,8 @@
     '$state',
     'http',
     function($rootScope,$state,http) {
+
+      $rootScope.user = null;
       console.log('Run...');
 
     }
