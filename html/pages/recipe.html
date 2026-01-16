@@ -10,14 +10,33 @@
       </div>
 
       <!-- ⭐ Average Rating (TOP) -->
-      <div class="d-flex justify-content-center align-items-center gap-2 mb-3">
-        <i class="fa fa-star text-warning"></i>
-        <i class="fa fa-star text-warning"></i>
-        <i class="fa fa-star text-warning"></i>
-        <i class="fa fa-star text-warning"></i>
-        <i class="fa fa-star-o text-warning"></i>
-        <span class="fw-bold ms-2">4.5 / 5</span>
-      </div>
+      <!-- <div class="d-flex justify-content-center align-items-center gap-2 mb-3">
+        <div ng-repeat="x in [].constructor(recipe.averageRating) track by $index">
+          <i class="fa fa-star text-warning "></i>
+        </div>
+        <div ng-repeat="x in [].constructor((5-recipe.averageRating)) track by $index">
+          <i class="fa fa-star "></i>
+        </div>
+        <span class="fw-bold ms-2">{{recipe.averageRating}}</span>
+      </div> -->
+
+      <ul class="rating inline-ul">
+  <li ng-repeat="i in [0,1,2,3,4] track by $index">
+    
+    <!-- Teljes csillag -->
+    <i class="fa fa-star text-warning"
+       ng-if="starValue >= i + 1"></i>
+
+    <!-- Fél csillag -->
+    <i class="fa fa-star-half-o text-warning"
+       ng-if="starValue >= i + 0.5 && starValue < i + 1"></i>
+
+    <!-- Üres csillag -->
+    <i class="fa fa-star-o text-muted"
+       ng-if="starValue < i + 0.5"></i>
+
+  </li>
+</ul>
 
       <!-- Description -->
       <p class="lead text-muted mb-4">{{recipe.description}}</p>

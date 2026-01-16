@@ -77,9 +77,20 @@
           r.ingredients.forEach(i => {
             i.originalQuantity = i.quantity;
           });
-
+          
           $scope.recipe = r;
           originalServings = r.servings;
+
+          //average calculating
+          if ($scope.recipe.ratings) { 
+            $scope.recipe.averageRating=null;
+            $scope.recipe.ratings.forEach(x=>$scope.recipe.averageRating+=x);
+            $scope.recipe.averageRating/=$scope.recipe.ratings.length;
+            console.log($scope.recipe.averageRating);
+          }else{
+            $scope.recipe.averageRating="Nincs értékelés";
+          }
+          
           $scope.$applyAsync();
         })
         .catch(e => console.error(e));
