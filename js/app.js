@@ -42,12 +42,13 @@
           controller: 'loginController'
         })
         .state('recipe', {
-          url: '/recipe/:id',
+          url: '/recipe/:id:title',
           parent: 'root',
           templateUrl: './html/pages/recipe.html',
           controller: 'recipeController',
           params: {
-					  id: null
+					  id: null,
+            title: null
 				  }
         })
         .state('profile', {
