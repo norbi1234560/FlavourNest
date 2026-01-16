@@ -9,34 +9,34 @@
         <h1 class="fw-bold display-4 text-dark mb-2">{{recipe.title}}</h1>
       </div>
 
-      <!-- ⭐ Average Rating (TOP) -->
-      <!-- <div class="d-flex justify-content-center align-items-center gap-2 mb-3">
-        <div ng-repeat="x in [].constructor(recipe.averageRating) track by $index">
-          <i class="fa fa-star text-warning "></i>
+      <!-- Average Rating with stars  -->
+      <div class="d-flex justify-content-center 
+                  align-items-center mb-3">
+        <div class="d-flex align-items-center 
+                    bg-light rounded-pill 
+                    px-4 py-2 shadow-sm">
+          <ul class="list-inline mb-0 me-3">
+            <li class="list-inline-item m-0 p-0" 
+                ng-repeat="star in recipe.stars track by $index">
+
+              <!-- Full star -->
+              <i class="fa fa-star text-warning"
+                 ng-if="star=='full'"></i>
+
+              <!-- Half star -->
+              <i class="fa fa-star-half-alt text-warning"
+                 ng-if="star=='half'"></i>
+
+              <!-- empty star -->
+              <i class="far fa-star text-muted"
+                 ng-if="star=='empty'"></i>
+
+            </li>
+          </ul>
+          <span class="fw-bold text-dark fs-5">{{recipe.averageRating}}/5</span>
         </div>
-        <div ng-repeat="x in [].constructor((5-recipe.averageRating)) track by $index">
-          <i class="fa fa-star "></i>
-        </div>
-        <span class="fw-bold ms-2">{{recipe.averageRating}}</span>
-      </div> -->
-
-      <ul class="rating inline-ul">
-  <li ng-repeat="i in [0,1,2,3,4] track by $index">
-    
-    <!-- Teljes csillag -->
-    <i class="fa fa-star text-warning"
-       ng-if="starValue >= i + 1"></i>
-
-    <!-- Fél csillag -->
-    <i class="fa fa-star-half-o text-warning"
-       ng-if="starValue >= i + 0.5 && starValue < i + 1"></i>
-
-    <!-- Üres csillag -->
-    <i class="fa fa-star-o text-muted"
-       ng-if="starValue < i + 0.5"></i>
-
-  </li>
-</ul>
+      </div>
+      
 
       <!-- Description -->
       <p class="lead text-muted mb-4">{{recipe.description}}</p>
