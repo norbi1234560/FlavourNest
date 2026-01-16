@@ -9,9 +9,7 @@
     '$stateParams',
     '$rootScope',
     function($state, http, $scope, $stateParams,$rootScope) {
-
-      
-      console.log("Recipe controller runing...")
+      console.log($state.current.name)
       let originalServings;
       
       //servings minus button click
@@ -48,6 +46,7 @@
         .then(response=>{
           alert("sikeres hozzászólás");
           $scope.data.comment="";
+          loadRecipe()
           $scope.$applyAsync();
         })
         .catch(e=> console.error(e))
@@ -62,24 +61,29 @@
         });
       }
 
-      //single recipe data fetch
-      http.request({
-        url: "./php/recipe.php",
-        data: { id: $stateParams.id }
-      })
-      .then(response => {
-        let r = response[0];
-        ['ingredients','steps','tags','comments','ratings'].forEach(key => r[key] = JSON.parse(r[key]));
+      //load in recipe when site is opened
+      loadRecipe()
 
-        r.ingredients.forEach(i => {
-          i.originalQuantity = i.quantity;
-        });
+      //single recipe data fetch function
+      function loadRecipe() {
+        http.request({
+          url: "./php/recipe.php",
+          data: { id: $stateParams.id }
+        })
+        .then(response => {
+          let r = response[0];
+          ['ingredients','steps','tags','comments','ratings'].forEach(key => r[key] = JSON.parse(r[key]));
 
-        $scope.recipe = r;
-        originalServings = r.servings;
-        $scope.$applyAsync();
-      })
-      .catch(e => console.error(e));
+          r.ingredients.forEach(i => {
+            i.originalQuantity = i.quantity;
+          });
+
+          $scope.recipe = r;
+          originalServings = r.servings;
+          $scope.$applyAsync();
+        })
+        .catch(e => console.error(e));
+        }
       }
   ]);
 
