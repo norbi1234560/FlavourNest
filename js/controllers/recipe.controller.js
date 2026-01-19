@@ -89,7 +89,7 @@
             $scope.recipe.averageRatingRounded=Math.round($scope.recipe.averageRating*2)/2;
           }
           else{
-            $scope.recipe.averageRating=0;
+            $scope.recipe.averageRating=null;
           }
 
           //stars array upload

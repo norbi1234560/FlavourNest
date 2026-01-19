@@ -33,7 +33,8 @@
 
             </li>
           </ul>
-          <span class="fw-bold text-dark fs-5">{{recipe.averageRating}}/5</span>
+          <span ng-if="recipe.averageRating" class="fw-bold text-dark fs-5">{{recipe.averageRating | number:1}}/5</span>
+          <span ng-if="!recipe.averageRating" class="fw-bold text-dark fs-5">Nincs értékelés</span>
         </div>
       </div>
       
