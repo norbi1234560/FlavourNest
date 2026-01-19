@@ -90,6 +90,9 @@
       $rootScope.user = null;
       console.log('Run...');
 
+      $rootScope.roundNumber=(x)=>{
+        return Math.round(x);
+      }
     }
   ]);
 
