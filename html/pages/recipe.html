@@ -205,14 +205,14 @@
               </div>
             </div>
             <hr>
-            <h5 class="fw-bold mb-3">Hozzászólások ({{recipe.comments.length}})</h5>
-            
+            <h5 ng-if="recipe.comments.length" class="fw-bold mb-3">Hozzászólások ({{recipe.comments.length}})</h5>
+            <h5 ng-if="!recipe.comments.length" class="fw-bold mb-3">Nincs még hozzászólás</h5>
             <!-- comments -->
             <div ng-repeat="comment in recipe.comments">
               <div class="mb-3">
                 <div class="p-3 bg-light rounded-3 shadow-sm">
                   <div class="d-flex justify-content-between mb-1">
-                    <strong>{{comment.id}}</strong>
+                    <strong>{{comment.username}}</strong>
                     <small class="text-muted">{{comment.created_at}}</small>
                   </div>
                   <p class="mb-0">{{comment.content}}</p>

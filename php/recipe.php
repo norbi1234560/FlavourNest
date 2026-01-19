@@ -44,12 +44,12 @@ $query = "SELECT
             ) AS ratings,
             (
               SELECT CONCAT('[', GROUP_CONCAT(JSON_OBJECT(
-                  'id', c.id,
                   'content', c.content,
-                  'user_id', c.user_id,
+                  'username', u.username,
                   'created_at', c.created_at
               ) ORDER BY c.created_at DESC), ']')
               FROM comments c
+              JOIN users u ON u.id = c.user_id
               WHERE c.recipe_id = r.id
             ) AS comments
         FROM recipes r
