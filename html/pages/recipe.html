@@ -33,7 +33,7 @@
 
             </li>
           </ul>
-          <span ng-if="recipe.averageRating" class="fw-bold text-dark fs-5">{{roundNumber(recipe.averageRating)}}/5</span>
+          <span ng-if="recipe.averageRating" class="fw-bold text-dark fs-5">{{roundNumber(recipe.averageRating,1)}}/5</span>
           <span ng-if="!recipe.averageRating" class="fw-bold text-dark fs-5">Nincs értékelés</span>
         </div>
       </div>
@@ -123,7 +123,7 @@
                           align-items-center py-3">
                 <span class="fw-bold">{{ingredient.name}}</span>
                 <span class="badge bg-warning bg-opacity-25 text-dark px-3 py-2">
-                  {{roundNumber(ingredient.quantity)}}{{ ingredient.unit }}
+                  {{roundNumber(ingredient.quantity,10)}}{{ ingredient.unit }}
                 </span>
               </li>
             </ul>
