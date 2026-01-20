@@ -34,7 +34,7 @@
         }      
 
       //comment click
-      $scope.commentClick=()=>{
+      $scope.commentSendClick=()=>{
         console.log($scope.data.comment);
         http.request({
           url:"./php/commentUpload.php",
@@ -81,12 +81,13 @@
           $scope.recipe = r;
           originalServings = r.servings;
 
+          let averageRatingRounded
           //average rating/average rounded rating calculating
           if ($scope.recipe.ratings) { 
             $scope.recipe.averageRating=null;
             $scope.recipe.ratings.forEach(x=>$scope.recipe.averageRating+=x);
             $scope.recipe.averageRating/=$scope.recipe.ratings.length;
-            $scope.recipe.averageRatingRounded=Math.round($scope.recipe.averageRating*2)/2;
+            averageRatingRounded=Math.round($scope.recipe.averageRating*2)/2;
           }
           else{
             $scope.recipe.averageRating=null;
@@ -95,10 +96,10 @@
           //stars array upload
           $scope.recipe.stars=[];
           for (let i = 1; i <= 5; i++) {
-            if ($scope.recipe.averageRatingRounded >= i) {
+            if (averageRatingRounded >= i) {
                 $scope.recipe.stars.push('full');
             } 
-            else if ($scope.recipe.averageRatingRounded >= i - 0.5) {
+            else if (averageRatingRounded >= i - 0.5) {
                 $scope.recipe.stars.push('half');
             } 
             else {
