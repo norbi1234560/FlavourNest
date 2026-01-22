@@ -42,15 +42,16 @@
           controller: 'loginController'
         })
         .state('recipe', {
-          url: '/recipe/:id-:titleUrl',
+          url: '/recipe/{id:int}-{titleUrl}',
           parent: 'root',
           templateUrl: './html/pages/recipe.html',
           controller: 'recipeController',
           params: {
-					  id: null,
+            id: null,
             titleUrl: null
-				  }
+          }
         })
+
         .state('profile', {
           url: '/profile',       
           parent: 'root',
@@ -70,7 +71,7 @@
           controller: 'recipesController'
         })
         .state('recipeUpload', {
-          url: '/recipes',       
+          url: '/recipeUpload',       
           parent: 'root',
           templateUrl: './html/pages/recipeUpload.html',
           controller: 'recipeUploadController'
@@ -83,6 +84,12 @@
           params: {
             author_username: null
 				  }
+        })
+        .state('error404', {
+          url: '/error404',       
+          parent: 'root',
+          templateUrl: './html/pages/error404.html',
+          controller: 'error404Controller',
         });
 
         

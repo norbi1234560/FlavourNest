@@ -68,13 +68,16 @@
       function loadRecipe() {
         http.request({
           url: "./php/recipe.php",
-          data: { id: $stateParams.id ,title:$stateParams.titleUrl}
+          data: { 
+            id: $stateParams.id ,
+            title :$stateParams.titleUrl.replace("-"," "),
+          }
         })
         .then(response => {
           console.log(response);
           if (response=="hiba") {
-            $state.go("recipeUpload");
-            
+            $state.go("error404");
+            return
           }
           
           let r = response[0];
