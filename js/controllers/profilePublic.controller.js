@@ -6,7 +6,10 @@
     '$scope',
     '$stateParams',
     function($scope, $stateParams) {
-      console.log($stateParams);
+      $scope.user=$stateParams.author_username;
+      console.log($scope.user);
+      
+      $scope.$applyAsync();
     }
   ]);
 

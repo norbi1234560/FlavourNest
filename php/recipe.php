@@ -56,11 +56,17 @@ $query = "SELECT
             u.username AS author_username
         FROM recipes r
         JOIN users u ON u.id = r.author_id
-        WHERE r.id = :id
+        WHERE r.id = :id AND r.title = :title
         GROUP BY r.id";
 
-$result = $db->execute($query, $args["id"]);
+$result = $db->execute($query, $args);
 
 $db = null;
 
-Util::setResponse($result);
+if (is_null($result)) {
+  Util::setResponse("hiba");
+}
+else {
+  Util::setResponse($result);
+}
+

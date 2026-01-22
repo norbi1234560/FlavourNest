@@ -68,9 +68,15 @@
       function loadRecipe() {
         http.request({
           url: "./php/recipe.php",
-          data: { id: $stateParams.id }
+          data: { id: $stateParams.id ,title:$stateParams.titleUrl}
         })
         .then(response => {
+          console.log(response);
+          if (response=="hiba") {
+            $state.go("recipeUpload");
+            
+          }
+          
           let r = response[0];
           ['ingredients','steps','tags','comments','ratings'].forEach(key => r[key] = JSON.parse(r[key]));
 

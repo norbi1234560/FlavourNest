@@ -76,12 +76,11 @@
           controller: 'recipeUploadController'
         })
         .state('profilePublic', {
-          url: '/profiles/:author_id-:author_username',       
+          url: '/profiles/:author_username',       
           parent: 'root',
           templateUrl: './html/pages/profilePublic.html',
           controller: 'profilePublicController',
           params: {
-					  author_id: null,
             author_username: null
 				  }
         });

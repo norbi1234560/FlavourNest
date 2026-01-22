@@ -22,26 +22,28 @@
     color: yellow;
 }
 
-.link {
-  color: #2563eb;
+.link,
+.link-grey {
   text-decoration: none;
   font-weight: 500;
   border-bottom: 2px solid transparent;
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
-.link:hover {
-  border-bottom: 2px solid #2563eb;
+.link {
+  color: #2563eb;
 }
 
 .link-grey {
-    color: #6c757d;
-    text-decoration: none;
-    transition: color 0.2s ease, text-decoration 0.2s ease;
+  color: #6c757d;
+}
+
+.link:hover {
+  border-bottom-color: #2563eb;
 }
 
 .link-grey:hover {
-    color: #495057;
-    text-decoration: underline;
-    cursor: pointer;
+  border-bottom-color: #495057;
 }
+
