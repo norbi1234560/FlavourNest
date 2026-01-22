@@ -164,7 +164,7 @@
                       text-white border-0 rounded-top">
             <div class="d-flex align-items-center">
               <i class="fa fa-comments fs-4 me-3"></i>
-              <h4 class="mb-0 fw-bold">Értékeléshez & Hozzászólás</h4>
+              <h4 class="mb-0 fw-bold">Értékelés & Hozzászólás</h4>
             </div>
           </div>
 
@@ -172,7 +172,7 @@
 
             <!-- rating (if not logged in) -->
             <div ng-if="!user">
-              <p>Értékeléshez és hozzászóláshoz <a ui-sref="login">jelentkezz</a> be</p>
+              <p>Értékeléshez és hozzászóláshoz <a class="link" ui-sref="login">jelentkezz</a> be</p>
             </div>
 
             <!-- rating (if logged in) -->
@@ -181,11 +181,7 @@
                 <h5 class="fw-bold mb-3">Értékeld a receptet</h5>
 
                 <div class="d-flex justify-content-center gap-2 mb-2">
-                  <i class="fa fa-star fs-3 text-warning"></i>
-                  <i class="fa fa-star fs-3 text-warning"></i>
-                  <i class="fa fa-star fs-3 text-warning"></i>
-                  <i class="fa fa-star fs-3 text-warning"></i>
-                  <i class="fa fa-star fs-3 text-warning"></i>
+                  <i ng-repeat="x in [].constructor(5) track by $index" class="fa fa-star fs-3 text-warning"></i>
                 </div>
               </div>
 

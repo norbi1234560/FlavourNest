@@ -21,3 +21,16 @@
 .checked{
     color: yellow;
 }
+
+.link {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.link:hover {
+  border-bottom: 2px solid #2563eb;
+}
+
