@@ -13,6 +13,7 @@ $query = "SELECT
             r.image,
             r.servings,
             r.prep_time_minutes,
+            r.author_id,
             (
               SELECT CONCAT('[', GROUP_CONCAT(JSON_OBJECT(
                   'name', i.name,
@@ -51,8 +52,10 @@ $query = "SELECT
               FROM comments c
               JOIN users u ON u.id = c.user_id
               WHERE c.recipe_id = r.id
-            ) AS comments
+            ) AS comments,
+            u.username AS author_username
         FROM recipes r
+        JOIN users u ON u.id = r.author_id
         WHERE r.id = :id
         GROUP BY r.id";
 

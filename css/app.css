@@ -34,3 +34,14 @@
   border-bottom: 2px solid #2563eb;
 }
 
+.link-grey {
+    color: #6c757d;
+    text-decoration: none;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.link-grey:hover {
+    color: #495057;
+    text-decoration: underline;
+    cursor: pointer;
+}

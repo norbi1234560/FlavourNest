@@ -74,7 +74,19 @@
           parent: 'root',
           templateUrl: './html/pages/recipeUpload.html',
           controller: 'recipeUploadController'
+        })
+        .state('profilePublic', {
+          url: '/profiles/:author_id-:author_username',       
+          parent: 'root',
+          templateUrl: './html/pages/profilePublic.html',
+          controller: 'profilePublicController',
+          params: {
+					  author_id: null,
+            author_username: null
+				  }
         });
+
+        
 
       $urlRouterProvider.otherwise('/');
     }
