@@ -74,14 +74,14 @@
           }
         })
         .then(response => {
-          console.log(response);
           if (response=="hiba") {
             $state.go("error404");
             return
           }
           
           let r = response[0];
-          ['ingredients','steps','tags','comments','ratings'].forEach(key => r[key] = JSON.parse(r[key]));
+          ['ingredients','steps','tags','comments','ratings'].
+          forEach(key => r[key] = JSON.parse(r[key]));
 
           r.ingredients.forEach(i => {
             i.originalQuantity = i.quantity;
@@ -89,8 +89,8 @@
           
           $scope.recipe = r;
           originalServings = r.servings;
-
           let averageRatingRounded
+          
           //average rating/average rounded rating calculating
           if ($scope.recipe.ratings) { 
             $scope.recipe.averageRating=null;

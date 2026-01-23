@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2026. Jan 14. 13:30
+-- Létrehozás ideje: 2026. Jan 23. 08:11
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -16,11 +16,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
-DROP DATABASE IF EXISTS flavournest;
-CREATE DATABASE flavournest
-  CHARACTER SET utf8mb4
-  COLLATE utf8mb4_general_ci;
-USE flavournest;
+
 --
 -- Adatbázis: `flavournest`
 --
@@ -36,25 +32,29 @@ CREATE TABLE `comments` (
   `recipe_id` bigint(20) NOT NULL,
   `user_id` bigint(20) DEFAULT NULL,
   `content` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `is_hidden` tinyint(1) DEFAULT 0
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `comments`
 --
 
-INSERT INTO `comments` (`id`, `recipe_id`, `user_id`, `content`, `created_at`, `is_hidden`) VALUES
-(1, 1, NULL, 'Nagyon finom lett, köszönöm a receptet!', '2025-11-11 06:30:36', 0),
-(2, 1, NULL, 'Klasszikus ízvilág, imádom.', '2025-11-11 06:30:36', 0),
-(3, 2, NULL, 'Gyors és ízletes, új kedvenc!', '2025-11-11 06:30:36', 0),
-(4, 3, NULL, 'Tökéletes reggeli ötlet.', '2025-11-11 06:30:36', 0),
-(5, 4, 4, 'A téli időszakban tökéletes melegítő leves!', '2026-01-07 07:00:00', 0),
-(6, 5, 5, 'Könnyű és frissítő, nyári kedvenc.', '2026-01-07 07:05:00', 0),
-(7, 6, 3, 'Laktató és krémes, a család minden tagja szereti.', '2026-01-07 07:10:00', 0),
-(8, 7, 1, 'Fantasztikus desszert különleges alkalmakra.', '2026-01-07 07:15:00', 0),
-(9, 8, 7, 'Gyors és egészséges vacsora ötlet.', '2026-01-07 07:20:00', 0),
-(10, 2, 4, 'Szerettem volna több fűszert hozzáadni.', '2026-01-07 07:25:00', 0);
+INSERT INTO `comments` (`id`, `recipe_id`, `user_id`, `content`, `created_at`) VALUES
+(1, 1, NULL, 'Nagyon finom lett, köszönöm a receptet!', '2025-11-11 06:30:36'),
+(2, 1, NULL, 'Klasszikus ízvilág, imádom.', '2025-11-11 06:30:36'),
+(3, 2, NULL, 'Gyors és ízletes, új kedvenc!', '2025-11-11 06:30:36'),
+(4, 3, NULL, 'Tökéletes reggeli ötlet.', '2025-11-11 06:30:36'),
+(5, 4, 4, 'A téli időszakban tökéletes melegítő leves!', '2026-01-07 07:00:00'),
+(6, 5, 5, 'Könnyű és frissítő, nyári kedvenc.', '2026-01-07 07:05:00'),
+(7, 6, 3, 'Laktató és krémes, a család minden tagja szereti.', '2026-01-07 07:10:00'),
+(8, 7, 1, 'Fantasztikus desszert különleges alkalmakra.', '2026-01-07 07:15:00'),
+(9, 8, 7, 'Gyors és egészséges vacsora ötlet.', '2026-01-07 07:20:00'),
+(10, 2, 4, 'Szerettem volna több fűszert hozzáadni.', '2026-01-07 07:25:00'),
+(12, 10, 1, 'mi az apád faszért raknék bele darálthust azonnal töröld le ezt a recepter szégyen vagy az olasz konyhára nézve!!!!!!', '2026-01-15 12:31:49'),
+(13, 1, 1, 'alwndoawdawdaw', '2026-01-16 07:13:37'),
+(14, 1, 1, 'awdawdawdawdígsdyrhsd', '2026-01-16 07:51:44'),
+(15, 1, 40, 'fasza kis palacsinta nagyon izlett', '2026-01-20 06:39:54'),
+(16, 1, 1, 'é', '2026-01-22 12:31:29');
 
 -- --------------------------------------------------------
 
@@ -171,9 +171,9 @@ CREATE TABLE `recipes` (
 --
 
 INSERT INTO `recipes` (`id`, `title`, `description`, `author_id`, `servings`, `prep_time_minutes`, `created_at`, `image`) VALUES
-(1, 'Palacsinta', 'Klasszikus magyar palacsinta recept.', NULL, 4, 20, '2025-11-11 06:30:36', '200w.gif'),
-(2, 'Csirkés tészta', 'Krémes csirkés tészta paradicsommal és sajttal.', NULL, 2, 30, '2025-11-11 06:30:36', 'csirkes_teszta.jpeg'),
-(3, 'Zöldséges omlett', 'Egészséges reggeli zöldségekkel.', NULL, 1, 15, '2025-11-11 06:30:36', 'zoldseges_omlett.jpg'),
+(1, 'Palacsinta', 'Klasszikus magyar palacsinta recept.', 1, 4, 20, '2025-11-11 06:30:36', '200w.gif'),
+(2, 'Csirkés tészta', 'Krémes csirkés tészta paradicsommal és sajttal.', 3, 2, 30, '2025-11-11 06:30:36', 'csirkes_teszta.jpeg'),
+(3, 'Zöldséges omlett', 'Egészséges reggeli zöldségekkel.', 7, 1, 15, '2025-11-11 06:30:36', 'zoldseges_omlett.jpg'),
 (4, 'Húsleves', 'Hagyományos magyar húsleves zöldségekkel.', 3, 6, 120, '2026-01-07 07:00:00', 'husleves.webp'),
 (5, 'Uborkasaláta', 'Friss, fokhagymás uborkasaláta joghurttal.', 4, 4, 15, '2026-01-07 07:00:00', 'uborkasalata.webp'),
 (6, 'Pörkölt', 'Hagyományos magyar pörkölt galuskával.', 5, 4, 90, '2026-01-07 07:00:00', 'porkolt.jpeg'),
@@ -414,7 +414,8 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `created_at`, `avata
 (35, 'adonbwakldbjnaw', 'awdlawbnoda@aa.com', 'adminadmin', '0000-00-00', NULL),
 (36, 'awkjdnawod', 'awldinawoidna@aa.com', 'adminadmin', '2026-01-14', NULL),
 (38, 'awkjdbawkbdaw', 'awljdjbnawkdbnawakwdna@aa.com', 'adminadmin', '0000-00-00', NULL),
-(39, 'awljdbawkbda', 'ajdjw@aa.com', 'adminadmin', '2026-01-14', NULL);
+(39, 'awljdbawkbda', 'ajdjw@aa.com', 'adminadmin', '2026-01-14', NULL),
+(40, 'NorbiKing', 'awidaw@aa.a', 'adminadmin', '2026-01-20', NULL);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -499,7 +500,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT a táblához `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT a táblához `ingredients`
@@ -541,7 +542,7 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT a táblához `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- Megkötések a kiírt táblákhoz
