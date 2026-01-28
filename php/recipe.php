@@ -56,7 +56,7 @@ $query = "SELECT
             u.username AS author_username
         FROM recipes r
         JOIN users u ON u.id = r.author_id
-        WHERE r.id = :id
+        WHERE r.id = :id AND r.title = :title
         GROUP BY r.id";
 
 $result = $db->execute($query, $args);

@@ -40,10 +40,10 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `recipe_id`, `user_id`, `content`, `created_at`) VALUES
-(1, 1, NULL, 'Nagyon finom lett, köszönöm a receptet!', '2025-11-11 06:30:36'),
-(2, 1, NULL, 'Klasszikus ízvilág, imádom.', '2025-11-11 06:30:36'),
-(3, 2, NULL, 'Gyors és ízletes, új kedvenc!', '2025-11-11 06:30:36'),
-(4, 3, NULL, 'Tökéletes reggeli ötlet.', '2025-11-11 06:30:36'),
+(1, 1, 1, 'Nagyon finom lett, köszönöm a receptet!', '2025-11-11 06:30:36'),
+(2, 1, 1, 'Klasszikus ízvilág, imádom.', '2025-11-11 06:30:36'),
+(3, 2, 7, 'Gyors és ízletes, új kedvenc!', '2025-11-11 06:30:36'),
+(4, 3, 5, 'Tökéletes reggeli ötlet.', '2025-11-11 06:30:36'),
 (5, 4, 4, 'A téli időszakban tökéletes melegítő leves!', '2026-01-07 07:00:00'),
 (6, 5, 5, 'Könnyű és frissítő, nyári kedvenc.', '2026-01-07 07:05:00'),
 (7, 6, 3, 'Laktató és krémes, a család minden tagja szereti.', '2026-01-07 07:10:00'),

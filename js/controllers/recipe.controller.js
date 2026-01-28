@@ -69,7 +69,8 @@
         http.request({
           url: "./php/recipe.php",
           data: { 
-            id: $stateParams.id 
+            id: $stateParams.id ,
+            title :$stateParams.titleUrl.replace("-"," "),
           }
         })
         .then(response => {

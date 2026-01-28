@@ -5,7 +5,8 @@
   .controller('profilePublicController', [
     '$scope',
     '$stateParams',
-    function($scope, $stateParams) {
+    'http',
+    function($scope, $stateParams, http) {w3s3 
       $scope.user=$stateParams.author_username;
       console.log($scope.user);
       
