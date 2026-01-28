@@ -1,91 +1,158 @@
-<div class="container py-5">
+<div class="container py-5" ng-controller="recipeUploadController">
+
   <h1 class="text-center mb-4">
     <span class="text-warning">Recept</span> Feltöltés
   </h1>
 
-  <form name="recipeUploadForm" class="card shadow p-4">
+  <form class="card shadow p-4">
 
     <!-- Title -->
     <div class="mb-3">
       <label for="recipeTitle" class="form-label">Recept cím</label>
-      <input ng-model="recipeUpload.title" id="recipeTitle" type="text" class="form-control" name="title" required>
+      <input type="text"
+             id="recipeTitle"
+             class="form-control"
+             ng-model="recipeUpload.title"
+             required>
     </div>
 
     <!-- Description -->
     <div class="mb-3">
       <label for="recipeDescription" class="form-label">Leírás</label>
-      <textarea ng-model="recipeUpload.description" id="recipeDescription" class="form-control" name="description" required></textarea>
+      <textarea id="recipeDescription"
+                class="form-control"
+                ng-model="recipeUpload.description"
+                required></textarea>
     </div>
 
     <!-- Basic Info -->
     <div class="row mb-3">
       <div class="col-md-4">
         <label for="recipeServings" class="form-label">Adag</label>
-        <input ng-model="recipeUpload.servings" id="recipeServings" type="number" class="form-control" name="servings" value="4" min="1" required>
+        <input type="number"
+               id="recipeServings"
+               class="form-control"
+               ng-model="recipeUpload.servings"
+               min="1"
+               required>
       </div>
+
       <div class="col-md-4">
-        <label for="recipePreptime" class="form-label">Elkészítési idő(perc) *</label>
-        <input ng-model="recipeUpload.preptime" id="recipePreptime" type="number" class="form-control" name="prep_time_minutes" min="1" required>
+        <label for="recipePrepTime" class="form-label">Elkészítési idő (perc)</label>
+        <input type="number"
+               id="recipePrepTime"
+               class="form-control"
+               ng-model="recipeUpload.preptime"
+               min="1"
+               required>
       </div>
+
       <div class="col-md-4">
         <label for="recipeImage" class="form-label">Kép</label>
-        <input id="recipeImage" type="file" class="form-control" name="image" accept="image/*">
+        <input type="file"
+               id="recipeImage"
+               class="form-control">
       </div>
     </div>
 
     <hr>
 
-    <!-- Ingredients -->
+    <!-- INGREDIENTS -->
     <h5>Hozzávalók</h5>
-    <div ng-repeat="x in [].constructor(5) track by $index" id="ingredientsContainer">
-      <div class="row g-2 mb-2 ingredient-row">
-        <div class="col-md-5">
-          <select id="recipeIngredients" class="form-select" required>
-            <option value="">Hozzávaló</option>
-            <option value="1">Flour</option>
-            <option value="2">Sugar</option>
-            <option value="3">Salt</option>
-          </select>
-        </div>
-        <div class="col-md-3">
-          <input id="recipeQuantity" type="number" class="form-control" placeholder="Mennyiség" required>
-        </div>
-        <div class="col-md-3">
-          <input id="recipeUnit" type="text" class="form-control" placeholder="Egység" required>
-        </div>
-        <div class="col-md-1">
-          <button type="button" class="btn btn-outline-danger remove-ingredient">✕</button>
-        </div>
+
+    <div class="row g-2 mb-2"
+         ng-repeat="ingredient in ingredients track by $index">
+
+      <div class="col-md-5">
+        <label class="visually-hidden" for="ingredientSelect-{{$index}}">Hozzávaló választása</label>
+        <select id="ingredientSelect-{{$index}}"
+                class="form-select"
+                ng-model="ingredient.ingredient_id"
+                required>
+          <option value="">Hozzávaló</option>
+          <option value="1">Flour</option>
+          <option value="2">Sugar</option>
+          <option value="3">Salt</option>
+        </select>
+      </div>
+
+      <div class="col-md-3">
+        <label class="visually-hidden" for="ingredientQuantity-{{$index}}">Mennyiség</label>
+        <input type="number"
+               id="ingredientQuantity-{{$index}}"
+               class="form-control"
+               ng-model="ingredient.quantity"
+               placeholder="Mennyiség"
+               required>
+      </div>
+
+      <div class="col-md-3">
+        <label class="visually-hidden" for="ingredientUnit-{{$index}}">Egység</label>
+        <input type="text"
+               id="ingredientUnit-{{$index}}"
+               class="form-control"
+               ng-model="ingredient.unit"
+               placeholder="Egység"
+               required>
+      </div>
+
+      <div class="col-md-1">
+        <button type="button"
+                class="btn btn-outline-danger"
+                ng-click="deleteIngredient($index)"
+                aria-label="Hozzávaló törlése">
+          ✕
+        </button>
       </div>
     </div>
 
-    <button type="button" id="addIngredient" class="btn btn-sm btn-outline-warning mb-4">
+    <button type="button"
+            class="btn btn-sm btn-outline-warning mb-4"
+            ng-click="buttonAddIngredient()">
       + Hozzávaló
     </button>
 
     <hr>
 
-    <!-- Instructions -->
+    <!-- STEPS -->
     <h5>Lépések</h5>
-    <div ng-repeat="x in [].constructor(5) track by $index" id="instructionsContainer">
-      <div class="mb-3 instruction-row">
-        <label for="recipeInstructions" class="form-label">{{$index+1}} lépés</label>
-        <textarea id="recipeInstructions" class="form-control" required></textarea>
+
+    <div class="mb-3"
+         ng-repeat="step in steps track by $index">
+
+      <label for="stepDescription-{{$index}}" class="form-label">{{$index + 1}}. lépés</label>
+
+      <div class="d-flex gap-2">
+        <textarea id="stepDescription-{{$index}}"
+                  class="form-control"
+                  ng-model="step.description"
+                  required>
+        </textarea>
+
+        <button type="button"
+                class="btn btn-outline-danger"
+                ng-click="deleteStep($index)"
+                aria-label="Lépés törlése">
+          ✕
+        </button>
       </div>
     </div>
 
-    <button type="button" id="addInstruction" class="btn btn-sm btn-outline-warning mb-4">
+    <button type="button"
+            class="btn btn-sm btn-outline-warning mb-4"
+            ng-click="buttonAddStep()">
       + Lépés
     </button>
 
     <hr>
 
-    <!-- Tags -->
-    <h5>Kategoriák</h5>
-
-    <!-- Actions -->
-    <div class="d-flex justify-content-between">
-      <button ng-click="recipeUploadClick()" type="button" class="btn btn-warning fw-bold">Feltöltés</button>
+    <!-- SUBMIT -->
+    <div class="text-end">
+      <button type="button"
+              class="btn btn-warning fw-bold"
+              ng-click="recipeUploadClick()">
+        Feltöltés
+      </button>
     </div>
 
   </form>

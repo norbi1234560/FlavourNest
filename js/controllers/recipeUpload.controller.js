@@ -1,18 +1,64 @@
-;(function(window, angular) {
+;(function (window, angular) {
   'use strict';
 
   angular.module('app')
-  .controller('recipeUploadController', [
-    '$state',
-    '$scope',
-    function($state, $scope) {
-      console.log($state.current.name);
-      $scope.recipeUploadClick=()=>{
-        console.log("asd");
-        console.log($scope.recipeUpload)
-        
+    .controller('recipeUploadController', [
+      '$scope',
+      function ($scope) {
+
+        //scope recipeUpload variable
+        $scope.recipeUpload = {
+          title: '',
+          description: '',
+          servings: null,
+          preptime: null
+        };
+
+        $scope.ingredients = [];
+
+        //add ingridient click
+        $scope.buttonAddIngredient=()=> {
+          $scope.ingredients.push({
+            ingredient_id: '',
+            quantity: '',
+            unit: ''
+          });
+        };
+
+        $scope.deleteIngredient=(index)=> {
+          $scope.ingredients.splice(index, 1);
+        };
+
+        $scope.steps = [];
+
+        //add steps click
+        $scope.buttonAddStep=()=> {
+          $scope.steps.push({
+            description: ''
+          });
+        };
+
+        //delete step
+        $scope.deleteStep=(index)=> {
+          $scope.steps.splice(index, 1);
+        };
+
+        //base init
+        $scope.buttonAddIngredient();
+        $scope.buttonAddStep();
+
+        //submit
+        $scope.recipeUploadClick=()=> {
+          let completeRecipe = {
+            recipe: $scope.recipeUpload,
+            ingredients: $scope.ingredients,
+            steps: $scope.steps
+          };
+
+          console.log(completeRecipe);
+        };
+
       }
-    }
-  ]);
+    ]);
 
 })(window, angular);
