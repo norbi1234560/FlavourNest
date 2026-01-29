@@ -63,18 +63,34 @@
     <div class="row g-2 mb-2"
          ng-repeat="ingredient in ingredients track by $index">
 
-      <div class="col-md-5">
-        <label class="visually-hidden" for="ingredientSelect-{{$index}}">Hozzávaló választása</label>
-        <select id="ingredientSelect-{{$index}}"
-                class="form-select"
-                ng-model="ingredient.ingredient_id"
-                required>
-          <option value="">Hozzávaló</option>
-          <option value="1">Flour</option>
-          <option value="2">Sugar</option>
-          <option value="3">Salt</option>
-        </select>
+      <div class="col-md-5 position-relative">
+
+        <input  type="text"
+                class="form-control"
+                placeholder="Hozzávaló keresése..."
+                ng-model="ingredient.searchText"
+                ng-focus="ingredient.showList = true">
+
+        <!-- Dropdown -->
+        <ul class="list-group position-absolute w-100"
+            ng-show="ingredient.searchText && ingredient.showList"
+            style="z-index:1000; max-height:200px; overflow-y:auto;">
+
+          <li class="list-group-item"
+              style="cursor:pointer"
+              ng-repeat="opt in ingredientOptions | filter:ingredient.searchText"
+              ng-model="opt.name"
+              ng-click="ingredient.ingredient_id = opt.id;
+                        ingredient.searchText = opt.name;
+                        ingredient.showList = false;
+                        clickedIng()">
+
+            {{opt.name}}
+          </li>
+        </ul>
+
       </div>
+
 
       <div class="col-md-3">
         <label class="visually-hidden" for="ingredientQuantity-{{$index}}">Mennyiség</label>

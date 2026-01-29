@@ -6,13 +6,16 @@
       '$scope',
       'http',
       function ($scope, http) {
-
+        $scope.clickedIng=()=>{
+          console.log($scope.opt);
+          
+        }
         //get all ingredient
         http.request("./php/getAllIngredient.php")
         .then(response=>{
           console.log(response);
-          console.log("?");
-          
+          $scope.ingredientOptions=response;
+          $scope.$applyAsync();
         })
         .catch(e=> console.error(e));
 
