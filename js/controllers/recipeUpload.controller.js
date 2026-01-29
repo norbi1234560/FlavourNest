@@ -6,8 +6,8 @@
       '$scope',
       'http',
       function ($scope, http) {
-        $scope.clickedIng=()=>{
-          console.log($scope.opt);
+        $scope.clickedIng=(e)=>{
+          console.log(e);
           
         }
         //get all ingredient

@@ -79,11 +79,10 @@
           <li class="list-group-item"
               style="cursor:pointer"
               ng-repeat="opt in ingredientOptions | filter:ingredient.searchText"
-              ng-model="opt.name"
+              ng-model="recipeUpload.opt"
               ng-click="ingredient.ingredient_id = opt.id;
                         ingredient.searchText = opt.name;
-                        ingredient.showList = false;
-                        clickedIng()">
+                        ingredient.showList = false;">
 
             {{opt.name}}
           </li>
