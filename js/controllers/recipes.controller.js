@@ -18,9 +18,16 @@
                             .replace(" ","-");
         })
         console.log($scope.allRecipes);
-        
         $scope.$applyAsync(); 
       })
+      
+      window.addEventListener("resize",(e)=>{
+          if (window.innerWidth<200) {
+            $scope.allRecipes[0].image="t.png"
+            console.log("semmi");
+            $scope.$applyAsync();
+          }
+        })
     }
   ]);
 
