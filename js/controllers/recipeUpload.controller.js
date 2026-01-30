@@ -5,7 +5,8 @@
     .controller('recipeUploadController', [
       '$scope',
       'http',
-      function ($scope, http) {
+      '$rootScope',
+      function ($scope, http, $rootScope) {
         $scope.clickedIng=(e)=>{
           console.log(e);
           
@@ -61,6 +62,8 @@
 
         //submit
         $scope.recipeUploadClick=()=> {
+          $scope.recipeUpload.author_id=$rootScope.user.id;
+          
           for (let index = 0; index < $scope.steps.length; index++) {
             $scope.steps[index]["postition"]=index+1;
           }

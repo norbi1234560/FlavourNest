@@ -6,26 +6,27 @@ $args = Util::getArgs();
 
 $db = new Database(); 
 
-$query = "INSERT INTO `recipes`(
+// ----- recipes insert -----
+$queryRecipes = "INSERT INTO `recipes`(
             `title`,
             `description`,
             `author_id`,
             `servings`,
-            `prep_time_minutes`
-        VALUES(
-            '[value-1]',
-            '[value-2]',
-            '[value-3]',
-            '[value-4]',
-            '[value-5]',
-            '[value-6]',
-            '[value-7]',
-            '[value-8]'
-        )";
+            `prep_time_minutes`)
+          VALUES(
+            :title,
+            :description,
+            :author_id,
+            :servings,
+            :prep_time_minutes)"; 
 
-$result = $db->execute($query);
+$resultRecipes = $db->execute($queryRecipes, $args["recipe"]);
+
+// add recipe_id to steps
+for ($i = 0; $i < count($args["steps"]); $i++) { 
+    $args["steps"][$i]["recipe_id"] = $resultRecipes["firstInsertId"];;
+}
+
+Util::setResponse($args);
 
 $db = null;
-
-Util::setResponse($args["recipe"]);
-    
