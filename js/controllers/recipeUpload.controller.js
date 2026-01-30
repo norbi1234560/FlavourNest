@@ -13,7 +13,6 @@
         //get all ingredient
         http.request("./php/getAllIngredient.php")
         .then(response=>{
-          console.log(response);
           $scope.ingredientOptions=response;
           $scope.$applyAsync();
         })
@@ -72,7 +71,7 @@
             steps: $scope.steps
           };
 
-          //delete not important keys
+          //delete not required keys
           $scope.ingredients.forEach(ingredient=>{
             delete ingredient.showList;
             delete ingredient.searchText;  
