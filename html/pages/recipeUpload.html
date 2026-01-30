@@ -42,7 +42,7 @@
         <input type="number"
                id="recipePrepTime"
                class="form-control"
-               ng-model="recipeUpload.preptime"
+               ng-model="recipeUpload.prep_time_minutes"
                min="1"
                required>
       </div>
@@ -135,12 +135,12 @@
     <div class="mb-3"
          ng-repeat="step in steps track by $index">
 
-      <label for="stepDescription-{{$index}}" class="form-label">{{$index + 1}}. lépés</label>
+      <label for="stepinstruction-{{$index}}" class="form-label">{{$index + 1}}. lépés</label>
 
       <div class="d-flex gap-2">
-        <textarea id="stepDescription-{{$index}}"
+        <textarea id="stepinstruction-{{$index}}"
                   class="form-control"
-                  ng-model="step.description"
+                  ng-model="step.instruction"
                   required>
         </textarea>
 

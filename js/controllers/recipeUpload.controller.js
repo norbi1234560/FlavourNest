@@ -24,7 +24,7 @@
           title: '',
           description: '',
           servings: null,
-          preptime: null
+          prep_time_minutes: null
         };
 
         $scope.ingredients = [];
@@ -47,7 +47,7 @@
         //add steps click
         $scope.buttonAddStep=()=> {
           $scope.steps.push({
-            description: ''
+            instruction: ''
           });
         };
 
@@ -62,13 +62,31 @@
 
         //submit
         $scope.recipeUploadClick=()=> {
+          for (let index = 0; index < $scope.steps.length; index++) {
+            $scope.steps[index]["postition"]=index+1;
+          }
+
           let completeRecipe = {
             recipe: $scope.recipeUpload,
             ingredients: $scope.ingredients,
             steps: $scope.steps
           };
 
-          console.log(completeRecipe);
+          //delete not important keys
+          $scope.ingredients.forEach(ingredient=>{
+            delete ingredient.showList;
+            delete ingredient.searchText;  
+          });
+
+          http.request({
+            url:"./php/uploadRecipe.php",
+            data: completeRecipe
+          })
+          .then(response=>{
+            console.log(response);
+          })
+          .catch(e=> console.error(e)); 
+
         };
 
       }
