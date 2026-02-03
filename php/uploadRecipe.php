@@ -6,7 +6,7 @@ $args = Util::getArgs();
 
 $db = new Database(); 
 
-// ----- recipes insert -----
+// recipes insert
 $queryRecipes = "INSERT INTO `recipes`(
             `title`,
             `description`,
@@ -22,26 +22,32 @@ $queryRecipes = "INSERT INTO `recipes`(
 
 $resultRecipes = $db->execute($queryRecipes, $args["recipe"]);
 
-// add recipe_id to steps
-// for ($i = 0; $i < count($args["steps"]); $i++) { 
-//     $args["steps"][$i]["recipe_id"] = $resultRecipes["firstInsertId"];
-// }
+//add recipe_id to steps
+for ($i = 0; $i < count($args["steps"]); $i++) { 
+  $args["steps"][$i]["recipe_id"] = $resultRecipes["lastInsertId"];
+}
 
-// $db = null;
+//add recipe_id to ingredients
+for ($i = 0; $i < count($args["ingredients"]); $i++) { 
+  $args["ingredients"][$i]["recipe_id"] = $resultRecipes["lastInsertId"];
+}
 
-// Util::setResponse([$args,$resultRecipes]);
+//steps part
+$querySteps= $db->preparateInsert("recipe_steps", array_keys($args["steps"][0]), count($args["steps"]));
 
-$keys = array_keys($args["steps"][0]);
-array_unshift($keys, "recipe_id");
+$paramsSteps = Util::arrayOfAssocArrayToArray($args["steps"]);
 
-$querySteps= $db->preparateInsert("recipe_steps", $keys, count($args["steps"]));
+$resultSteps= $db->execute($querySteps, $paramsSteps);
 
-$params = Util::arrayOfAssocArrayToArray($args["steps"], $resultRecipes["lastInsertId"]);
+//Ingredients part
+$queryIngredients= $db->preparateInsert("recipe_ingredients", array_keys($args["ingredients"][0]), count($args["ingredients"]));
 
-$resultSteps= $db->execute($querySteps, $params);
+$paramsIngredients= Util::arrayOfAssocArrayToArray($args["ingredients"]);
+
+$resultIngredients=$db->execute($queryIngredients,$paramsIngredients);
 
 $db = null;
 
-Util::setResponse([$resultRecipes, $resultSteps]);
+Util::setResponse([$resultRecipes, $resultSteps,$resultIngredients]);
 
 

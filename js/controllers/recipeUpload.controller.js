@@ -65,7 +65,7 @@
           $scope.recipeUpload.author_id=$rootScope.user.id;
           
           for (let index = 0; index < $scope.steps.length; index++) {
-            $scope.steps[index]["postition"]=index+1;
+            $scope.steps[index]["position"]=index+1;
           }
 
           let completeRecipe = {
