@@ -17,7 +17,7 @@
           email: "admin@aa.com",
           password: "adminadmin",
           created_at: "2025-11-11 06:30:36",
-          avatar: "speed-ishowspeed.gif"
+          avatar: "flightgif.gif"
         }
         $rootScope.$applyAsync();
       }
