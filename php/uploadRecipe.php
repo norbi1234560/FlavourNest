@@ -27,6 +27,14 @@ for ($i = 0; $i < count($args["steps"]); $i++) {
     $args["steps"][$i]["recipe_id"] = $resultRecipes["firstInsertId"];;
 }
 
-Util::setResponse($args);
-
 $db = null;
+
+Util::setResponse([$args,$resultRecipes]);
+
+// $querySteps= $db->preparateInsert("recipe_steps",array_keys($args["steps"][0]),count($args["steps"]));
+
+// $resultSteps= $db->execute($querySteps,$args("steps"));
+
+// Util::setResponse($resultSteps);
+
+
