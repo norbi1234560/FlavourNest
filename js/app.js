@@ -127,6 +127,17 @@
         $rootScope.$applyAsync();
         }
       })
+
+      $rootScope.goToRecipeUpload=()=>{
+        if ($rootScope.user) {
+          console.log("loggin in");
+          $state.go("recipeUpload");
+        }
+        else{
+          console.log("not logged in");
+          $('#myModal').modal('show');
+        }
+      }
     }
   ]);
 

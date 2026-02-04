@@ -4,8 +4,19 @@
   angular.module('app')
   .controller('footerController', [
     '$scope',
-    function($scope) {
+    '$state',
+    '$rootScope',
+    function($scope, $state, $rootScope) {
       
+      $scope.hyperlinkClick=(item)=>{
+
+        if (item.url=="recipeUpload") {
+          $rootScope.goToRecipeUpload();
+        }
+        else{
+          $state.go(item.url);
+        }
+      }
     }
   ]);
 

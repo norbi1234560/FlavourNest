@@ -19,9 +19,10 @@
         <h5 class="fw-semibold mb-3">Gyorslinkek</h5>
         <ul class="list-unstyled"
             ng-init="menuItems=[{url:'home',label:'Kezdőlap'},
-                                {url:'recipes',label:'Receptek'}]">
-          <li class="mb-2" ng-repeat="item in menuItems">
-            <a ui-sref="{{ item.url }}" 
+                                {url:'recipes',label:'Receptek'},
+                                {url:'recipeUpload',label:'recept feltöltés'}]">
+          <li class="mb-2 hyperLinks" ng-repeat="item in menuItems">
+            <a ng-click="hyperlinkClick(item) " 
                class="text-light 
                       text-decoration-none 
                       opacity-75 
