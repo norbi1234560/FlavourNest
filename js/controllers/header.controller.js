@@ -7,7 +7,6 @@
     '$rootScope',
     '$state',
     function($scope,$rootScope,$state) {
-      
       //logout
       $rootScope.logoutClick=()=>{
         $rootScope.user=null;
@@ -18,6 +17,9 @@
         }, 50);
       }
 
+      $scope.searchClick=(searchQuery)=>{
+        console.log(searchQuery);
+      }
       
     }
   ]);
