@@ -108,9 +108,25 @@
       $rootScope.user = null;
       console.log('Run...');
 
+      //number rounder
       $rootScope.roundNumber=(num,decimal)=>{
         return Math.round(num*(decimal*10))/(decimal*10);
       }
+
+      //fast login
+      window.addEventListener("keydown",(e)=>{
+        if (e.key=="ö") {
+          $rootScope.user={
+          id: 1,
+          username: "admin",
+          email: "admin@aa.com",
+          password: "adminadmin",
+          created_at: "2025-11-11 06:30:36",
+          avatar: "flightgif.gif"
+        }
+        $rootScope.$applyAsync();
+        }
+      })
     }
   ]);
 

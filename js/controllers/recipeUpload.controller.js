@@ -6,10 +6,10 @@
       '$scope',
       'http',
       '$rootScope',
-      function ($scope, http, $rootScope) {
-        $scope.clickedIng=(e)=>{
-          console.log(e);
-          
+      '$state',
+      function ($scope, http, $rootScope, $state) {
+        if (!$rootScope.user) {
+          $state.go("login") 
         }
         //get all ingredient
         http.request("./php/getAllIngredient.php")

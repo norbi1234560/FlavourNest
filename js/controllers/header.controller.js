@@ -8,20 +8,6 @@
     '$state',
     function($scope,$rootScope,$state) {
       
-      //ideiglenes csak azért van hogy ne kelljen folyton bejelentkezni 
-      // így könnyebb volt a profile html designját megnézni
-      $scope.searchClick=()=>{
-        $rootScope.user={
-          id: 1,
-          username: "admin",
-          email: "admin@aa.com",
-          password: "adminadmin",
-          created_at: "2025-11-11 06:30:36",
-          avatar: "flightgif.gif"
-        }
-        $rootScope.$applyAsync();
-      }
-      
       //logout
       $rootScope.logoutClick=()=>{
         $rootScope.user=null;
@@ -30,6 +16,17 @@
           alert("sikeres kijentkezés");
           $state.go("home");
         }, 50);
+      }
+
+      $scope.goToRecipeUpload=()=>{
+        if ($rootScope.user) {
+          console.log("loggin in");
+          $state.go("recipeUpload");
+        }
+        else{
+          console.log("not logged in");
+          $('#myModal').modal('show');
+        }
       }
     }
   ]);
