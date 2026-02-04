@@ -28,10 +28,12 @@
       <form name="searchForm"
             class="d-flex my-3 my-lg-0 mx-lg-4">
         <div class="input-group">
-          <input class="form-control bg-secondary text-white border-warning"
-                 type="search"
-                 placeholder="Keresés receptek között..."
-                 ng-model="searchQuery">
+          <input  id="searchInput"
+                  class="form-control bg-secondary text-white border-warning"
+                  type="search"
+                  placeholder="Keresés receptek között..."
+                  ng-model="searchQuery"
+                  ng-keydown="$event.key === 'Enter' && searchClick(searchQuery)">
           <button class="btn btn-warning fw-bold" ng-click="searchClick(searchQuery)" type="button">Keresés</button>
         </div>
       </form>
