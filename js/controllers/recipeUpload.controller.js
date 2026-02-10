@@ -8,13 +8,14 @@
       '$rootScope',
       '$state',
       function ($scope, http, $rootScope, $state) {
-        if (!$rootScope.user) {
-          $state.go("login") 
-        }
+        // if (!$rootScope.user) {
+        //   $state.go("login") 
+        // }
         //get all ingredient
         http.request("./php/getAllIngredient.php")
         .then(response=>{
-          $scope.ingredientOptions=response;
+          $scope.ingredientOptions=response.ingredients;
+          $scope.tagOptions=response.tags;
           $scope.$applyAsync();
         })
         .catch(e=> console.error(e));

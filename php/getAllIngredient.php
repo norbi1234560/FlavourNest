@@ -4,10 +4,14 @@ require_once("../../common/php/environment.php");
 
 $db = new Database(); 
 
-$query = "SELECT `id`, `name` FROM `ingredients`";
+$queryIngredients = "SELECT `id`, `name` FROM `ingredients`";
 
-$result = $db->execute($query);
+$resultIngredients = $db->execute($queryIngredients);
+
+$queryTags = "SELECT `id`, `name` FROM `tags`";
+
+$resultTags = $db->execute($queryTags);
 
 $db = null;
 
-Util::setResponse($result);
+Util::setResponse(["ingredients"=>$resultIngredients,"tags"=>$resultTags]);
