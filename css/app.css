@@ -50,4 +50,7 @@
 .recipeUpload, .hyperLinks{
   cursor: pointer;
 }
+body{
+   background-color: #fff8e1;   
+}
 
