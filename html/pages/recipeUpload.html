@@ -159,10 +159,32 @@
       + Lépés
     </button>
 
-    <div ng-repeat="tag in tagOptions" class="mb-3">
-      <input type="checkbox" name="" id="tag-{{tag.id}}">
-      <label for="tag-{{tag.id}}">{{tag.name}}</label>
-    </div>
+    <div class="col-md-5 position-relative">
+
+        <input  type="text"
+                class="form-control"
+                placeholder="Hozzávaló keresése..."
+                ng-model="tag.searchText"
+                ng-focus="tag.showList = true">
+
+        <!-- Dropdown -->
+        <ul class="list-group position-absolute w-100"
+            ng-show="tag.searchText && tag.showList"
+            style="z-index:1000; max-height:200px; overflow-y:auto;">
+
+          <li class="list-group-item"
+              style="cursor:pointer"
+              ng-repeat="tag in tagOptions | filter:tag.searchText"
+              ng-model="recipeUpload.tag"
+              ng-click="tag.ingredient_id = tag.id;
+                        tag.searchText = tag.name;
+                        tag.showList = false;">
+
+            {{tag.name}}
+          </li>
+        </ul>
+
+      </div>
 
     <hr>
 

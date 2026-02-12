@@ -11,12 +11,6 @@
       http.request("./php/allRecipe.php")
       .then(response=>{
         $scope.allRecipes=response;
-        $scope.allRecipes.forEach(x=>{
-          x.titleUrl=x.title.toLowerCase()
-                            .normalize("NFD")
-                            .replace(/[\u0300-\u036f]/g, "")
-                            .replace(" ","-");
-        })
         console.log($scope.allRecipes);
         $scope.$applyAsync(); 
       })

@@ -42,7 +42,7 @@
           controller: 'loginController'
         })
         .state('recipe', {
-          url: '/recipe/{id:int}-{titleUrl}',
+          url: '/recipe/{id:int}',
           parent: 'root',
           templateUrl: './html/pages/recipe.html',
           controller: 'recipeController',

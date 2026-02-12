@@ -18,7 +18,6 @@
           console.log(response);
           $scope.userPublicProfile=response['profile'][0];
           $scope.userPublicRecipes=response['recipes'];
-          console.log($scope.userPublicRecipes)
           $scope.$applyAsync();
         }
         else{

@@ -70,7 +70,6 @@
           url: "./php/recipe.php",
           data: { 
             id: $stateParams.id ,
-            title :$stateParams.titleUrl.replace("-"," "),
           }
         })
         .then(response => {
