@@ -175,7 +175,7 @@ CREATE TABLE `recipes` (
 --
 
 INSERT INTO `recipes` (`id`, `title`, `description`, `author_id`, `servings`, `prep_time_minutes`, `created_at`, `image`) VALUES
-(1, 'Palacsinta', 'Klasszikus magyar palacsinta recept.', 1, 4, 20, '2025-11-11 06:30:36', 'flightgif.gif'),
+(1, 'Palacsinta', 'Klasszikus magyar palacsinta recept.', 1, 4, 20, '2025-11-11 06:30:36', 'palacsinta.webp'),
 (2, 'Csirkés tészta', 'Krémes csirkés tészta paradicsommal és sajttal.', 3, 2, 30, '2025-11-11 06:30:36', 'csirkes_teszta.jpeg'),
 (3, 'Zöldséges omlett', 'Egészséges reggeli zöldségekkel.', 7, 1, 15, '2025-11-11 06:30:36', 'zoldseges_omlett.jpg'),
 (4, 'Húsleves', 'Hagyományos magyar húsleves zöldségekkel.', 3, 6, 120, '2026-01-07 07:00:00', 'husleves.webp'),
