@@ -25,7 +25,8 @@
           title: '',
           description: '',
           servings: null,
-          prep_time_minutes: null
+          prep_time_minutes: null,
+          image:null
         };
 
         $scope.ingredients = [];
@@ -63,6 +64,19 @@
 
         //submit
         $scope.recipeUploadClick=()=> {
+          const reader = new FileReader();
+
+          reader.onload = (e) => {
+            console.log(e.target.result.split(',')[1]);
+            
+          };
+
+          reader.readAsDataURL($scope.recipeUpload.image);
+
+          
+
+
+          return;
           $scope.recipeUpload.author_id=$rootScope.user.id;
           
           for (let index = 0; index < $scope.steps.length; index++) {
