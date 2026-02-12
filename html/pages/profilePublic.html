@@ -17,14 +17,13 @@
 
           <!-- User Info -->
           <div class="col-md-9">
-            <p class="text-light opacity-75 mb-2">@{{userPublicProfile.username}}</p>
+            <h4 class="text-light opacity-75 mb-2 ">Felhasználó név: @{{userPublicProfile.username}}</h4>
 
-            <div class="d-flex flex-wrap gap-4 justify-content-center justify-content-md-start small opacity-75">
-              <span>📅 Tag {{userPublicProfile.created_at}} óta</span>
-              <span>📖 {{userPublicRecipes.length}} recept</span>    
+            <div class="d-flex flex-wrap gap-4 justify-content-center justify-content-md-start small opacity-75 mt-3">
+              <span>Tagság kezdete: 📅 {{userPublicProfile.created_at}} óta</span>
+              <span>Receptek száma: 📖 {{userPublicRecipes.length}} recept</span>    
             </div>
           </div>
-
         </div>
       </div>
     </div>
