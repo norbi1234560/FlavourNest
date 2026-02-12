@@ -12,7 +12,7 @@
         //   $state.go("login") 
         // }
         //get all ingredient
-        http.request("./php/getAllIngredient.php")
+        http.request("./php/getAllIngredientAndTags.php")
         .then(response=>{
           $scope.ingredientOptions=response.ingredients;
           $scope.tagOptions=response.tags;
@@ -74,6 +74,8 @@
             ingredients: $scope.ingredients,
             steps: $scope.steps
           };
+          console.log(completeRecipe);
+          
 
           //delete not required keys
           $scope.ingredients.forEach(ingredient=>{
@@ -93,6 +95,28 @@
         };
 
       }
-    ]);
+    ])
 
+    .directive("fileInput", [
+    () => {
+      return {
+        require: "ngModel",
+        scope: false,
+        compile: () => {
+          return {
+            post: (scope, element, attrs, ngModel) => {
+              element[0].addEventListener("change", () => {
+                if (!element[0].files.length) {
+                        element[0].setAttribute('data-file-choice-cancel', true);
+                        ngModel.$setViewValue(null);          
+                } else  ngModel.$setViewValue(element[0].files[0]);
+                ngModel.$render();
+                scope.$applyAsync();
+              });
+            }
+          };
+        }
+      }
+    }
+  ])
 })(window, angular);
