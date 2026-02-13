@@ -6,6 +6,8 @@ $args = Util::getArgs();
 
 $db = new Database(); 
 
+Util::setResponse($args);
+
 // recipes insert
 $queryRecipes = "INSERT INTO `recipes`(
             `title`,
