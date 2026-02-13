@@ -6,9 +6,7 @@ $args = Util::getArgs();
 
 $db = new Database(); 
 
-$args['image']= Util::base64Decode($args['image']);
-
-Util::setResponse($args);
+$args['recipe']['image']= Util::base64Decode($args['recipe']['image']);
 
 // recipes insert
 $queryRecipes = "INSERT INTO `recipes`(
