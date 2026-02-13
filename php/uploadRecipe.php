@@ -6,19 +6,23 @@ $args = Util::getArgs();
 
 $db = new Database(); 
 
+$args['image']= Util::base64Decode($args['image']);
+
 // recipes insert
 $queryRecipes = "INSERT INTO `recipes`(
             `title`,
             `description`,
             `author_id`,
             `servings`,
-            `prep_time_minutes`)
+            `prep_time_minutes`,
+            `image`)
           VALUES(
             :title,
             :description,
             :author_id,
             :servings,
-            :prep_time_minutes)"; 
+            :prep_time_minutes,
+            :image)"; 
 
 $resultRecipes = $db->execute($queryRecipes, $args["recipe"]);
 

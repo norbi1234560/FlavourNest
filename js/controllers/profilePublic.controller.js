@@ -26,7 +26,11 @@
       })
       .catch(e=> console.error(e));
       console.log($scope.user);
-      
+
+      $scope.goHomeProfilePublic = ()=>{
+        $state.go("home")
+      }
+
       $scope.$applyAsync();
     }
   ]);
