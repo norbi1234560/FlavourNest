@@ -36,7 +36,7 @@
                         class=" form-control bg-secondary 
                                 text-white border-warning"
                         placeholder="pelda@konyha.hu"
-                        ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]+$/"
+                        ng-pattern="/^[^\s@]+@(?:[^\s@]+\.)+[A-Za-z]{2,63}$/"
                         ng-model="user.email"
                         autocomplete="email"
                         required>
@@ -90,14 +90,15 @@
                         ng-model="user.password"
                         minlength="8"
                         autocomplete="current-password"
-                        required>
+                        required
+                        ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/">
 
                 <button type="button"
                         class="btn bg-secondary text-warning border-warning"
                         ng-click="showPassword = !showPassword">
                   <i class="fas {{ showPassword ? 'fa-eye-slash' : 'fa-eye' }}"></i>
                 </button>
-              </div>
+              </div> 
             </div>
 
             <!-- Password confirm -->

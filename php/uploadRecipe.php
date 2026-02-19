@@ -4,6 +4,8 @@ require_once("../../common/php/environment.php");
 
 $args = Util::getArgs();
 
+Util::setResponse($args);
+
 $db = new Database(); 
 
 $args['recipe']['image']= Util::base64Decode($args['recipe']['image']);
