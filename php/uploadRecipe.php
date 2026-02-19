@@ -4,11 +4,7 @@ require_once("../../common/php/environment.php");
 
 $args = Util::getArgs();
 
-Util::setResponse($args);
-
 $db = new Database(); 
-
-$args['recipe']['image']= Util::base64Decode($args['recipe']['image']);
 
 // recipes insert
 $queryRecipes = "INSERT INTO `recipes`(
@@ -16,15 +12,13 @@ $queryRecipes = "INSERT INTO `recipes`(
             `description`,
             `author_id`,
             `servings`,
-            `prep_time_minutes`,
-            `image`)
+            `prep_time_minutes`)
           VALUES(
             :title,
             :description,
             :author_id,
             :servings,
-            :prep_time_minutes,
-            :image)"; 
+            :prep_time_minutes)"; 
 
 $resultRecipes = $db->execute($queryRecipes, $args["recipe"]);
 

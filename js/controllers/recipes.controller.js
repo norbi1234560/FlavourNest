@@ -14,15 +14,6 @@
         console.log($scope.allRecipes);
         $scope.$applyAsync(); 
       })
-      
-      window.addEventListener("resize",(e)=>{
-        if (window.innerWidth<200) {
-          for (let index = 0; index < $scope.allRecipes.length; index++) {
-            $scope.allRecipes[index].image="t.png";
-          }
-          $scope.$applyAsync();
-        }
-      })
     }
   ]);
 

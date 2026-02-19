@@ -1,5 +1,115 @@
-<div class="container bg-img bg-img-contain h-100">
-	<div class="row justify-content-center align-items-center h-100">
-		<h1 class="display-3 text-center">Home</h1>
-	</div>
-</div> 
+<div class="min-vh-100">
+
+  <!-- HERO SECTION -->
+  <section class="py-5 text-center">
+    <div class="container py-5">
+
+      <h1 class="display-3 fw-bold mb-4">
+        <span class="text-warning">Flavour</span>Nest
+      </h1>
+
+      <p class="lead text-muted mb-4">
+        Fedezd fel, értékeld és oszd meg a legfinomabb recepteket!
+      </p>
+
+      <!-- ONE browse button -->
+      <a ui-sref="recipes"
+         class="btn btn-warning btn-lg fw-bold text-dark px-5 py-3 shadow">
+        Receptek böngészése
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- FEATURED RECIPES -->
+  <section>
+    <div class="container">
+
+      <div class="row g-4">
+
+        <div class="col-md-4"
+             ng-repeat="recipe in allRecipes | limitTo:3">
+
+          <a ui-sref="recipe({ id: recipe.id})"
+             class="text-decoration-none">
+
+            <div class="card h-100 border-0 shadow">
+
+              <img ng-src="{{ recipe.image ? './media/avatar/' + recipe.image : './media/avatar/basicFood.jpg' }}"
+                   class="card-img-top"
+                   style="height:220px; object-fit:cover;">
+
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title text-dark fw-bold">
+                  {{recipe.title}}
+                </h5>
+
+                <p class="card-text text-muted flex-grow-1">
+                  {{recipe.description | limitTo:100}}...
+                </p>
+              </div>
+
+            </div>
+
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- FEATURES SECTION -->
+  <section class="py-5 bg-white">
+    <div class="container">
+
+      <h2 class="text-center fw-bold mb-5">
+        Miért válaszd a FlavourNestet?
+      </h2>
+
+      <div class="row text-center g-4">
+
+        <div class="col-md-4">
+          <div class="p-4">
+            <i class="fas fa-book-open fa-3x text-warning "></i>
+            <h5 class="fw-bold">Receptek böngészése</h5>
+            <p class="text-muted">
+              Találd meg a tökéletes receptet bármilyen alkalomra.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="p-4">
+            <i class="fas fa-star fa-3x text-warning mb-3"></i>
+            <h5 class="fw-bold">Értékelés & Komment</h5>
+            <p class="text-muted">
+              Oszd meg véleményed és segíts másoknak választani.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="p-4">
+            <i class="fas fa-upload fa-3x text-warning mb-3"></i>
+            <h5 class="fw-bold">Recept feltöltése</h5>
+            <p class="text-muted">
+              Mutasd meg a saját kedvenc fogásaidat!
+            </p>
+
+            <!-- ONLY upload button here -->
+            <a ng-click="goToRecipeUpload()"
+               class="btn btn-outline-warning mt-3">
+              Feltöltés
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+</div>

@@ -117,12 +117,12 @@
       window.addEventListener("keydown",(e)=>{
         if (e.key=="ö") {
           $rootScope.user={
-            id: 1,
-            username: "admin",
-            email: "admin@aa.com",
-            password: "adminadmin",
-            created_at: "2025-11-11 06:30:36",
-            avatar: "flightgif.gif"
+            "id": 1,
+            "username": "admin",
+            "email": "admin@aa.com",
+            "password": "ADMINadmin1",
+            "created_at": "2025-11-11",
+            "avatar": null
           }
         $rootScope.$applyAsync();
         }

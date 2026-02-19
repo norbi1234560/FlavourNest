@@ -8,10 +8,11 @@
       '$rootScope',
       '$state',
       function ($scope, http, $rootScope, $state) {
-        // if (!$rootScope.user) {
-        //   $state.go("login") 
-        // }
-        //get all ingredient
+        if (!$rootScope.user) {
+          $state.go("login") 
+        }
+        
+        // get all ingredient
         http.request("./php/getAllIngredientAndTags.php")
         .then(response=>{
           $scope.ingredientOptions=response.ingredients;
@@ -26,7 +27,6 @@
           description: '',
           servings: null,
           prep_time_minutes: null,
-          image:null
         };
 
         $scope.ingredients = [];
@@ -64,19 +64,15 @@
 
         //submit
         $scope.recipeUploadClick=()=> {
-          const reader = new FileReader();
+          // const reader = new FileReader();
 
-          reader.onload = (e) => {
-            console.log(e.target.result.split(',')[1]);
+          // reader.onload = (e) => {
+          //   console.log(e.target.result.split(',')[1]);
             
-          };
+          // };
 
-          reader.readAsDataURL($scope.recipeUpload.image);
+          // reader.readAsDataURL($scope.recipeUpload.image);
 
-          
-
-
-          return;
           $scope.recipeUpload.author_id=$rootScope.user.id;
           
           for (let index = 0; index < $scope.steps.length; index++) {
