@@ -1,53 +1,57 @@
-<?php
+  <?php
 
-require_once("../../common/php/environment.php");
+  require_once("../../common/php/environment.php");
 
-$args = Util::getArgs();
+  $args = Util::getArgs();
 
-$db = new Database(); 
+  $args["recipe"]["image"]=Util::base64Decode($args["recipe"]["image"]);
 
-// recipes insert
-$queryRecipes = "INSERT INTO `recipes`(
-            `title`,
-            `description`,
-            `author_id`,
-            `servings`,
-            `prep_time_minutes`)
-          VALUES(
-            :title,
-            :description,
-            :author_id,
-            :servings,
-            :prep_time_minutes)"; 
+  $db = new Database(); 
 
-$resultRecipes = $db->execute($queryRecipes, $args["recipe"]);
+  // recipes insert
+  $queryRecipes = "INSERT INTO `recipes`(
+              `title`,
+              `description`,
+              `author_id`,
+              `servings`,
+              `prep_time_minutes`,
+              `image`)
+            VALUES(
+              :title,
+              :description,
+              :author_id,
+              :servings,
+              :prep_time_minutes,
+              :image)"; 
 
-//add recipe_id to steps
-for ($i = 0; $i < count($args["steps"]); $i++) { 
-  $args["steps"][$i]["recipe_id"] = $resultRecipes["lastInsertId"];
-}
+  $resultRecipes = $db->execute($queryRecipes, $args["recipe"]);
 
-//add recipe_id to ingredients
-for ($i = 0; $i < count($args["ingredients"]); $i++) { 
-  $args["ingredients"][$i]["recipe_id"] = $resultRecipes["lastInsertId"];
-}
+  //add recipe_id to steps
+  for ($i = 0; $i < count($args["steps"]); $i++) { 
+    $args["steps"][$i]["recipe_id"] = $resultRecipes["lastInsertId"];
+  }
 
-//steps part
-$querySteps= $db->preparateInsert("recipe_steps", array_keys($args["steps"][0]), count($args["steps"]));
+  //add recipe_id to ingredients
+  for ($i = 0; $i < count($args["ingredients"]); $i++) { 
+    $args["ingredients"][$i]["recipe_id"] = $resultRecipes["lastInsertId"];
+  }
 
-$paramsSteps = Util::arrayOfAssocArrayToArray($args["steps"]);
+  //steps part
+  $querySteps= $db->preparateInsert("recipe_steps", array_keys($args["steps"][0]), count($args["steps"]));
 
-$resultSteps= $db->execute($querySteps, $paramsSteps);
+  $paramsSteps = Util::arrayOfAssocArrayToArray($args["steps"]);
 
-//Ingredients part
-$queryIngredients= $db->preparateInsert("recipe_ingredients", array_keys($args["ingredients"][0]), count($args["ingredients"]));
+  $resultSteps= $db->execute($querySteps, $paramsSteps);
 
-$paramsIngredients= Util::arrayOfAssocArrayToArray($args["ingredients"]);
+  //Ingredients part
+  $queryIngredients= $db->preparateInsert("recipe_ingredients", array_keys($args["ingredients"][0]), count($args["ingredients"]));
 
-$resultIngredients=$db->execute($queryIngredients,$paramsIngredients);
+  $paramsIngredients= Util::arrayOfAssocArrayToArray($args["ingredients"]);
 
-$db = null;
+  $resultIngredients=$db->execute($queryIngredients,$paramsIngredients);
 
-Util::setResponse([$resultRecipes, $resultSteps,$resultIngredients]);
+  $db = null;
+
+  Util::setResponse([$resultRecipes, $resultSteps,$resultIngredients]);
 
 

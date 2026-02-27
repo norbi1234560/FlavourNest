@@ -63,70 +63,89 @@
         $scope.buttonAddStep();
 
         //submit
-        $scope.recipeUploadClick=()=> {
-          // const reader = new FileReader();
+        $scope.recipeUploadClick = async () => {
+          try {
+            let imageBase64 = null;
 
-          // reader.onload = (e) => {
-          //   console.log(e.target.result.split(',')[1]);
-            
-          // };
+            if ($scope.recipeUpload.image) {
+              imageBase64 = await new Promise((resolve, reject) => {
+                const reader = new FileReader();
 
-          // reader.readAsDataURL($scope.recipeUpload.image);
+                reader.onload = (e) => {
+                  const base64 = e.target.result.split(',')[1];
+                  resolve(base64);
+                };
 
-          $scope.recipeUpload.author_id=$rootScope.user.id;
-          
-          for (let index = 0; index < $scope.steps.length; index++) {
-            $scope.steps[index]["position"]=index+1;
-          }
+                reader.onerror = reject;
+                reader.readAsDataURL($scope.recipeUpload.image);
+              });
+            }
 
-          let completeRecipe = {
-            recipe: $scope.recipeUpload,
-            ingredients: $scope.ingredients,
-            steps: $scope.steps
-          };
-          console.log(completeRecipe);
-          
+            $scope.recipeUpload.author_id = $rootScope.user.id;
+            $scope.recipeUpload.image = imageBase64;
 
-          //delete not required keys
-          $scope.ingredients.forEach(ingredient=>{
-            delete ingredient.showList;
-            delete ingredient.searchText;  
-          });
+            // add step positions
+            $scope.steps.forEach((step, index) => {
+              step.position = index + 1;
+            });
 
-          http.request({
-            url:"./php/uploadRecipe.php",
-            data: completeRecipe
-          })
-          .then(response=>{
+            // remove unnecessary keys
+            $scope.ingredients.forEach(ingredient => {
+              delete ingredient.showList;
+              delete ingredient.searchText;
+            });
+
+            const completeRecipe = {
+              recipe: $scope.recipeUpload,
+              ingredients: $scope.ingredients,
+              steps: $scope.steps
+            };
+
+            const response = await http.request({
+              url: "./php/uploadRecipe.php",
+              data: completeRecipe
+            });
+
             console.log(response);
-          })
-          .catch(e=> console.error(e)); 
 
+          } catch (err) {
+            console.error(err);
+          }
         };
 
       }
     ])
 
     .directive("fileInput", [
-    () => {
-      return {
-        require: "ngModel",
-        scope: false,
-        compile: () => {
-          return {
-            post: (scope, element, attrs, ngModel) => {
-              element[0].addEventListener("change", () => {
-                if (!element[0].files.length) {
-                        element[0].setAttribute('data-file-choice-cancel', true);
-                        ngModel.$setViewValue(null);          
-                } else  ngModel.$setViewValue(element[0].files[0]);
-                ngModel.$render();
-                scope.$applyAsync();
-              });
-            }
-          };
-        }
+      () => {
+        const MAX_IMAGE_SIZE = 5 * 1024 * 1024;
+      
+        return {
+          require: "ngModel",
+          scope: false,
+          compile: () => {
+            return {
+              post: (scope, element, attrs, ngModel) => {
+                element[0].addEventListener("change", () => {
+                  const file = element[0].files[0];
+                
+                  if (!file) {
+                    ngModel.$setViewValue(null);
+                  } else if (file.size > MAX_IMAGE_SIZE) {
+                    alert("Túl nagy a választott kép 5 MB a megengedett.");
+                    element[0].value = "";
+                    ngModel.$setViewValue(null);
+                  } else {
+                    ngModel.$setViewValue(file);
+                  }
+                
+                  ngModel.$render();
+                  scope.$applyAsync();
+                });
+              }
+            };
+          }
+        };
       }
-    }
-  ])
+])
 })(window, angular);
