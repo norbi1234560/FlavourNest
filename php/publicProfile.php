@@ -29,7 +29,15 @@ $queryRecipes="SELECT r.id,
                JOIN users u ON r.author_id = u.id
                WHERE u.username = :username";
 
+
 $resultRecipes = $db->execute($queryRecipes,$args);
+
+// Convert BLOB to base64
+foreach ($resultRecipes as &$row) {
+    if (!empty($row['image'])) {
+        $row['image'] = 'data:image/jpeg;base64,' . Util::base64Encode($row['image']);
+    }
+}
 
 $db = null;
 

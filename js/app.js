@@ -136,6 +136,10 @@
           $('#myModal').modal('show');
         }
       }
+
+      $rootScope.getCurrentYear=()=>{
+        return new Date().getFullYear();
+      }
     }
   ]);
 
