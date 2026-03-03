@@ -11,19 +11,34 @@
       console.log($state.current.name);
       
       //login
-      $scope.loginClick=()=>{
-        http.request({
-          url:"./php/login.php",
-          data:$scope.user,
-        })
-        .then(response=>{
-            $rootScope.user=response;
-            console.log(response);
-            $rootScope.$applyAsync();
+      $scope.loginClick = () => {
+
+        $scope.emailBool = false;
+        $scope.passwordBool = false;
+
+        if ($scope.loginForm.$valid) {
+          http.request({
+            url: "./php/login.php",
+            data: $scope.user,
+          })
+          .then(response => {
+            $rootScope.user = response;
             $state.go("home");
-        })
-        .catch(e=> alert(e));
-      }
+          })
+          .catch(e => alert(e));
+        
+        } 
+        else{
+        
+          if ($scope.loginForm.emailName.$invalid) {
+            $scope.emailBool = true;
+          }
+        
+          if ($scope.loginForm.passwordName.$invalid) {
+            $scope.passwordBool = true;
+          }
+        }
+      };
     }
   ]);
 

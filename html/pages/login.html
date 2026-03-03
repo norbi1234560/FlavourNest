@@ -31,7 +31,7 @@
                 novalidate>
                 
             <!-- Email -->
-            <div class="mb-1">
+            <div>
               <label  for="emailInput" 
                       class=" form-label 
                               fw-semibold 
@@ -62,15 +62,12 @@
                         autocomplete="email"
                         required>
               </div>
-              <p style="color: white;"
-                 ng-class="loginForm.emailName.$invalid && !loginForm.emailName.$viewValue==''  ? '' : 'invisible'">
-                 Helytelen email formátum
-              </p>
+              <p style="color: red;" ng-class="!emailBool ? 'invisible' : ''">helytelen email formátum</p>
             </div>
             
 
             <!-- Password -->
-            <div class="mb-4">
+            <div>
               <label  for="passwordInput" 
                       class=" form-label 
                               fw-semibold 
@@ -109,16 +106,12 @@
                   <i class="fas {{ showPassword ? 'fa-eye-slash' : 'fa-eye' }}"></i>
                 </button>
               </div>
-              <p style="color: white;"
-                 ng-class="loginForm.passwordName.$invalid && !loginForm.passwordName.$viewValue==''  ? '' : 'invisible'">
-                 Helytelen jelszó formátum
-              </p>
+              <p style="color: red;" ng-class="! passwordBool ? 'invisible' : ''">helytelen jelszó formátum</p>
             </div>
 
             <!-- Login Button -->
             <button type="button"
                     ng-click="loginClick()"
-                    ng-disabled="!loginForm.$valid"
                     class="btn 
                             btn-warning 
                             btn-lg 
