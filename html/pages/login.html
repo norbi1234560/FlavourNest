@@ -31,7 +31,7 @@
                 novalidate>
                 
             <!-- Email -->
-            <div class="mb-4">
+            <div class="mb-1">
               <label  for="emailInput" 
                       class=" form-label 
                               fw-semibold 
@@ -46,7 +46,8 @@
                               text-warning">
                   <i class="fas fa-envelope"></i>
                 </span>
-                <input  type="email"
+                <input  name="emailName"
+                        type="email"
                         id="emailInput"
                         class="form-control 
                                form-control-lg 
@@ -61,7 +62,12 @@
                         autocomplete="email"
                         required>
               </div>
+              <p style="color: white;"
+                 ng-class="loginForm.emailName.$invalid && !loginForm.emailName.$viewValue==''  ? '' : 'invisible'">
+                 Helytelen email formátum
+              </p>
             </div>
+            
 
             <!-- Password -->
             <div class="mb-4">
@@ -79,7 +85,8 @@
                               text-warning">
                   <i class="fas fa-lock"></i>
                 </span>
-                <input id="passwordInput"
+                <input name="passwordName"
+                       id="passwordInput"
                        type="{{ showPassword ? 'text' : 'password' }}"
                        class="form-control 
                               form-control-lg 
@@ -91,8 +98,8 @@
                        placeholder="••••••••"
                        ng-model="user.password"
                        required
-                       minlength="8"
-                       maxlength="100"
+                       minlength="6"
+                       maxlength="30"
                        autocomplete="current-password"
                        ng-keydown="$event.key === 'Enter' && loginClick()"
                        ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,30}$/">
@@ -102,12 +109,16 @@
                   <i class="fas {{ showPassword ? 'fa-eye-slash' : 'fa-eye' }}"></i>
                 </button>
               </div>
+              <p style="color: white;"
+                 ng-class="loginForm.passwordName.$invalid && !loginForm.passwordName.$viewValue==''  ? '' : 'invisible'">
+                 Helytelen jelszó formátum
+              </p>
             </div>
 
             <!-- Login Button -->
             <button type="button"
                     ng-click="loginClick()"
-                    ng-disabled="loginForm.$invalid"
+                    ng-disabled="!loginForm.$valid"
                     class="btn 
                             btn-warning 
                             btn-lg 

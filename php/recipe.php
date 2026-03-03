@@ -61,7 +61,9 @@ $query = "SELECT
 
 $result = $db->execute($query, $args);
 
-$result[0]['image'] = 'data:image/jpeg;base64,' . base64_encode($result[0]['image']);
+if (!is_null($result)) {
+  $result[0]['image'] = 'data:image/jpeg;base64,' . Util::base64Encode($result[0]['image']);
+}
 
 $db = null;
 
