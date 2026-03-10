@@ -17,8 +17,7 @@
 
       //delete account
       $scope.deleteAccountClick=()=>{
-        let question=confirm("biztos kiakarod törölni?")
-        if (question) {
+        if (confirm("biztos kiakarod törölni?")) {
           http.request({
             url:"./php/deleteAccount.php",
             data:$rootScope.user,
