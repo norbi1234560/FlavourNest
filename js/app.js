@@ -90,6 +90,12 @@
           parent: 'root',
           templateUrl: './html/pages/error404.html',
           controller: 'error404Controller',
+        })
+        .state('communityGuidelines', {
+          url: '/communityGuidelines',       
+          parent: 'root',
+          templateUrl: './html/pages/communityGuidelines.html',
+          controller: 'communityGuidelinesController',
         });
 
         
