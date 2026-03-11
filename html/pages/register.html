@@ -41,6 +41,7 @@
                         autocomplete="email"
                         required>
               </div>
+              <p style="color: red;" ng-class="!emailBool ? 'invisible' : ''">helytelen email formátum</p>
             </div>
 
             <!-- Username -->
@@ -66,6 +67,7 @@
                         autocomplete="name"
                         required>
               </div>
+              <p style="color: red;" ng-class="!nameBool ? 'invisible' : ''">helytelen Név formátum</p>
             </div>
 
             <!-- Password -->
@@ -98,7 +100,8 @@
                         ng-click="showPassword = !showPassword">
                   <i class="fas {{ showPassword ? 'fa-eye-slash' : 'fa-eye' }}"></i>
                 </button>
-              </div> 
+              </div>
+              <p style="color: red;" ng-class="!passwordBool ? 'invisible' : ''">helytelen jelszó formátum</p> 
             </div>
 
             <!-- Password confirm -->
@@ -126,15 +129,14 @@
                         required
                         ng-keydown="$event.key === 'Enter' && registerClick()">
               </div>
+              <p style="color: red;" ng-class="!passwordConfirmBool ? 'invisible' : ''">Nem ugyanaz a két jelszó</p>
             </div>
 
             <!-- Register -->
             <button type="button"
                     class=" btn btn-warning btn-lg w-100 
                             fw-bold text-dark shadow-sm"
-                    ng-click="registerClick()"
-                    ng-disabled=" registerForm.$invalid || 
-                                  user.password !== user.passwordConfirm">
+                    ng-click="registerClick()">
               Regisztráció
             </button>
 
