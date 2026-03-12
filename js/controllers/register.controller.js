@@ -48,7 +48,8 @@
           .catch(e=> alert(e))
         }
         else{
-          if ($scope.registerForm.email.$invalid) {
+          
+          if ($scope.registerForm.email.$invalid ) {
             $scope.emailBool=true;
           }
           if (!$scope.registerForm.username.$viewValue || $scope.registerForm.username.$viewValue.length<3) {

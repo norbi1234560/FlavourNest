@@ -91,12 +91,12 @@
                         type="{{ showPassword ? 'text' : 'password' }}"
                         class=" form-control bg-secondary 
                                 text-white border-warning"
-                        placeholder="••••••••"
+                        placeholder="xxxxxxxx"
                         ng-model="user.password"
                         minlength="8"
                         autocomplete="current-password"
                         required
-                        ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/">
+                        ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/">
 
                 <button type="button"
                         class="btn bg-secondary text-warning border-warning"
@@ -104,7 +104,7 @@
                   <i class="fas {{ showPassword ? 'fa-eye-slash' : 'fa-eye' }}"></i>
                 </button>
               </div>
-              <p style="color: red;" ng-class="!passwordBool ? 'invisible' : ''">helytelen jelszó formátum</p> 
+              <p style="color: red;" ng-class="!passwordBool ? 'invisible' : ''">Helytelen! Min 1 nagybetű, 1 szám és 8 karakter!</p> 
             </div>
 
             <!-- Password confirm -->
@@ -126,7 +126,7 @@
                         name="passwordConfirm"
                         class=" form-control bg-secondary 
                                 text-white border-warning"
-                        placeholder="••••••••"
+                        placeholder="xxxxxxxx"
                         ng-model="user.passwordConfirm"
                         minlength="8"
                         autocomplete="current-password"
