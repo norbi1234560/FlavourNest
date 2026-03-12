@@ -185,8 +185,16 @@
                 <h5 class="fw-bold mb-3">Értékeld a receptet</h5>
 
                 <div class="d-flex justify-content-center gap-2 mb-2">
-                  <i ng-repeat="x in [].constructor(5) track by $index" class="fa fa-star fs-3 text-warning"></i>
+                  <i  ng-repeat="star in [1,2,3,4,5] track by $index" 
+                      class="fa fa-star fs-3" 
+                      ng-class="{'text-warning': star <= hoveredRating || star <= data.rating, 'text-secondary': star > hoveredRating && star > data.rating}"
+                      ng-click="setRating(star)"
+                      ng-mouseenter="hoverRating(star)"
+                      ng-mouseleave="hoverRating(null)"
+                      style="cursor: pointer;">
+                  </i>
                 </div>
+                <button ng-click="uploadRatingClick()">recept értékelése</button>
               </div>
 
               <hr>
