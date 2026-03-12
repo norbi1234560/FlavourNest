@@ -5,7 +5,7 @@
                   col-lg-6 col-xl-5">
 
         <!-- Title -->
-        <div class="text-center pt-5 mb-5">
+        <div class="text-center pt-5 mb-2">
           <h1 class="display-4 fw-bold text-white">
             <span class="text-warning">Flavour</span>
             <span class="text-dark">Nest</span>
@@ -18,7 +18,7 @@
           <form name="registerForm" novalidate>
 
             <!-- Email -->
-            <div class="mb-4">
+            <div class="mb-1">
               <label  for="emailInput"
                       class=" form-label fw-semibold 
                               text-warning fs-5">
@@ -32,6 +32,7 @@
                 </span>
 
                 <input  id="emailInput"
+                        name="email"
                         type="email"
                         class=" form-control bg-secondary 
                                 text-white border-warning"
@@ -45,7 +46,7 @@
             </div>
 
             <!-- Username -->
-            <div class="mb-4">
+            <div class="mb-1">
               <label  for="usernameInput"
                       class="form-label fw-semibold 
                             text-warning fs-5">
@@ -59,6 +60,7 @@
                 </span>
 
                 <input  id="usernameInput"
+                        name="username"
                         type="text"
                         class=" form-control bg-secondary 
                                 text-white border-warning"
@@ -71,7 +73,7 @@
             </div>
 
             <!-- Password -->
-            <div class="mb-4">
+            <div class="mb-1">
               <label  for="passwordInput"
                       class=" form-label fw-semibold 
                               text-warning fs-5">
@@ -85,6 +87,7 @@
                 </span>
 
                 <input  id="passwordInput"
+                        name="password"
                         type="{{ showPassword ? 'text' : 'password' }}"
                         class=" form-control bg-secondary 
                                 text-white border-warning"
@@ -105,7 +108,7 @@
             </div>
 
             <!-- Password confirm -->
-            <div class="mb-4">
+            <div class="mb-1">
               <label  for="passwordConfirmInput"
                       class=" form-label fw-semibold 
                               text-warning fs-5">
@@ -120,6 +123,7 @@
 
                 <input  id="passwordConfirmInput"
                         type="password"
+                        name="passwordConfirm"
                         class=" form-control bg-secondary 
                                 text-white border-warning"
                         placeholder="••••••••"
@@ -140,7 +144,7 @@
               Regisztráció
             </button>
 
-            <hr class="border-secondary my-5">
+            <hr class="border-secondary my-2">
 
             <!-- Login link -->
             <div class="text-center">

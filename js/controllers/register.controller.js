@@ -48,7 +48,19 @@
           .catch(e=> alert(e))
         }
         else{
-          alert("helytelen");
+          if ($scope.registerForm.email.$invalid) {
+            $scope.emailBool=true;
+          }
+          if (!$scope.registerForm.username.$viewValue || $scope.registerForm.username.$viewValue.length<3) {
+            $scope.nameBool=true;
+          }
+          if ($scope.registerForm.password.$invalid) {
+            $scope.passwordBool=true;
+          }
+          if ($scope.registerForm.password.$viewValue != $scope.registerForm.passwordConfirm.$viewValue ) {
+            $scope.passwordConfirmBool=true;
+          }
+          $scope.$applyAsync();
         }
       }
     }
