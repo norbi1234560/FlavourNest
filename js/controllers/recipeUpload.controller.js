@@ -103,7 +103,8 @@
 
             const response = await http.request({
               url: "./php/uploadRecipe.php",
-              data: completeRecipe
+              data: completeRecipe,
+              method:'POST'
             });
 
             console.log(response);
