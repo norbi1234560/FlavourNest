@@ -13,7 +13,8 @@ $query = "INSERT INTO `ratings`(
           VALUES(
               :recipe_id,
               :user_id,
-              :score)";
+              :score)
+              ON DUPLICATE KEY UPDATE score = VALUES(score)";
 
 $result = $db->execute($query,$args);
 

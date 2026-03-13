@@ -103,7 +103,24 @@
             $state.go("error404");
             return
           }
-          
+
+          //get rating of user
+          if ($scope.recipe && $rootScope.user) {
+            http({
+              url: "./php/getRatingUser.php",
+              data: {
+                recipe_id: $scope.recipe.id,
+                user_id: $rootScope.user.id
+              }
+            })
+            .then(response => {
+              $scope.data.rating = response.data.rating;
+              $scope.$applyAsync();
+            })
+            .catch(e => console.error(e));
+          }
+
+
           let r = response[0];
           ['ingredients','steps','tags','comments','ratings'].
           forEach(key => r[key] = JSON.parse(r[key]));
