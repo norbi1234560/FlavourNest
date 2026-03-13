@@ -106,7 +106,7 @@
 
           //get rating of user
           if ($scope.recipe && $rootScope.user) {
-            http({
+            http.request({
               url: "./php/getRatingUser.php",
               data: {
                 recipe_id: $scope.recipe.id,
