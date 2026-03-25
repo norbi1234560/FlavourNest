@@ -104,23 +104,7 @@
             return
           }
 
-          //get rating of user
-          if ($scope.recipe && $rootScope.user) {
-            http.request({
-              url: "./php/getRatingUser.php",
-              data: {
-                recipe_id: $scope.recipe.id,
-                user_id: $rootScope.user.id
-              }
-            })
-            .then(response => {
-              $scope.data.rating = response.data.rating;
-              $scope.$applyAsync();
-            })
-            .catch(e => console.error(e));
-          }
-
-
+          
           let r = response[0];
           ['ingredients','steps','tags','comments','ratings'].
           forEach(key => r[key] = JSON.parse(r[key]));
@@ -157,7 +141,27 @@
                 $scope.recipe.stars.push('empty');
             }
           }
-          console.log($scope.recipe);
+          //console.log($scope.recipe);
+          
+          if ($rootScope.user) {
+          console.log($rootScope.user.id);
+          console.log($scope.recipe.id);
+          
+          http.request({
+            url:"./php/getRatingUser.php",
+            data:{
+              user_id:$rootScope.user.id,
+              recipe_id:$scope.recipe.id
+            }
+          })
+          .then(response=>{
+            $scope.hasRating=response;
+            console.log($scope.hasRating);
+            $scope.$applyAsync();
+            
+          })
+          .catch(e=> console.error(e));
+        }
           
           $scope.$applyAsync();
         })

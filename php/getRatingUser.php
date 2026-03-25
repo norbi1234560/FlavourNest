@@ -8,11 +8,11 @@ $db = new Database();
 
 $query = "SELECT score
           FROM ratings
-          WHERE user_id = :user_id
-          AND recipe_id = :recipe_id";
+          WHERE user_id = :user_id AND 
+                recipe_id = :recipe_id";
 
 $result = $db->execute($query,$args);
 
 $db = null;
 
-Util::setResponse($result);
+Util::setResponse($result[0]["score"]);
