@@ -4,8 +4,6 @@
 
   $args = Util::getArgs();
 
-  Util::setResponse($args);
-
   $args["recipe"]["image"]=Util::base64Decode($args["recipe"]["image"]);
 
   $db = new Database(); 
@@ -38,6 +36,11 @@
     $args["ingredients"][$i]["recipe_id"] = $resultRecipes["lastInsertId"];
   }
 
+  //add recipe_id to tags
+  for ($i = 0; $i < count($args["tags"]); $i++) { 
+    $args["tags"][$i]["recipe_id"] = $resultRecipes["lastInsertId"];
+  }
+
   //steps part
   $querySteps= $db->preparateInsert("recipe_steps", array_keys($args["steps"][0]), count($args["steps"]));
 
@@ -52,8 +55,15 @@
 
   $resultIngredients=$db->execute($queryIngredients,$paramsIngredients);
 
+  //tags part
+  $queryTags= $db->preparateInsert("recipe_tags", array_keys($args["tags"][0]), count($args["tags"]));
+
+  $paramsTags= Util::arrayOfAssocArrayToArray($args["tags"]);
+
+  $resultTags=$db->execute($queryTags,$paramsTags);
+
   $db = null;
 
-  Util::setResponse([$resultRecipes, $resultSteps,$resultIngredients]);
+  Util::setResponse([$resultRecipes, $resultSteps,$resultIngredients,$resultTags]);
 
 

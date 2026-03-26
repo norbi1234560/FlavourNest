@@ -65,19 +65,13 @@
         $scope.selectedTags =  [];
 
         $scope.selectTag=(x)=>{
-          $scope.selectedTags.push(x)
-          console.log($scope.selectedTags);
+          $scope.selectedTags.push(x);
           $scope.$applyAsync();
         }
 
         $scope.deleteTag = (x) => {
-          console.log(x);
-
           $scope.selectedTags = $scope.selectedTags.filter(y => y.id != x);
-          $scope.recipe.tags = $scope.selectedTags;
           $scope.$applyAsync();
-
-          console.log($scope.selectedTags);
         };
 
         //submit
@@ -113,11 +107,29 @@
               delete ingredient.searchText;
             });
 
+            //rename tag 
+            $scope.selectedTags.forEach(tag=> {
+              tag["tag_id"]=tag.id;
+            });
+
+            // remove unnecessary keys
+            $scope.selectedTags.forEach(tags=>{
+              delete tags.name;
+              delete tags.$$hashKey;
+              delete tags.id;
+            });
+
+            
+
             const completeRecipe = {
               recipe: $scope.recipeUpload,
               ingredients: $scope.ingredients,
-              steps: $scope.steps
+              steps: $scope.steps,
+              tags: $scope.selectedTags
             };
+
+            console.log(completeRecipe);
+            
 
             const response = await http.request({
               url: "./php/uploadRecipe.php",
