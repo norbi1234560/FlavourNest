@@ -37,7 +37,7 @@
 
             </li>
           </ul>
-          <span ng-if="recipe.averageRating" class="fw-bold text-dark fs-5">{{roundNumber(recipe.averageRating,1)}}/5</span>
+          <span ng-if="recipe.averageRating" class="fw-bold text-dark fs-5">{{roundNumber(recipe.averageRating,1)}}/5  ({{recipe.ratings.length}})</span>
           <span ng-if="!recipe.averageRating" class="fw-bold text-dark fs-5">Nincs értékelés</span>
         </div>
       </div>
@@ -184,7 +184,7 @@
               <div class="mb-4 text-center">
                 <h5 class="fw-bold mb-3">Értékeld a receptet</h5>
 
-                <div ng-if="!hasRating" class="d-flex justify-content-center gap-2 mb-2">
+                <div class="d-flex justify-content-center gap-2 mb-2">
                   <i  ng-repeat="star in [1,2,3,4,5] track by $index" 
                       class="fa fa-star fs-3" 
                       ng-class="{'text-warning': star <= hoveredRating || star <= data.rating, 'text-secondary': star > hoveredRating && star > data.rating}"
@@ -195,16 +195,6 @@
                   </i>
                 </div>
                 <button ng-click="uploadRatingClick()">recept értékelése</button>
-              </div>
-
-              <div ng-if="hasRating" class="mb-4 text-center">
-                <h5 class="fw-bold mb-3">már értékelted a receptet</h5>
-
-                <div class="d-flex justify-content-center gap-2 mb-2">
-                  <i  class="fa fa-star fs-3" 
-                      style="cursor: pointer;">
-                  </i>
-                </div>
               </div>
 
               <hr>

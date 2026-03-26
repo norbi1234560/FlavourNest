@@ -83,7 +83,7 @@
         })
         .then(response=>{
           console.log(response);
-          
+          loadRecipe();
         })
         .catch(e=> console.error(e));
       }
@@ -155,14 +155,14 @@
             }
           })
           .then(response=>{
-            $scope.hasRating=response;
-            console.log($scope.hasRating);
+
+            $scope.setRating(response)
             $scope.$applyAsync();
             
           })
           .catch(e=> console.error(e));
         }
-          
+          console.log($scope.recipe);
           $scope.$applyAsync();
         })
         .catch(e => console.error(e));

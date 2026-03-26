@@ -15,4 +15,11 @@ $result = $db->execute($query,$args);
 
 $db = null;
 
+
+
+
+if (is_null($result)) {
+      Util::setError("még nem értékelted te vén fasz");
+}
+
 Util::setResponse($result[0]["score"]);
