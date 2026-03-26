@@ -4,6 +4,8 @@
 
   $args = Util::getArgs();
 
+  Util::setResponse($args);
+
   $args["recipe"]["image"]=Util::base64Decode($args["recipe"]["image"]);
 
   $db = new Database(); 

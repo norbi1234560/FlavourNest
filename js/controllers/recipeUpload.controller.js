@@ -11,7 +11,7 @@
         if (!$rootScope.user) {
           $state.go("login") 
         }
-        
+
         // get all ingredient
         http.request("./php/getAllIngredientAndTags.php")
         .then(response=>{
@@ -61,6 +61,24 @@
         //base init
         $scope.buttonAddIngredient();
         $scope.buttonAddStep();
+
+        $scope.selectedTags =  [];
+
+        $scope.selectTag=(x)=>{
+          $scope.selectedTags.push(x)
+          console.log($scope.selectedTags);
+          $scope.$applyAsync();
+        }
+
+        $scope.deleteTag = (x) => {
+          console.log(x);
+
+          $scope.selectedTags = $scope.selectedTags.filter(y => y.id != x);
+          $scope.recipe.tags = $scope.selectedTags;
+          $scope.$applyAsync();
+
+          console.log($scope.selectedTags);
+        };
 
         //submit
         $scope.recipeUploadClick = async () => {

@@ -76,9 +76,10 @@
 
         http.request({
           url:"./php/ratingUpload.php",
-          data:{recipe_id:$scope.recipe.id,
-                user_id:$rootScope.user.id,
-                score:$scope.data.rating,
+          data:{
+            recipe_id:$scope.recipe.id,
+            user_id:$rootScope.user.id,
+            score:$scope.data.rating,
           }
         })
         .then(response=>{
@@ -87,6 +88,7 @@
         })
         .catch(e=> console.error(e));
       }
+      
       //load in recipe when site is opened
       loadRecipe()
 

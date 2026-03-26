@@ -161,8 +161,39 @@
             ng-click="buttonAddStep()">
       + Lépés
     </button>
-
+    
     <hr>
+
+    <div class="col-md-5 position-relative">
+
+        <input  type="text"
+                class="form-control"
+                placeholder="Hozzávaló keresése..."
+                ng-model="tagOptions.searchText"
+                ng-focus="tagOptions.showList = true">
+
+        <!-- Dropdown -->
+        <ul class="list-group position-absolute w-100"
+            ng-show="tagOptions.searchText && tagOptions.showList"
+            style="z-index:1000; max-height:200px; overflow-y:auto;">
+
+          <li class="list-group-item"
+              style="cursor:pointer"
+              ng-repeat="opt in tagOptions | filter:tagOptions.searchText"
+              ng-model="recipeUpload.opt"
+              ng-click="tagOptions.tagOptions = opt.id;
+                        selectTag(opt);
+                        tagOptions.searchText = opt.name;
+                        tagOptions.showList = false;">
+
+            {{opt.name}}
+          </li>
+        </ul>
+        <ul>
+          <li ng-repeat="x in selectedTags">{{x.name}} <span ng-click="deleteTag(x.id)">  X</span></li>
+        </ul>
+
+      </div>
 
     <!-- submit -->
     <div class="text-end">
