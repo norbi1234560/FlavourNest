@@ -166,34 +166,49 @@
 
     <div class="col-md-5 position-relative">
 
-        <input  type="text"
-                class="form-control"
-                placeholder="Hozzávaló keresése..."
-                ng-model="tagOptions.searchText"
-                ng-focus="tagOptions.showList = true">
+      <input  type="text"
+              class="form-control"
+              placeholder="cimkék keresése..."
+              ng-model="tagOptions.searchText"
+              ng-focus="tagOptions.showList = true">
+      <!-- Dropdown -->
+      <ul class="list-group position-absolute w-100"
+          ng-show="tagOptions.searchText && tagOptions.showList"
+          style="z-index:1000; max-height:200px; overflow-y:auto;">
+        <li class="list-group-item"
+            style="cursor:pointer"
+            ng-repeat="opt in tagOptions | filter:tagOptions.searchText"
+            ng-model="recipeUpload.opt"
+            ng-click="tagOptions.tagOptions = opt.id;
+                      selectTag(opt);
+                      tagOptions.searchText = opt.name;
+                      tagOptions.showList = false;">
+          {{opt.name}}
+        </li>
+      </ul>
+   <!-- Selected tags -->
+  <div class="mt-3 d-flex flex-wrap gap-2">
 
-        <!-- Dropdown -->
-        <ul class="list-group position-absolute w-100"
-            ng-show="tagOptions.searchText && tagOptions.showList"
-            style="z-index:1000; max-height:200px; overflow-y:auto;">
+    <span class="badge 
+                 bg-warning 
+                 text-dark 
+                 rounded-pill 
+                 px-3 py-2 
+                 d-flex align-items-center"
+          ng-repeat="x in selectedTags">
 
-          <li class="list-group-item"
-              style="cursor:pointer"
-              ng-repeat="opt in tagOptions | filter:tagOptions.searchText"
-              ng-model="recipeUpload.opt"
-              ng-click="tagOptions.tagOptions = opt.id;
-                        selectTag(opt);
-                        tagOptions.searchText = opt.name;
-                        tagOptions.showList = false;">
+      {{x.name}}
 
-            {{opt.name}}
-          </li>
-        </ul>
-        <ul>
-          <li ng-repeat="x in selectedTags">{{x.name}} <span ng-click="deleteTag(x.id)">  X</span></li>
-        </ul>
+      <span class="ms-2 fw-bold"
+            style="cursor:pointer;"
+            ng-click="deleteTag(x.id)">
+        ×
+      </span>
+    </span>
 
-      </div>
+  </div>
+
+    </div>
 
     <!-- submit -->
     <div class="text-end">
