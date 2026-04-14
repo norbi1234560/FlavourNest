@@ -64,14 +64,18 @@
 
         $scope.selectedTags =  [];
 
-        $scope.selectTag=(x)=>{
-          $scope.selectedTags.push(x);
-          $scope.$applyAsync();
-        }
+        $scope.selectTag = (tag) => {
+          $scope.selectedTags.push(tag);
+          $scope.tagOptions = $scope.tagOptions.filter(t => t.id !== tag.id);
+        };
 
-        $scope.deleteTag = (x) => {
-          $scope.selectedTags = $scope.selectedTags.filter(y => y.id != x);
-          $scope.$applyAsync();
+        $scope.deleteTag = (tagId) => {
+          let tag = $scope.selectedTags.find(t => t.id === tagId);
+
+          if (tag) {
+            $scope.tagOptions.push(tag);
+          }
+          $scope.selectedTags = $scope.selectedTags.filter(t => t.id !== tagId);
         };
 
         //submit
