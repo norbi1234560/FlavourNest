@@ -31,12 +31,12 @@
                             imgUpload"
                     style="width: 140px; height: 140px; overflow: hidden;"
                     >
-                <img  alt="Kép"
+                <label  alt="Kép"
                       class="profilePicture"  
                       ng-src="{{ !user.avatar ? './media/avatar/basic.jpg' : user.avatar }}"
-                      style="width: 100%; height: 100%; object-fit: cover;">
-
-                      <label  ng-click="clickOnImage(user)" for="imageUpload"></label>
+                      style="width: 100%; height: 100%; object-fit: cover;"
+                      for="imageUpload">
+                      
                 <div class="avatar-overlay position-absolute 
                             top-0 start-0 w-100 h-100 
                             d-flex align-items-center 
