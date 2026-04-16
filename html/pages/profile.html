@@ -47,7 +47,8 @@
                               justify-content-center 
                               rounded-circle">
                     <input ng-model="imageUploadModel" 
-                           ng-change="imageUploadModel(imageUploadModel)" 
+                           file-input
+                           ng-change="imageUpload(imageUploadModel)" 
                            type="file" 
                            class="d-none" 
                            id="imageUpload">

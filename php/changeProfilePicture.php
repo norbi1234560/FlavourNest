@@ -6,15 +6,28 @@ $args = Util::getArgs();
 
 $db = new Database(); 
 
-$params = [
-   ':id'    => $args["id"],
-   ':avatar' => $args["avatar"],
-];
+$args["avatar"] = Util::base64Decode($args["avatar"]);
 
 $query = "UPDATE `users` SET `avatar`=:avatar WHERE id =:id";
 
-$result = $db->execute($query,$params);
+$result = $db->execute($query ,$args);
 
-$db = null;
+if (!$result("affectedRows")) {
+   Util::setError("Nem sikerült a képfeltöltés");
+}
+
+$query= "SELECT
+            `id`,
+            `username`,
+            `email`,
+            `password`,
+            `created_at`,
+            `avatar`
+         FROM
+            `users`
+         WHERE
+            `id` = :id";
+
+$result = $db->execute($query ,$args["id"]);
 
 Util::setResponse($result);

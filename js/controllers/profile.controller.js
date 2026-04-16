@@ -53,22 +53,33 @@
         .catch(e=> console.error(e));
       }
 
-      $scope.clickOnImage=(user)=>{
-        user.avatar.split(',')[1];
-        http.request({
-          url:"./php/changeProfilePicture.php",
-          data: {id:$rootScope.user.id,avatar:$rootScope.user.avatar}
-        })
-        .then(response=>{
-          console.log(response);
-          $rootScope.$applyAsync();
-          $scope.$applyAsync();
-        })
-        .catch(e=> console.error(e));
+      $scope.imageUpload=(element)=>{
+        if (element.type.substr(0,6)!=="image/") {
+          alert("nem képet küldtél töki");
+        }
+        let reader = new FileReader();
+        reader.onload=()=>{
+          http.request({
+            url:"./php/changeProfilePicture.php",
+            method:"POST",
+            data:{
+              id:$rootScope.user.id,
+              avatar:reader.result.split(',')[1]
+            }
+          })
+          .then(response=>{
+            console.log(response);
+          })
+          .catch(e=>console.error(e));
+        }
+
+        reader.onerror=()=>{
+          alert("Hiba törént a kép feltöltéskor");
+        }
+
+        reader.readAsDataURL(element);
       }
     }
-    
-    
   ])
 
   
