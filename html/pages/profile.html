@@ -33,17 +33,15 @@
                     >
                 <img  alt="Kép"
                       class="profilePicture"  
-                      
                       ng-src="{{ !user.avatar ? './media/avatar/basic.jpg' : user.avatar }}"
                       style="width: 100%; height: 100%; object-fit: cover;">
 
-                      <label for=""></label>
+                      <label  ng-click="clickOnImage(user)" for="imageUpload"></label>
                 <div class="avatar-overlay position-absolute 
                             top-0 start-0 w-100 h-100 
                             d-flex align-items-center 
                             justify-content-center 
-                            rounded-circle"
-                      ng-click="clickOnImage(user)">
+                            rounded-circle">
                       <input type="file" style="display:none" id="imageUpload">
                   <i class="fas fa-upload fa-2x text-white"></i>
                 </div>
