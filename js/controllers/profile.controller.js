@@ -21,6 +21,7 @@
           http.request({
             url:"./php/deleteAccount.php",
             data:$rootScope.user,
+            method:"POST"
           })
           .then(response=>{
             console.log(response);
