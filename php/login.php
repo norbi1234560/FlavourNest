@@ -12,6 +12,8 @@ $query = "SELECT * FROM `users`
 
 $result = $db->execute($query, $args);
 
+$result[0]["avatar"] = Util::base64Encode($result[0]["avatar"]);
+
 $db = null;
 
 if (is_null($result))

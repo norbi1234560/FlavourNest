@@ -12,7 +12,7 @@ $query = "UPDATE `users` SET `avatar`=:avatar WHERE id =:id";
 
 $result = $db->execute($query ,$args);
 
-if (!$result("affectedRows")) {
+if (!$result["affectedRows"]) {
    Util::setError("Nem sikerült a képfeltöltés");
 }
 
@@ -29,5 +29,7 @@ $query= "SELECT
             `id` = :id";
 
 $result = $db->execute($query ,$args["id"]);
+
+$result[0]["avatar"] = Util::base64Encode($result[0]["avatar"]);
 
 Util::setResponse($result);

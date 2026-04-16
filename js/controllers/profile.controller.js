@@ -69,6 +69,8 @@
           })
           .then(response=>{
             console.log(response);
+            $scope.user=response[0];
+            $scope.$applyAsync();
           })
           .catch(e=>console.error(e));
         }

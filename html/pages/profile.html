@@ -33,7 +33,7 @@
                     >
                 <label  alt="Kép"
                         class="profilePicture"  
-                        ng-style="{'background-image': 'url(' + (user.avatar || './media/avatar/basic.jpg') + ')'}"
+                        ng-style="{'background-image': 'url(' + ('data:image/png;base64,'+user.avatar || './media/avatar/basic.jpg') + ')'}"
                         style="display: block; 
                                width: 140px; 
                                height: 140px; 
