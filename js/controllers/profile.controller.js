@@ -54,6 +54,7 @@
       }
 
       $scope.clickOnImage=(user)=>{
+        user.avatar.split(',')[1];
         http.request({
           url:"./php/changeProfilePicture.php",
           data: {id:$rootScope.user.id,avatar:$rootScope.user.avatar}
@@ -66,6 +67,40 @@
         .catch(e=> console.error(e));
       }
     }
+    
+    .directive("fileInput", [
+      () => {
+        const MAX_IMAGE_SIZE = 5 * 1024 * 1024;
+      
+        return {
+          require: "ngModel",
+          scope: false,
+          compile: () => {
+            return {
+              post: (scope, element, attrs, ngModel) => {
+                element[0].addEventListener("change", () => {
+                  const file = element[0].files[0];
+                
+                  if (!file) {
+                    ngModel.$setViewValue(null);
+                  } else if (file.size > MAX_IMAGE_SIZE) {
+                    alert("Túl nagy a választott kép 5 MB a megengedett.");
+                    element[0].value = "";
+                    ngModel.$setViewValue(null);
+                  } else {
+                    ngModel.$setViewValue(file);
+                  }
+                
+                  ngModel.$render();
+                  scope.$applyAsync();
+                });
+              }
+            };
+          }
+        };
+      }
+    ])
   ]);
 
+  
 })(window, angular);

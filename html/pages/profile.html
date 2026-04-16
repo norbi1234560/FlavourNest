@@ -32,19 +32,27 @@
                     style="width: 140px; height: 140px; overflow: hidden;"
                     >
                 <label  alt="Kép"
-                      class="profilePicture"  
-                      ng-style="{'background-image': 'url(' + (!user.avatar ? './media/avatar/basic.jpg' : user.avatar) + ')'}"
-                      style="display: block; width: 140px; height: 140px; background-size: cover; background-position: center;"
-                      for="imageUpload">
-                      
-                <div class="avatar-overlay position-absolute 
-                            top-0 start-0 w-100 h-100 
-                            d-flex align-items-center 
-                            justify-content-center 
-                            rounded-circle">
-                      <input type="file" style="display:none" id="imageUpload">
-                  <i class="fas fa-upload fa-2x text-white"></i>
-                </div>
+                        class="profilePicture"  
+                        ng-style="{'background-image': 'url(' + (user.avatar || './media/avatar/basic.jpg') + ')'}"
+                        style="display: block; 
+                               width: 140px; 
+                               height: 140px; 
+                               background-size: cover; 
+                               background-position: center;"
+                        for="imageUpload">
+
+                  <div class="avatar-overlay position-absolute 
+                              top-0 start-0 w-100 h-100 
+                              d-flex align-items-center 
+                              justify-content-center 
+                              rounded-circle">
+                    <input ng-model="imageUploadModel" 
+                           ng-change="imageUploadModel(imageUploadModel)" 
+                           type="file" 
+                           class="d-none" 
+                           id="imageUpload">
+                    <i class="fas fa-upload fa-2x text-white"></i>
+                  </div>
                 </label>  
               </div>
 
