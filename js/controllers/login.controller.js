@@ -23,6 +23,8 @@
           })
           .then(response => {
             $rootScope.user = response;
+            console.log($rootScope.user);
+            
             $state.go("home");
           })
           .catch(e => alert(e));
