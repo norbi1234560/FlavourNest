@@ -52,6 +52,19 @@
         })
         .catch(e=> console.error(e));
       }
+
+      $scope.clickOnImage=(user)=>{
+        http.request({
+          url:"./php/changeProfilePicture.php",
+          data: {id:$rootScope.user.id,avatar:$rootScope.user.avatar}
+        })
+        .then(response=>{
+          console.log(response);
+          $rootScope.$applyAsync();
+          $scope.$applyAsync();
+        })
+        .catch(e=> console.error(e));
+      }
     }
   ]);
 

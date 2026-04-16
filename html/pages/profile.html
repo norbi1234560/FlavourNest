@@ -29,7 +29,8 @@
                             justify-content-center mb-4
                             position-relative avatar-container
                             imgUpload"
-                    style="width: 140px; height: 140px; overflow: hidden;">
+                    style="width: 140px; height: 140px; overflow: hidden;"
+                    >
                 <img  alt="Kép"
                       class="profilePicture"  
                       ng-src="{{ user.avatar ? './media/avatar/' + user.avatar : './media/avatar/basic.jpg' }}"
@@ -39,7 +40,9 @@
                             top-0 start-0 w-100 h-100 
                             d-flex align-items-center 
                             justify-content-center 
-                            rounded-circle">
+                            rounded-circle"
+                      ng-click="clickOnImage(user)">
+                      <input type="file" style="display:none" id="imageUpload">
                   <i class="fas fa-upload fa-2x text-white"></i>
                 </div>
               </div>
