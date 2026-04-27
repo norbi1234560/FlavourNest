@@ -1,0 +1,133 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\flavourNestC#\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9C9CD391-6347-49A1-969F-6B6376A570BF}|AI Setup Project1\\AI Setup Project1.aiproj|C:\\Users\\User\\Desktop\\flavourNestC#\\AI Setup Project1\\AI Setup Project1.aip||{AE40A4D1-A614-4A08-B9E2-B74E011783ED}",
+      "RelativeMoniker": "D:0:0:{9C9CD391-6347-49A1-969F-6B6376A570BF}|AI Setup Project1\\AI Setup Project1.aiproj|solutionrelative:AI Setup Project1\\AI Setup Project1.aip||{AE40A4D1-A614-4A08-B9E2-B74E011783ED}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{666C6F04-F5A1-479B-A001-E2F452A741CF}|flavourNest\\flavourNest.csproj|c:\\users\\user\\desktop\\flavournestc#\\flavournest\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{666C6F04-F5A1-479B-A001-E2F452A741CF}|flavourNest\\flavourNest.csproj|solutionrelative:flavournest\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{666C6F04-F5A1-479B-A001-E2F452A741CF}|flavourNest\\flavourNest.csproj|c:\\users\\user\\desktop\\flavournestc#\\flavournest\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{666C6F04-F5A1-479B-A001-E2F452A741CF}|flavourNest\\flavourNest.csproj|solutionrelative:flavournest\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{666C6F04-F5A1-479B-A001-E2F452A741CF}|flavourNest\\flavourNest.csproj|c:\\users\\user\\desktop\\flavournestc#\\flavournest\\users.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{666C6F04-F5A1-479B-A001-E2F452A741CF}|flavourNest\\flavourNest.csproj|solutionrelative:flavournest\\users.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{666C6F04-F5A1-479B-A001-E2F452A741CF}|flavourNest\\flavourNest.csproj|c:\\users\\user\\desktop\\flavournestc#\\flavournest\\users.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{666C6F04-F5A1-479B-A001-E2F452A741CF}|flavourNest\\flavourNest.csproj|solutionrelative:flavournest\\users.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{666C6F04-F5A1-479B-A001-E2F452A741CF}|flavourNest\\flavourNest.csproj|c:\\users\\user\\desktop\\flavournestc#\\flavournest\\recipes.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{666C6F04-F5A1-479B-A001-E2F452A741CF}|flavourNest\\flavourNest.csproj|solutionrelative:flavournest\\recipes.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{666C6F04-F5A1-479B-A001-E2F452A741CF}|flavourNest\\flavourNest.csproj|c:\\users\\user\\desktop\\flavournestc#\\flavournest\\recipes.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{666C6F04-F5A1-479B-A001-E2F452A741CF}|flavourNest\\flavourNest.csproj|solutionrelative:flavournest\\recipes.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AI Setup Project1.aip",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\flavourNestC#\\AI Setup Project1\\AI Setup Project1.aip",
+              "RelativeDocumentMoniker": "AI Setup Project1\\AI Setup Project1.aip",
+              "ToolTip": "C:\\Users\\User\\Desktop\\flavourNestC#\\AI Setup Project1\\AI Setup Project1.aip",
+              "RelativeToolTip": "AI Setup Project1\\AI Setup Project1.aip",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHRSURBVDhPhdJPiIxhHAfwz7xrWzU1Lk7Exha5\u002BZfoTaRtFKc57OaixEFvSXIaXJy02Wy2NnNBDhzs1ryyNxdKc9td/3KSxooVi7JsRtodB8\u002Bw8x741tPT7/f98zw9zy8H8wPrVuIFangQ1qN8ub7gX2g2mzm/A/pxO0PP4SEefF4o3Dj05vynWqXUzGhEYd\u002Bf6UMBB3HxwsfDu/E8TtK\u002BrKgV0JvpwzvcxcTTRs8ObMJonKRX4yTtaImi\u002BYF1G7C23Ut1bs/R4vTQ7JkPx89h6cnHMNgqIhSXkGO4CYWO\u002BQgzk983ltGzRAOn4iTdLgTsCs0nxemhh8XpoVmM9eYnRu91ny515X5eafeCHE5CdOD14P07X3f3LYouYU135/spbEUeb380O6u4kU3APsjFSdr6mjkUIosj11cP3Fq17ONOvMyX6\u002BNxkm7BVLufWqWUi9AIdQEWRSeOvD27Ml\u002BuX86X6\u002BOBW/3X9gcN4Q2eZRkMx0m6DeIk3YrhrKDli1DNMliPiThJG5gMdRZVIWAEM1k2oCvbCJgJPlGtUvqG/iVv8T800B98v0e5VinVsBevsuoMXmFv0BMG4g/iJF0eRrUPm7ECX/A4TOm1WqXUdtNfzkGPxBC9wFQAAAAASUVORK5CYII=",
+              "WhenOpened": "2026-04-27T20:21:37.743Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\flavourNestC#\\flavourNest\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "flavourNest\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\flavourNestC#\\flavourNest\\MainWindow.xaml.cs",
+              "RelativeToolTip": "flavourNest\\MainWindow.xaml.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAlwDEAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-27T20:20:46.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\flavourNestC#\\flavourNest\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "flavourNest\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\User\\Desktop\\flavourNestC#\\flavourNest\\MainWindow.xaml",
+              "RelativeToolTip": "flavourNest\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-27T20:19:51.249Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "recipes.xaml",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\flavourNestC#\\flavourNest\\recipes.xaml",
+              "RelativeDocumentMoniker": "flavourNest\\recipes.xaml",
+              "ToolTip": "C:\\Users\\User\\Desktop\\flavourNestC#\\flavourNest\\recipes.xaml",
+              "RelativeToolTip": "flavourNest\\recipes.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-27T20:19:47.116Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "users.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\flavourNestC#\\flavourNest\\users.xaml.cs",
+              "RelativeDocumentMoniker": "flavourNest\\users.xaml.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\flavourNestC#\\flavourNest\\users.xaml.cs",
+              "RelativeToolTip": "flavourNest\\users.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-27T20:19:47.14Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "recipes.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\flavourNestC#\\flavourNest\\recipes.xaml.cs",
+              "RelativeDocumentMoniker": "flavourNest\\recipes.xaml.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\flavourNestC#\\flavourNest\\recipes.xaml.cs",
+              "RelativeToolTip": "flavourNest\\recipes.xaml.cs",
+              "ViewState": "AgIAAHAAAAAAAAAAAADwv4QAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-27T20:19:47.144Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "users.xaml",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\flavourNestC#\\flavourNest\\users.xaml",
+              "RelativeDocumentMoniker": "flavourNest\\users.xaml",
+              "ToolTip": "C:\\Users\\User\\Desktop\\flavourNestC#\\flavourNest\\users.xaml",
+              "RelativeToolTip": "flavourNest\\users.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-27T20:19:47.147Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
