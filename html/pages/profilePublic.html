@@ -9,7 +9,7 @@
           
           <!-- Profile Picture -->
           <div class="col-md-3 mb-4 mb-md-0">
-            <img ng-src="{{ userPublicProfile.avatar ? './media/avatar/' + userPublicProfile.avatar : './media/avatar/basic.jpg' }}" 
+            <img ng-src="{{ userPublicProfile.avatar || './media/avatar/basic.jpg' }}" 
                  alt="Profile Picture"
                  class="img-fluid rounded-circle border border-warning border-3 shadow"
                  style="width:180px; height:180px; object-fit:cover;">

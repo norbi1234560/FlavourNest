@@ -16,8 +16,10 @@ $queryProfile = "SELECT  `id`,
 
 $resultProfile = $db->execute($queryProfile,$args);
 
-if (is_null($resultProfile)) {
-  Util::setResponse(null);
+foreach ($resultProfile as &$row) {
+    if (!empty($row['avatar'])) {
+        $row['avatar'] = 'data:image/jpeg;base64,' . Util::base64Encode($row['avatar']);
+    }
 }
 
 $queryRecipes="SELECT r.id,
@@ -29,10 +31,8 @@ $queryRecipes="SELECT r.id,
                JOIN users u ON r.author_id = u.id
                WHERE u.username = :username";
 
-
 $resultRecipes = $db->execute($queryRecipes,$args);
 
-// Convert BLOB to base64
 foreach ($resultRecipes as &$row) {
     if (!empty($row['image'])) {
         $row['image'] = 'data:image/jpeg;base64,' . Util::base64Encode($row['image']);
@@ -41,4 +41,7 @@ foreach ($resultRecipes as &$row) {
 
 $db = null;
 
-Util::setResponse(["profile"=>$resultProfile,"recipes"=>$resultRecipes]);
+Util::setResponse([
+    "profile"=>$resultProfile,
+    "recipes"=>$resultRecipes
+]);
