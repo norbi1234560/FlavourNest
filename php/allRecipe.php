@@ -7,11 +7,20 @@ $args = Util::getArgs();
 $db = new Database(); 
 
 $query = "SELECT
-            id,
-            title,
-            description,
-            image
-          FROM recipes";
+            r.id,
+            r.title,
+            r.description,
+            r.image,
+            r.servings,
+            r.prep_time_minutes,
+            COALESCE(
+              (
+                SELECT ROUND(AVG(rt.score), 1)
+                FROM ratings rt
+                WHERE rt.recipe_id = r.id
+              ), 0
+            ) AS average_rating
+          FROM recipes r";
 
 $result = $db->execute($query);
 
@@ -22,10 +31,7 @@ foreach ($result as &$row) {
     }
 }
 
-Util::setResponse($result);
-
-$result = $db->execute($query);
-
 $db = null;
 
 Util::setResponse($result);
+?>

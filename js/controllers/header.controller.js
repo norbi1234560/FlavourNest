@@ -16,10 +16,6 @@
           $state.go("home");
         }, 50);
       }
-
-      $scope.searchClick=(searchQuery)=>{
-        console.log(searchQuery);
-      }
       
     }
   ]);

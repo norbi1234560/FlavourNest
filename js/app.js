@@ -123,7 +123,7 @@
       window.addEventListener("keydown",(e)=>{
         if (e.key=="ö") {
           $rootScope.user={
-            "id": 1,
+            "id": 3,
             "username": "admin",
             "email": "admin@aa.com",
             "password": "ADMINadmin1",

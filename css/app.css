@@ -54,3 +54,105 @@
     background-color: #fff8e1;   
   }
 
+.transition-all {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-scale:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4) !important;
+}
+
+.hover-zoom {
+  transition: transform 0.4s ease;
+}
+
+.hover-scale:hover .hover-zoom {
+  transform: scale(1.08);
+}
+
+.recipe-img {
+  height: 220px;
+  object-fit: cover;
+  width: 100%;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.col {
+  animation: fadeInUp 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+.col:nth-child(1) { animation-delay: 0.05s; }
+.col:nth-child(2) { animation-delay: 0.1s; }
+.col:nth-child(3) { animation-delay: 0.15s; }
+.col:nth-child(4) { animation-delay: 0.2s; }
+.col:nth-child(5) { animation-delay: 0.25s; }
+.col:nth-child(6) { animation-delay: 0.3s; }
+
+a.text-decoration-none {
+  transition: transform 0.2s;
+}
+
+.badge {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(4px);
+}
+
+@media (max-width: 768px) {
+  .recipe-img {
+    height: 180px;
+  }
+  
+  .card-title {
+    font-size: 1.2rem !important;
+  }
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: translateY(-5px);
+}
+
+.hover-zoom {
+  transition: transform 0.5s ease;
+}
+
+.hover-zoom:hover {
+  transform: scale(1.05);
+}
+
+.recipe-img {
+  height: 200px;
+  object-fit: cover;
+}
+
+.sticky-top {
+  z-index: 1020;
+}
+
+.form-range::-webkit-slider-thumb {
+  background: #ffc107;
+}
+
+.form-range::-webkit-slider-thumb:hover {
+  background: #ffca2c;
+}
+
+.transition-all {
+  transition: all 0.3s ease;
+}
