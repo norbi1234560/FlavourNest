@@ -25,10 +25,29 @@
         }
       })
       .catch(e=> console.error(e));
+
       console.log($scope.user);
 
       $scope.goHomeProfilePublic = ()=>{
         $state.go("home")
+      }
+
+      $scope.deleteRecipe=(id,username)=>{
+        if(confirm("Biztosan törölni akarod a receptet?")) {
+          http.request({
+            url:"./php/deleteRecipe.php",
+            data:{
+              id:id,
+              username:username}
+          })
+          .then(response=>{
+            console.log(response);
+            $scope.userPublicRecipes=response;
+            console.log(response);
+            $scope.$applyAsync();
+          })
+          .catch(e=> console.error(e));
+        }
       }
 
       $scope.$applyAsync();

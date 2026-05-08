@@ -33,6 +33,10 @@ $queryRecipes="SELECT r.id,
 
 $resultRecipes = $db->execute($queryRecipes,$args);
 
+if ($resultRecipes === null) {
+    $resultRecipes = [];
+}
+
 foreach ($resultRecipes as &$row) {
     if (!empty($row['image'])) {
         $row['image'] = 'data:image/jpeg;base64,' . Util::base64Encode($row['image']);

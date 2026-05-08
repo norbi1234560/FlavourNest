@@ -34,4 +34,3 @@ foreach ($result as &$row) {
 $db = null;
 
 Util::setResponse($result);
-?>
