@@ -229,6 +229,8 @@
             });
 
             console.log(response);
+            alert("Sikeres recept feltöltés");
+            $state.go("home");
 
           } catch (err) {
             console.error(err);
