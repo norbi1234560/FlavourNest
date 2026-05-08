@@ -20,7 +20,7 @@ if (is_null($result))
 // Convert BLOB to base64
 foreach ($result as &$row) {
     if (!empty($row['avatar'])) {
-        $row['avatar'] = 'data:image/jpeg;base64,' . Util::base64Encode($row['avatar']);
+        $row['avatar'] = Util::base64Encode($row['avatar']);
     }
 }
 
